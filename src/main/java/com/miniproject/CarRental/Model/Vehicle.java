@@ -1,0 +1,139 @@
+package com.miniproject.CarRental.Model;
+
+import java.sql.Blob;
+import java.util.Arrays;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "vehicle")
+public class Vehicle {
+
+	@Id
+	private int idVehicle;
+	private String nameVehicle;
+	private String typeVehicle;
+	private int yearVehicle;
+	private int capacityVehicle;
+	private String descriptionVehicle;
+	private byte[] imageVehicle;
+	
+	@Lob
+	private Blob imageProduct;
+
+	
+	public Vehicle() {
+		
+	}
+
+
+	public Vehicle(int idVehicle, String nameVehicle, String typeVehicle, int yearVehicle, int capacityVehicle,
+			String descriptionVehicle, byte[] imageVehicle, Blob imageProduct) {
+		super();
+		this.idVehicle = idVehicle;
+		this.nameVehicle = nameVehicle;
+		this.typeVehicle = typeVehicle;
+		this.yearVehicle = yearVehicle;
+		this.capacityVehicle = capacityVehicle;
+		this.descriptionVehicle = descriptionVehicle;
+		this.imageVehicle = imageVehicle;
+		this.imageProduct = imageProduct;
+	}
+
+
+
+
+
+	public int getIdVehicle() {
+		return idVehicle;
+	}
+
+
+	public void setIdVehicle(int idVehicle) {
+		this.idVehicle = idVehicle;
+	}
+
+
+	public String getNameVehicle() {
+		return nameVehicle;
+	}
+
+
+	public void setNameVehicle(String nameVehicle) {
+		this.nameVehicle = nameVehicle;
+	}
+
+
+	public String getTypeVehicle() {
+		return typeVehicle;
+	}
+
+
+	public void setTypeVehicle(String typeVehicle) {
+		this.typeVehicle = typeVehicle;
+	}
+
+
+	public int getYearVehicle() {
+		return yearVehicle;
+	}
+
+
+	public void setYearVehicle(int yearVehicle) {
+		this.yearVehicle = yearVehicle;
+	}
+
+
+	public int getCapacityVehicle() {
+		return capacityVehicle;
+	}
+
+
+	public void setCapacityVehicle(int capacityVehicle) {
+		this.capacityVehicle = capacityVehicle;
+	}
+
+
+	public String getDescriptionVehicle() {
+		return descriptionVehicle;
+	}
+
+
+	public void setDescriptionVehicle(String descriptionVehicle) {
+		this.descriptionVehicle = descriptionVehicle;
+	}
+
+	public byte[] getImageVehicle() {
+		return imageVehicle;
+	}
+
+
+	public void setImageVehicle(byte[] imageVehicle) {
+		this.imageVehicle = imageVehicle;
+	}
+
+
+	public Blob getImageProduct() {
+		return imageProduct;
+	}
+
+
+	public void setImageProduct(Blob imageProduct) {
+		this.imageProduct = imageProduct;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Vehicle [idVehicle=" + idVehicle + ", nameVehicle=" + nameVehicle + ", typeVehicle=" + typeVehicle
+				+ ", yearVehicle=" + yearVehicle + ", capacityVehicle=" + capacityVehicle + ", descriptionVehicle="
+				+ descriptionVehicle + ", imageVehicle=" + Arrays.toString(imageVehicle) + ", imageProduct=" + imageProduct + "]";
+	}
+	
+	
+	
+	
+}
