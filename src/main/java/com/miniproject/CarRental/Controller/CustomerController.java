@@ -4,27 +4,35 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.miniproject.CarRental.Model.Customer;
 import com.miniproject.CarRental.Service.CustomerService;
 
-import io.swagger.annotations.ApiOperation;
-
+@SessionAttributes("name")
 @Controller
 public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 
-	@ApiOperation(value = "homecustomer", notes = "Returns the Data from user database with....")
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
 		return "customerlogin";
 	}
+
+//	@RequestMapping(value = "/login", method = RequestMethod.GET)
+//	public String showTodos(ModelMap model) {
+//		String name = (String) model.get("usernameCustomer");
+//		model.put("mode", customerService.showAllCustomers(name));
+//		return "customerlogin";
+//	}
 
 	@RequestMapping("/login-customer")
 	public String loginCustomer(@ModelAttribute Customer customer, HttpServletRequest request) {
@@ -51,11 +59,11 @@ public class CustomerController {
 		return "homecustomer";
 	}
 
-	@RequestMapping("/reservation")
-	public String Reservation(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_HOME");
-		return "reservation";
-	}
+//	@RequestMapping("/reservation")
+//	public String Reservation(HttpServletRequest request) {
+//		request.setAttribute("mode", "MODE_	RESERVATION");
+//		return "reservation";
+//	}
 
 	@RequestMapping("/register")
 	public String registration(HttpServletRequest request) {

@@ -62,87 +62,94 @@
 							<h1>Reservation</h1>
 							<hr>
 							<form class="form-horizontal" method="POST"
-								action="save-customer">
-								<input type="hidden" name="idReservation"
-									value="${customer.idReservation }" />
+								action="/save-reservation">
+								<label>Id Reservation</label>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> </span>
+									</div>
+									<input class="form-control" type="text" name="idReservation"
+										value="${reservation.idReservation }" />
+								</div>
+								<label>Id Customer</label>
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="idCustomer"
-										value="${reservasi.idCustomer }">
+										value="${reservation.idCustomer }">
 								</div>
+								<label>Id Vehicle</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="idVehicle"
-										value="${reservasi.idVehicle }">
+										value="${reservation.idVehicle }">
 								</div>
+								<label>Id Driver</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="idDriver"
-										value="${reservasi.idDriver }">
+										value="${reservation.idDriver }">
 								</div>
+								<label>From Date</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="fromdate"
-										value="${reservasi.fromDate }">
+										value="${reservation.fromDate }">
 								</div>
-								<label>Date range:</label>
-
-								<div class="input-group">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
-									</div>
-									<input type="text" class="form-control pull-right"
-										id="reservation">
-								</div>
+								<label>To Date</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="todate"
-										value="${reservasi.toDate }">
+										value="${reservation.toDate }">
 								</div>
+								<label>Duration</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="duration"
-										value="${reservasi.duration }">
+										value="${reservation.duration }">
 								</div>
+								<label>Condition</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="condition"
-										value="${reservasi.condition }">
+										value="${reservation.condition }">
 								</div>
+								<label>From Location</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="fromlocation"
-										value="${reservasi.fromLocation }">
+										value="${reservation.fromLocation }">
 								</div>
+								<label>To Location</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="tolocation"
-										value="${reservasi.toLocation }">
+										value="${reservation.toLocation }">
 								</div>
+								<label>Reservation Date</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="reservationdate"
-										value="${reservasi.reservationDate }">
+										value="${reservation.reservationDate }">
 								</div>
 								<p>
 									<input type="checkbox">I Agree with <a href="#">Terms

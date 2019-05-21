@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "reservasi")
+@Table(name="reservation")
 public class Reservation {
 	@Id
 	private int idReservation;
@@ -19,14 +19,14 @@ public class Reservation {
 	private String condition;
 	private String fromLocation;
 	private String toLocation;
-//	private Datetime reservationDate;
+	private String reservationDate;
 
 	public Reservation() {
 
 	}
 
 	public Reservation(int idReservation, int idCustomer, int idVehicle, int idDriver, String fromDate, String toDate,
-			String duration, String condition, String fromLocation, String toLocation) {
+			String duration, String condition, String fromLocation, String toLocation, String reservationDate) {
 		super();
 		this.idReservation = idReservation;
 		this.idCustomer = idCustomer;
@@ -38,7 +38,7 @@ public class Reservation {
 		this.condition = condition;
 		this.fromLocation = fromLocation;
 		this.toLocation = toLocation;
-//		this.reservationDate = reservationDate;
+		this.reservationDate = reservationDate;
 	}
 
 	public int getidReservation() {
@@ -113,19 +113,19 @@ public class Reservation {
 		this.toLocation = toLocation;
 	}
 
-//	public Datetime getreservationDate() {
-//		return reservationDate;
-//	}
-//
-//	public void setreservationDate(Datetime reservationDate) {
-//		this.reservationDate = reservationDate;
-//	}
+	public String getreservationDate() {
+		return reservationDate;
+	}
+
+	public void setreservationDate(String reservationDate) {
+		this.reservationDate = reservationDate;
+	}
 
 	@Override
 	public String toString() {
 		return "Reservation [idReservastion=" + idReservation + ", idCustomer=" + idCustomer + ", idVehicle="
 				+ idVehicle + ", idDriver=" + idDriver + ", fromDate=" + fromDate + ", toDate=" + toDate + ", duration="
 				+ duration + ", condition=" + condition + ", fromLocation=" + fromLocation + ", toLocation="
-				+ toLocation + "]";
+				+ toLocation + ", reservationDate=" + reservationDate + "]";
 	}
 }

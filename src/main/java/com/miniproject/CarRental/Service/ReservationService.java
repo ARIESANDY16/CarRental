@@ -3,9 +3,15 @@ package com.miniproject.CarRental.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.miniproject.CarRental.Model.Reservation;
 import com.miniproject.CarRental.Repository.ReservationRepository;
 
+@Service
+@Transactional
 public class ReservationService {
 	private final ReservationRepository reservationRepository;
 

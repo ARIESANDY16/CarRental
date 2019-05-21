@@ -78,7 +78,7 @@
 										</c:if>
 										<div class="input-group mb-3">
 											<div class="input-group-prepend">
-												<span class="input-group-text"> <i class="icon-user"></i>
+												<span class="input-group-text">
 												</span>
 											</div>
 											<input class="form-control" type="text"
