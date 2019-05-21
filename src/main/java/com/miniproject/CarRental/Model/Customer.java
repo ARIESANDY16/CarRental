@@ -1,16 +1,12 @@
 package com.miniproject.CarRental.Model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customer")
+@Table(name ="customer")
 public class Customer {
 
 	@Id
@@ -22,7 +18,6 @@ public class Customer {
 	private String emailCustomer;
 	private long contactnoCustomer;
 
-	
 	/*
 	 * @OneToMany(targetEntity = Customer.class, mappedBy = "idCustomer",
 	 * orphanRemoval = false, fetch = FetchType.LAZY) private Set<Customer>

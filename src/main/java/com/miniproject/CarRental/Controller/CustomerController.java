@@ -32,19 +32,6 @@ public class CustomerController {
 		return "customerlogin";
 	}
 
-<<<<<<< HEAD
-//	@RequestMapping(value = "/login", method = RequestMethod.GET)
-//	public String showTodos(ModelMap model) {
-//		String name = (String) model.get("usernameCustomer");
-//		model.put("mode", customerService.showAllCustomers(name));
-//		return "customerlogin";
-//	}
-
-	@RequestMapping("/login-customer")
-	public String loginCustomer(@ModelAttribute Customer customer, HttpServletRequest request) {
-		if (customerService.findByUsernameCustomerAndPasswordCustomer(customer.getusernameCustomer(),
-				customer.getpasswordCustomer()) != null) {
-=======
 	@RequestMapping(value = "/login-customer", method = RequestMethod.POST)
 	public String loginCustomer(ModelMap model, @ModelAttribute Customer customer, HttpServletRequest request) {
 		Customer customerData = customerService.findByUsernameCustomerAndPasswordCustomer(
@@ -58,7 +45,7 @@ public class CustomerController {
 			 * customer.setfullnameCustomer(customerFullname);
 			 */
 
->>>>>>> Feature/Ray
+
 			return "homecustomer";
 		} else {
 			request.setAttribute("error", "Invalid Username or Password");
@@ -80,20 +67,8 @@ public class CustomerController {
 		return "homecustomer";
 	}
 
-<<<<<<< HEAD
-//	@RequestMapping("/reservation")
-//	public String Reservation(HttpServletRequest request) {
-//		request.setAttribute("mode", "MODE_	RESERVATION");
-//		return "reservation";
-//	}
-=======
-	/*
-	 * @RequestMapping("/reservation") public String Reservation(HttpServletRequest
-	 * request) { request.setAttribute("mode", "MODE_HOME"); return "reservation"; }
-	 */
->>>>>>> Feature/Ray
-
 	@RequestMapping("/register")
+
 	public String registration(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_REGISTER");
 		return "customerregistration";
@@ -129,7 +104,6 @@ public class CustomerController {
 
 	}
 
-//
 	@RequestMapping("/delete-customer")
 	public String deleteCustomer(@RequestParam int idCustomer, HttpServletRequest request) {
 		customerService.deleteMyCustomer(idCustomer);
@@ -144,12 +118,4 @@ public class CustomerController {
 		request.setAttribute("mode", "MODE_UPDATE_CUSTOMER");
 		return "customeredit";
 	}
-	/*
-	 * @PostMapping("/save-customer-edit") public String
-	 * editCustomer(@ModelAttribute Customer customer, BindingResult bindingResult,
-	 * HttpServletRequest request) { customerService.saveMyCustomer(customer);
-	 * //request.setAttribute("mode", "MODE_REGISTER"); return "redirect:/customer";
-	 * }
-	 */
-
 }

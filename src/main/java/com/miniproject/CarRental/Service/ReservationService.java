@@ -5,19 +5,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-<<<<<<< HEAD
-=======
-import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> Feature/Ray
 import org.springframework.stereotype.Service;
 
 import com.miniproject.CarRental.Model.Reservation;
-import com.miniproject.CarRental.Model.Vehicle;
 import com.miniproject.CarRental.Repository.ReservationRepository;
-<<<<<<< HEAD
 
-=======
->>>>>>> Feature/Ray
 @Service
 @Transactional
 public class ReservationService {

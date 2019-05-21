@@ -10,16 +10,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-<<<<<<< HEAD
 @Table(name="reservation")
-=======
-@Table(name = "reservation")
->>>>>>> Feature/Ray
+
 public class Reservation {
 
 	@Id
 	private int idReservation;
-<<<<<<< HEAD
+
 	private int idCustomer;
 	private int idVehicle;
 	private int idDriver;
@@ -30,7 +27,7 @@ public class Reservation {
 	private String fromLocation;
 	private String toLocation;
 	private String reservationDate;
-=======
+
 	@ManyToOne
 	@JoinColumn(name = "idCustomer")
 	private Customer customer;
@@ -46,32 +43,9 @@ public class Reservation {
 	private String rentStatus;
 	private int totalPayment;
 
->>>>>>> Feature/Ray
-
 	public Reservation() {
 
 	}
-<<<<<<< HEAD
-
-	public Reservation(int idReservation, int idCustomer, int idVehicle, int idDriver, String fromDate, String toDate,
-			String duration, String condition, String fromLocation, String toLocation, String reservationDate) {
-		super();
-		this.idReservation = idReservation;
-		this.idCustomer = idCustomer;
-		this.idVehicle = idVehicle;
-		this.idDriver = idDriver;
-		this.fromDate = fromDate;
-		this.toDate = toDate;
-		this.duration = duration;
-		this.condition = condition;
-		this.fromLocation = fromLocation;
-		this.toLocation = toLocation;
-		this.reservationDate = reservationDate;
-	}
-
-	public int getidReservation() {
-=======
-	
 	
 	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, String rentDate,
 			String rentTime, int rentDuration, String rentStatus, int totalPayment) {
@@ -89,7 +63,6 @@ public class Reservation {
 
 
 	public int getIdReservation() {
->>>>>>> Feature/Ray
 		return idReservation;
 	}
 
@@ -161,7 +134,6 @@ public class Reservation {
 		this.totalPayment = totalPayment;
 	}
 
-<<<<<<< HEAD
 	public String getreservationDate() {
 		return reservationDate;
 	}
@@ -172,28 +144,10 @@ public class Reservation {
 
 	@Override
 	public String toString() {
-		return "Reservation [idReservastion=" + idReservation + ", idCustomer=" + idCustomer + ", idVehicle="
-				+ idVehicle + ", idDriver=" + idDriver + ", fromDate=" + fromDate + ", toDate=" + toDate + ", duration="
-				+ duration + ", condition=" + condition + ", fromLocation=" + fromLocation + ", toLocation="
-				+ toLocation + ", reservationDate=" + reservationDate + "]";
-	}
-=======
-
-
-
-
-	@Override
-	public String toString() {
 		return "Reservation [idReservation=" + idReservation + ", customer=" + customer + ", vehicle=" + vehicle
 				+ ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime=" + rentTime + ", rentDuration="
 				+ rentDuration + ", rentStatus=" + rentStatus + ", totalPayment=" + totalPayment + "]";
 	}
-	
-	
-	
-	
-	
->>>>>>> Feature/Ray
 }
 
 
