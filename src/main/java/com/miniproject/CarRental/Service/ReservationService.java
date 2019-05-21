@@ -5,16 +5,38 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+<<<<<<< HEAD
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> Feature/Ray
 import org.springframework.stereotype.Service;
 
 import com.miniproject.CarRental.Model.Reservation;
+import com.miniproject.CarRental.Model.Vehicle;
 import com.miniproject.CarRental.Repository.ReservationRepository;
+<<<<<<< HEAD
 
+=======
+>>>>>>> Feature/Ray
 @Service
 @Transactional
 public class ReservationService {
+	/* @Autowired */
 	private final ReservationRepository reservationRepository;
 
+	
+	/*
+	 * public List<Reservation> fetchReservationDataInnerJoin() { return
+	 * reservationRepository.fetchReservationDataInnerJoin(); }
+	 */
+	
+	/*
+	 * @Override public Vehicle get(int idVehicle) { try { return
+	 * reservationRepository.getCurrentSession()
+	 * .get(Vehicle.class,Integer.valueOf(idVehicle)); } catch(Exception ex) {
+	 * ex.printStackTrace(); } return null; }
+	 */
+	
 	public ReservationService(ReservationRepository reservationRepository) {
 		this.reservationRepository = reservationRepository;
 	}
@@ -24,9 +46,18 @@ public class ReservationService {
 
 	}
 
-	public List<Reservation> showAllReservation() {
+	public List<Reservation> showAllReservations() {
 		List<Reservation> reservations = new ArrayList<Reservation>();
-		for (Reservation reservation : reservationRepository.findAll()) {
+		for (Reservation reservation:reservationRepository.findAll()) {
+			reservations.add(reservation);
+		}
+		return reservations;
+	}
+	
+	
+	public List<Reservation> showReservations() {
+		List<Reservation> reservations = new ArrayList<Reservation>();
+		for (Reservation reservation:reservationRepository.findAll()) {
 			reservations.add(reservation);
 		}
 		return reservations;

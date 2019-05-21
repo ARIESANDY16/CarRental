@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                      <li class="nav-item">
-                        <a class="nav-link" href="/edit-driver">Edit Data</a>
+                        <a class="nav-link" href="/edit-driver?idDriver=${driver.idDriver}">Edit Data</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Job</a>
@@ -43,6 +43,13 @@
                 </form> -->
             </div>
         </nav>
+
+
+<h7>id driver :	${driver.idDriver}</h7><br>
+<h7>fullname driver :${driver.fullnameDriver}	</h7><br>
+<h7>username driver :${driver.usernameDriver}	</h7><br>
+<h7>password driver :${driver.passwordDriver}	</h7><br>
+<h7>price driver :${driver.priceDriver}	</h7><br>
 
 </body>
 </html>

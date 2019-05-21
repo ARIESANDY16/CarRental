@@ -2,14 +2,24 @@
 package com.miniproject.CarRental.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
+<<<<<<< HEAD
 @Table(name="reservation")
+=======
+@Table(name = "reservation")
+>>>>>>> Feature/Ray
 public class Reservation {
+
 	@Id
 	private int idReservation;
+<<<<<<< HEAD
 	private int idCustomer;
 	private int idVehicle;
 	private int idDriver;
@@ -20,10 +30,28 @@ public class Reservation {
 	private String fromLocation;
 	private String toLocation;
 	private String reservationDate;
+=======
+	@ManyToOne
+	@JoinColumn(name = "idCustomer")
+	private Customer customer;
+	@ManyToOne
+	@JoinColumn(name = "idVehicle")
+	private Vehicle vehicle;
+	@ManyToOne
+	@JoinColumn(name = "idDriver")
+	private Driver driver;
+	private String rentDate;
+	private String rentTime;
+	private int rentDuration;
+	private String rentStatus;
+	private int totalPayment;
+
+>>>>>>> Feature/Ray
 
 	public Reservation() {
 
 	}
+<<<<<<< HEAD
 
 	public Reservation(int idReservation, int idCustomer, int idVehicle, int idDriver, String fromDate, String toDate,
 			String duration, String condition, String fromLocation, String toLocation, String reservationDate) {
@@ -42,77 +70,98 @@ public class Reservation {
 	}
 
 	public int getidReservation() {
+=======
+	
+	
+	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, String rentDate,
+			String rentTime, int rentDuration, String rentStatus, int totalPayment) {
+		super();
+		this.idReservation = idReservation;
+		this.customer = customer;
+		this.vehicle = vehicle;
+		this.driver = driver;
+		this.rentDate = rentDate;
+		this.rentTime = rentTime;
+		this.rentDuration = rentDuration;
+		this.rentStatus = rentStatus;
+		this.totalPayment = totalPayment;
+	}
+
+
+	public int getIdReservation() {
+>>>>>>> Feature/Ray
 		return idReservation;
 	}
 
-	public void setidReservation(int idReservation) {
+	public void setIdReservation(int idReservation) {
 		this.idReservation = idReservation;
 	}
-
-	public int getidCustomer() {
-		return idCustomer;
+	
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setidCustomer(int idCustomer) {
-		this.idCustomer = idCustomer;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
-	public int getidVehicle() {
-		return idVehicle;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
 
-	public void setuidVehicle(int idVehicle) {
-		this.idVehicle = idVehicle;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 
-	public int getidDriver() {
-		return idDriver;
+	public Driver getDriver() {
+		return driver;
 	}
 
-	public void setidDriver(int idDriver) {
-		this.idDriver = idDriver;
+	public void setDriver(Driver driver) {
+		this.driver = driver;
 	}
 
-	public String getfromDate() {
-		return fromDate;
+	public String getRentDate() {
+		return rentDate;
 	}
 
-	public void setfromDate(String fromDate) {
-		this.fromDate = fromDate;
+	public void setRentDate(String rentDate) {
+		this.rentDate = rentDate;
 	}
 
-	public String getcondition() {
-		return condition;
+	public String getRentTime() {
+		return rentTime;
 	}
 
-	public void setcondition(String condition) {
-		this.condition = condition;
+	public void setRentTime(String rentTime) {
+		this.rentTime = rentTime;
 	}
 
-	public String getduration() {
-		return duration;
+	public int getRentDuration() {
+		return rentDuration;
 	}
 
-	public void setduration(String duration) {
-		this.duration = duration;
+	public void setRentDuration(int rentDuration) {
+		this.rentDuration = rentDuration;
 	}
 
-	public String getfromLocation() {
-		return fromLocation;
+	public String getRentStatus() {
+		return rentStatus;
 	}
 
-	public void setfromLocation(String fromLocation) {
-		this.fromLocation = fromLocation;
+	public void setRentStatus(String rentStatus) {
+		this.rentStatus = rentStatus;
 	}
 
-	public String gettoLocation() {
-		return toLocation;
+	public int getTotalPayment() {
+		return totalPayment;
 	}
 
-	public void settoLocation(String toLocation) {
-		this.toLocation = toLocation;
+	public void setTotalPayment(int totalPayment) {
+		this.totalPayment = totalPayment;
 	}
 
+<<<<<<< HEAD
 	public String getreservationDate() {
 		return reservationDate;
 	}
@@ -128,4 +177,23 @@ public class Reservation {
 				+ duration + ", condition=" + condition + ", fromLocation=" + fromLocation + ", toLocation="
 				+ toLocation + ", reservationDate=" + reservationDate + "]";
 	}
+=======
+
+
+
+
+	@Override
+	public String toString() {
+		return "Reservation [idReservation=" + idReservation + ", customer=" + customer + ", vehicle=" + vehicle
+				+ ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime=" + rentTime + ", rentDuration="
+				+ rentDuration + ", rentStatus=" + rentStatus + ", totalPayment=" + totalPayment + "]";
+	}
+	
+	
+	
+	
+	
+>>>>>>> Feature/Ray
 }
+
+
