@@ -53,9 +53,9 @@ public class AllController {
 	@GetMapping("/savevehicle")
 	public String saveVehicle(@RequestParam String nameVehicle, @RequestParam String typeVehicle,
 			@RequestParam int yearVehicle, @RequestParam int capacityVehicle, @RequestParam String descriptionVehicle,
-			@RequestParam int priceVehicle, @RequestParam byte[] imageVehicle, @RequestParam Blob imageProduct) {
+			@RequestParam int priceVehicle, @RequestParam byte[] imageVehicle) {
 		Vehicle vehicle = new Vehicle(nameVehicle, typeVehicle, yearVehicle, capacityVehicle, descriptionVehicle,
-				priceVehicle, imageVehicle, imageProduct);
+				priceVehicle, imageVehicle);
 		vehicleService.saveMyVehicle(vehicle);
 		return "Vehicle Saved";
 	}

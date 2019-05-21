@@ -21,9 +21,8 @@ public class Vehicle {
 	private String descriptionVehicle;
 	private int priceVehicle;
 	private byte[] imageVehicle;
+	private String imageName;
 	
-	@Lob
-	private Blob imageProduct;
 
 	
 	public Vehicle() {
@@ -32,7 +31,7 @@ public class Vehicle {
 
 
 	public Vehicle(String nameVehicle, String typeVehicle, int yearVehicle, int capacityVehicle,
-			String descriptionVehicle, int priceVehicle, byte[] imageVehicle, Blob imageProduct) {
+			String descriptionVehicle, int priceVehicle, byte[] imageVehicle) {
 		super();
 		this.nameVehicle = nameVehicle;
 		this.typeVehicle = typeVehicle;
@@ -41,7 +40,6 @@ public class Vehicle {
 		this.descriptionVehicle = descriptionVehicle;
 		this.priceVehicle = priceVehicle;
 		this.imageVehicle = imageVehicle;
-		this.imageProduct = imageProduct;
 	}
 
 
@@ -124,22 +122,22 @@ public class Vehicle {
 	}
 
 
-	public Blob getImageProduct() {
-		return imageProduct;
+	public String getImageName() {
+		return imageName;
 	}
 
 
-	public void setImageProduct(Blob imageProduct) {
-		this.imageProduct = imageProduct;
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 
 	@Override
-	public String toString() {
+public String toString() {
 		return "Vehicle [idVehicle=" + idVehicle + ", nameVehicle=" + nameVehicle + ", typeVehicle=" + typeVehicle
 				+ ", yearVehicle=" + yearVehicle + ", capacityVehicle=" + capacityVehicle + ", descriptionVehicle="
 				+ descriptionVehicle + ", priceVehicle=" + priceVehicle + ", imageVehicle="
-				+ Arrays.toString(imageVehicle) + ", imageProduct=" + imageProduct + "]";
+				+ Arrays.toString(imageVehicle) + "]";
 	}
 	
 	

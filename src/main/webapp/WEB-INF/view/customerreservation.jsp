@@ -44,38 +44,33 @@
 					<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
-								<th>Id</th>
 								<th>Customer</th>
 								<th>Vehicle</th>
-								<th>Price Vehicle</th>
+							
 								<th>Driver</th>
-								<th>Price Driver</th>
+						
 								<th>Rent Date</th>
 								<th>Rent Time</th>
 								<th>Rent Duration</th>
 								<th>Rent Status</th>
 								<th>Total Payment</th>
-								<th>Delete</th>
-								<th>Edit</th>
+							
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="reservation" items="${reservations}">
 								<tr>
-								<td>${reservation.idReservation }</td>
+								
 								<td>${reservation.customer.fullnameCustomer}</td>
 									<td>${reservation.vehicle.nameVehicle}</td>
-									<td>${reservation.vehicle.priceVehicle}</td>
+								
 									<td>${reservation.driver.fullnameDriver}</td>
-									<td>${reservation.driver.priceDriver}</td>
+								
 									<td>${reservation.rentDate}</td>
 									<td>${reservation.rentTime}</td>
 									<td>${reservation.rentDuration}</td>
 									<td>${reservation.rentStatus}</td>
 									<td>${reservation.totalPayment}</td>
-									<td><a
-										href="/delete-reservation?idReservation=${reservation.idReservation }"><button>delete</button></a></td>
-									<td><a href="/edit-reservation?idReservation=${reservation.idReservation }"><button>update</button></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
