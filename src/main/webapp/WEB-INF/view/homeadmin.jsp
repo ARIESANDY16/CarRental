@@ -106,7 +106,7 @@
 			<div class="container text-center">
 				<h3>Vehicle</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-vehicle">
+				<form class="form-horizontal" method="POST" action="save-vehicle" enctype="multipart/form-data">
 					<input type="hidden" name="idVehicle"
 						value="${vehicle.idVehicle }" />
 
@@ -160,18 +160,10 @@
 						<div class="form-group">
 						<label class="control-label col-md-3">Image</label>
 						<div class="col-md-7">
-							<input type="file" class="form-control" name="imageVehicle"
+							<input type="file" class="form-control" name="file"
 								value="${vehicle.imageVehicle }" />
 						</div>
-					</div>
-					
-					<div class="form-group">
-						<label class="control-label col-md-3">Image</label>
-						<div class="col-md-7">
-							<input type="file" accept="image/*" class="form-control" name="imageProduct"
-								value="${vehicle.imageProduct }" />
-						</div>
-					</div>
+					</div>	
 
 					<div class="form-group ">
 						<input type="submit" class="btn btn-primary" value="addvehicle" />
@@ -185,7 +177,7 @@
 			<div class="container text-center">
 				<h3>Update Vehicle</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-vehicle">
+				<form class="form-horizontal" method="POST" action="save-vehicle" enctype="multipart/form-data">
 					<input type="hidden" name="idVehicle"
 						value="${vehicle.idVehicle }" />
 
@@ -238,16 +230,8 @@
 						<div class="form-group">
 						<label class="control-label col-md-3">Image</label>
 						<div class="col-md-7">
-							<input type="file" class="form-control" name="imageVehicle"
+							<input type="file" class="form-control" name="file"
 								value="${vehicle.imageVehicle }" />
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label class="control-label col-md-3">Image</label>
-						<div class="col-md-7">
-							<input type="file" accept="image/*" class="form-control" name="imageProduct"
-								value="${vehicle.imageProduct }" />
 						</div>
 					</div>
 
@@ -277,7 +261,6 @@
 								<th>description</th>
 								<th>price</th>
 								<th>image</th>
-								<th>image</th>
 								<th>Delete</th>
 								<th>Edit</th>
 							</tr>
@@ -293,8 +276,6 @@
 									<td>${vehicle.descriptionVehicle}</td>
 									<td>${vehicle.priceVehicle}</td>
 									<td>${vehicle.imageVehicle}</td>
-									
-									<td>${vehicle.imageProduct}</td>
 									<td><a
 										href="/delete-vehicle?idVehicle=${vehicle.idVehicle }"><button>delete</button></a></td>
 									<td><a href="/edit-vehicle?idVehicle=${vehicle.idVehicle }"><button>update</button></a></td>

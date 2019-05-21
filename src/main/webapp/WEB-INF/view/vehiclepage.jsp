@@ -69,7 +69,9 @@
 						<tbody>
 							<c:forEach var="vehicle" items="${vehicles }">
 								<tr>
-									<td>${vehicle.imageVehicle}</td>
+									<td>
+										<img src="/getImage/${vehicle.idVehicle}" width="300" height="200">
+									</td>
 									<td><strong>${vehicle.nameVehicle} </strong><br>
 									Harga : Rp. ${vehicle.priceVehicle},- / jam <br>
 									+ Driver : Rp. 10.000,- / jam
@@ -79,7 +81,7 @@
 									Deskripsi : ${vehicle.descriptionVehicle}<br>
 									</td>
 										<td><a
-										href="/addreservation"><button>Reservation</button></a></td>
+										href="/addreservation?idVehicle=${vehicle.idVehicle }"><button>Reservation</button></a></td>
 									<!-- <td><button>Reservation</button></td> -->
 								</tr>
 							</c:forEach>

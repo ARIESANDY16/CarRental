@@ -18,6 +18,10 @@
 <script src="js/bootstrap.min.js"></script>
 <title>Car Rental JDT7</title>
 </head>
+
+<p>id vehicle : ${vehicle.idVehicle }</p>
+<p>id vehicle : ${param.idVehicle }</p>
+<p>id vehicle : ${param.vehicle.nameVehicle }</p>
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-blue">
@@ -83,7 +87,7 @@
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="vehicle"
-										value="${reservation.vehicle.idVehicle }">
+										value="${param.idVehicle}">
 								</div>
 									<%-- <label>Id Driver</label>
 								<div class="input-group mb-4">
@@ -151,17 +155,15 @@
 										value="${reservation.rentDuration }">
 								</div>
 								<label>Rent Status</label>
+								
 								<div class="input-group mb-4">
 									<!-- <div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div> -->
-											<input class="form-control" type="radio"
-												name="statusReservation"
-												value="${reservation.rentStatus }"> <label>With Driver</label>
-												<input
-												class="form-control" type="radio" name="statusReservation"
-												value="${reservation.rentStatus }"><label>Without Driver</label>
+											<input class="form-control" type="text"
+												name="statusReservation" value="${reservation.rentStatus} "> 
 										</div>
+										<p>if you order driver, please field "With Driver" </p>
 								<!-- <label>Reservation Date</label> -->
 								<%-- <div class="input-group mb-4">
 									<div class="input-group-prepend">

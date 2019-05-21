@@ -18,7 +18,7 @@ import com.miniproject.CarRental.Model.Driver;
 import com.miniproject.CarRental.Service.DriverService;
 
 @Controller
-@SessionAttributes("sessionId")
+/* @SessionAttributes("sessionId") */
 public class DriverController {
 
 	@Autowired
