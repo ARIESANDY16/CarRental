@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-<<<<<<< HEAD
+
 import org.springframework.web.bind.annotation.SessionAttributes;
-=======
+
 import org.springframework.web.bind.annotation.RequestParam;
->>>>>>> Feature/Ray
+
 
 import com.miniproject.CarRental.Model.Customer;
 import com.miniproject.CarRental.Service.CustomerService;
@@ -44,7 +44,6 @@ public class CustomerController {
 			 * String customerFullname =customerData.getfullnameCustomer();
 			 * customer.setfullnameCustomer(customerFullname);
 			 */
-
 
 			return "homecustomer";
 		} else {
