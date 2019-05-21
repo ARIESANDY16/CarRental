@@ -2,32 +2,17 @@
 package com.miniproject.CarRental.Model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="reservation")
-
+@Table(name = "reservation")
 public class Reservation {
 
 	@Id
 	private int idReservation;
-
-	private int idCustomer;
-	private int idVehicle;
-	private int idDriver;
-	private String fromDate;
-	private String toDate;
-	private String duration;
-	private String condition;
-	private String fromLocation;
-	private String toLocation;
-	private String reservationDate;
-
 	@ManyToOne
 	@JoinColumn(name = "idCustomer")
 	private Customer customer;
@@ -43,9 +28,11 @@ public class Reservation {
 	private String rentStatus;
 	private int totalPayment;
 
+
 	public Reservation() {
 
 	}
+	
 	
 	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, String rentDate,
 			String rentTime, int rentDuration, String rentStatus, int totalPayment) {
@@ -134,13 +121,9 @@ public class Reservation {
 		this.totalPayment = totalPayment;
 	}
 
-	public String getreservationDate() {
-		return reservationDate;
-	}
 
-	public void setreservationDate(String reservationDate) {
-		this.reservationDate = reservationDate;
-	}
+
+
 
 	@Override
 	public String toString() {
@@ -148,6 +131,11 @@ public class Reservation {
 				+ ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime=" + rentTime + ", rentDuration="
 				+ rentDuration + ", rentStatus=" + rentStatus + ", totalPayment=" + totalPayment + "]";
 	}
+	
+	
+	
+	
+	
 }
 
 
