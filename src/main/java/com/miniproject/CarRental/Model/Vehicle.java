@@ -19,6 +19,7 @@ public class Vehicle {
 	private int yearVehicle;
 	private int capacityVehicle;
 	private String descriptionVehicle;
+	private int priceVehicle;
 	private byte[] imageVehicle;
 	
 	@Lob
@@ -30,21 +31,18 @@ public class Vehicle {
 	}
 
 
-	public Vehicle(int idVehicle, String nameVehicle, String typeVehicle, int yearVehicle, int capacityVehicle,
-			String descriptionVehicle, byte[] imageVehicle, Blob imageProduct) {
+	public Vehicle(String nameVehicle, String typeVehicle, int yearVehicle, int capacityVehicle,
+			String descriptionVehicle, int priceVehicle, byte[] imageVehicle, Blob imageProduct) {
 		super();
-		this.idVehicle = idVehicle;
 		this.nameVehicle = nameVehicle;
 		this.typeVehicle = typeVehicle;
 		this.yearVehicle = yearVehicle;
 		this.capacityVehicle = capacityVehicle;
 		this.descriptionVehicle = descriptionVehicle;
+		this.priceVehicle = priceVehicle;
 		this.imageVehicle = imageVehicle;
 		this.imageProduct = imageProduct;
 	}
-
-
-
 
 
 	public int getIdVehicle() {
@@ -106,6 +104,16 @@ public class Vehicle {
 		this.descriptionVehicle = descriptionVehicle;
 	}
 
+	public int getPriceVehicle() {
+		return priceVehicle;
+	}
+
+
+	public void setPriceVehicle(int priceVehicle) {
+		this.priceVehicle = priceVehicle;
+	}
+
+
 	public byte[] getImageVehicle() {
 		return imageVehicle;
 	}
@@ -130,7 +138,8 @@ public class Vehicle {
 	public String toString() {
 		return "Vehicle [idVehicle=" + idVehicle + ", nameVehicle=" + nameVehicle + ", typeVehicle=" + typeVehicle
 				+ ", yearVehicle=" + yearVehicle + ", capacityVehicle=" + capacityVehicle + ", descriptionVehicle="
-				+ descriptionVehicle + ", imageVehicle=" + Arrays.toString(imageVehicle) + ", imageProduct=" + imageProduct + "]";
+				+ descriptionVehicle + ", priceVehicle=" + priceVehicle + ", imageVehicle="
+				+ Arrays.toString(imageVehicle) + ", imageProduct=" + imageProduct + "]";
 	}
 	
 	

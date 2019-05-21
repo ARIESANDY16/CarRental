@@ -37,7 +37,7 @@ public class VehicleController {
 	@GetMapping("/show-vehicles")
 	public String showAllVehicles(HttpServletRequest request) {
 		request.setAttribute("vehicles", vehicleService.showAllVehicles());
-		request.setAttribute("mode", "ALL_VEHICLES_1");
+		request.setAttribute("mode", "ALL_VEHICLES_ADMIN");
 		return"homeadmin";
 		
 	}

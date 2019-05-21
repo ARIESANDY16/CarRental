@@ -1,6 +1,7 @@
 package com.miniproject.CarRental.Service;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -52,6 +53,8 @@ public class VehicleService {
 	public byte[] loadImage(int idVehicle) {
 		return entityManager.find(Vehicle.class, idVehicle).getImageVehicle();
 	}
+	
+
 	
 	}
 	

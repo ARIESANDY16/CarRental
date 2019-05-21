@@ -7,4 +7,5 @@ import com.miniproject.CarRental.Model.Driver;
 public interface DriverRepository extends CrudRepository<Driver, Integer> {
 
 	public Driver findByUsernameDriverAndPasswordDriver(String usernameDriver, String passwordDriver);
+	/* public Driver findById(int idDriver); */
 }

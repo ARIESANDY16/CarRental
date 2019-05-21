@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> --%>
 <html lang="en">
 <head>
 <!-- Required meta tags -->
@@ -52,6 +53,9 @@
 		</div>
 	</nav>
 	<!--     END NAVBAR  -->
+
+	<c:choose>
+<c:when test="${mode=='MODE_ADD_RESERVATION' }">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-6">
@@ -63,41 +67,57 @@
 							<form class="form-horizontal" method="POST"
 								action="save-reservation">
 								<input type="hidden" name="idReservation"
-									value="${reservasi.idReservation }" />
-										<label>Id Customer</label>
+									value="${reservation.idReservation }" />
+										<label>Customer Name</label>
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 								
-									<input class="form-control" type="text" name="idCustomer"
-										value="${reservasi.idCustomer }">
+									<input class="form-control" type="text" name="customer"
+										value="${reservation.customer.idCustomer }">
 								</div>
-									<label>Id Vehicle</label>
+									<label>Vehicle Name</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="idVehicle"
-										value="${reservasi.idVehicle }">
+									<input class="form-control" type="text" name="vehicle"
+										value="${reservation.vehicle.idVehicle }">
 								</div>
-									<label>Id Driver</label>
+									<%-- <label>Id Driver</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="idDriver"
-										value="${reservasi.idDriver }">
-								</div>
-								<label>From Date</label>
+									<input class="form-control" type="text" name="driver"
+										value="${reservation.driver }">
+								</div> --%>
+								<label>Rent Date</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="fromdate"
-										value="${reservasi.fromDate }">
+									<input class="form-control" type="date" name="rentDate"
+										value="${reservation.rentDate }">
 								</div>
-								<label>Date range:</label>
+								
+									<label>Rent Time</label>
+								<div class="input-group mb-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> </span>
+									</div>
+									<input class="form-control" type="time" name="rentTime"
+										value="${reservation.rentTime }">
+								</div>
+								<%-- <div class="input-group mb-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> </span>
+									</div>
+									<input class="form-control" type="date" name="fromDate"
+										<fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.fromDate}"/>>
+								</div> --%>
+								<!-- <label>Date range:</label>
 
 								<div class="input-group">
 									<div class="input-group-addon">
@@ -105,49 +125,51 @@
 									</div>
 									<input type="text" class="form-control pull-right"
 										id="reservation">
-								</div>
+								</div> -->
+								<%-- <label>Jam</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="todate"
-										value="${reservasi.toDate }">
-								</div>
+									<input class="form-control" type="date" name="toDate"
+										value="${reservation.toDate }">
+								</div> --%>
+								<%-- <div class="input-group mb-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> </span>
+									</div>
+									<input class="form-control" type="date" name="toDate" 
+									<fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.toDate}"/>>
+								</div> --%>
+								
+								<label>Rent Duration</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="duration"
-										value="${reservasi.duration }">
+									<input class="form-control" type="number" name="rentDuration"
+										value="${reservation.rentDuration }">
 								</div>
+								<label>Rent Status</label>
 								<div class="input-group mb-4">
-									<div class="input-group-prepend">
+									<!-- <div class="input-group-prepend">
 										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="condition"
-										value="${reservasi.condition }">
-								</div>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="fromlocation"
-										value="${reservasi.fromLocation }">
-								</div>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="tolocation"
-										value="${reservasi.toLocation }">
-								</div>
-								<div class="input-group mb-4">
+									</div> -->
+											<input class="form-control" type="radio"
+												name="statusReservation"
+												value="${reservation.rentStatus }"> <label>With Driver</label>
+												<input
+												class="form-control" type="radio" name="statusReservation"
+												value="${reservation.rentStatus }"><label>Without Driver</label>
+										</div>
+								<!-- <label>Reservation Date</label> -->
+								<%-- <div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="reservationdate"
 										value="${reservasi.reservationDate }">
-								</div>
+								</div> --%>
 								<p>
 									<input type="checkbox">I Agree with <a href="#">Terms
 										and Condition</a>
@@ -155,7 +177,7 @@
 								<div class="row">
 									<div class="form-group ">
 										<input type="submit" class="btn btn-block btn-primary"
-											value="Send" />
+											value="addreservation" />
 									</div>
 								</div>
 							</form>
@@ -171,6 +193,10 @@
 			</div>
 		</div>
 	</div>
+	</c:when>
+
+
+	</c:choose>
 	
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
