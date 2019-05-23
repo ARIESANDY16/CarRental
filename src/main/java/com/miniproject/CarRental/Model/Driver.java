@@ -1,6 +1,9 @@
 package com.miniproject.CarRental.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,7 +12,9 @@ import javax.persistence.Table;
 public class Driver {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDriver;
+	@Column(name = "fullname_driver")
 	private String fullnameDriver;
 	private String usernameDriver;
 	private String passwordDriver;

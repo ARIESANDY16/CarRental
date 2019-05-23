@@ -1,11 +1,13 @@
 package com.miniproject.CarRental.Service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 
 import com.miniproject.CarRental.Model.Vehicle;
@@ -16,7 +18,7 @@ import com.miniproject.CarRental.Repository.VehicleRepository;
 public class VehicleService {
 
 	private final VehicleRepository vehicleRepository;
-	private static EntityManager entityManager;
+	/* private static EntityManager entityManager; */
 	
 	public VehicleService(VehicleRepository vehicleRepository) {
 		this.vehicleRepository = vehicleRepository;
@@ -26,9 +28,10 @@ public class VehicleService {
 		vehicleRepository.save(vehicle);
 	}
 	
-	public List<Vehicle> showAllVehicles(){
+	public List<Vehicle> showAllVehicles() throws UnsupportedEncodingException{
 		List<Vehicle> vehicles = new ArrayList<Vehicle>() ;
 			for(Vehicle vehicle:vehicleRepository.findAll()) {
+
 				vehicles.add(vehicle);
 			}
 			return vehicles;
@@ -49,9 +52,11 @@ public class VehicleService {
 		return vehicleRepository.findById(idVehicle).orElse(null);
 	}
 	
-	public byte[] loadImage(int idVehicle) {
-		return entityManager.find(Vehicle.class, idVehicle).getImageVehicle();
-	}
+	/*
+	 * public byte[] loadImage(int idVehicle) { return
+	 * entityManager.find(Vehicle.class, idVehicle).getImageVehicle(); }
+	 */
+
 	
 	}
 	

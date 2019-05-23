@@ -19,10 +19,10 @@ public class Vehicle {
 	private int yearVehicle;
 	private int capacityVehicle;
 	private String descriptionVehicle;
+	private int priceVehicle;
 	private byte[] imageVehicle;
+	private String imageName;
 	
-	@Lob
-	private Blob imageProduct;
 
 	
 	public Vehicle() {
@@ -30,21 +30,17 @@ public class Vehicle {
 	}
 
 
-	public Vehicle(int idVehicle, String nameVehicle, String typeVehicle, int yearVehicle, int capacityVehicle,
-			String descriptionVehicle, byte[] imageVehicle, Blob imageProduct) {
+	public Vehicle(String nameVehicle, String typeVehicle, int yearVehicle, int capacityVehicle,
+			String descriptionVehicle, int priceVehicle, byte[] imageVehicle) {
 		super();
-		this.idVehicle = idVehicle;
 		this.nameVehicle = nameVehicle;
 		this.typeVehicle = typeVehicle;
 		this.yearVehicle = yearVehicle;
 		this.capacityVehicle = capacityVehicle;
 		this.descriptionVehicle = descriptionVehicle;
+		this.priceVehicle = priceVehicle;
 		this.imageVehicle = imageVehicle;
-		this.imageProduct = imageProduct;
 	}
-
-
-
 
 
 	public int getIdVehicle() {
@@ -106,6 +102,16 @@ public class Vehicle {
 		this.descriptionVehicle = descriptionVehicle;
 	}
 
+	public int getPriceVehicle() {
+		return priceVehicle;
+	}
+
+
+	public void setPriceVehicle(int priceVehicle) {
+		this.priceVehicle = priceVehicle;
+	}
+
+
 	public byte[] getImageVehicle() {
 		return imageVehicle;
 	}
@@ -116,21 +122,22 @@ public class Vehicle {
 	}
 
 
-	public Blob getImageProduct() {
-		return imageProduct;
+	public String getImageName() {
+		return imageName;
 	}
 
 
-	public void setImageProduct(Blob imageProduct) {
-		this.imageProduct = imageProduct;
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 
 	@Override
-	public String toString() {
+public String toString() {
 		return "Vehicle [idVehicle=" + idVehicle + ", nameVehicle=" + nameVehicle + ", typeVehicle=" + typeVehicle
 				+ ", yearVehicle=" + yearVehicle + ", capacityVehicle=" + capacityVehicle + ", descriptionVehicle="
-				+ descriptionVehicle + ", imageVehicle=" + Arrays.toString(imageVehicle) + ", imageProduct=" + imageProduct + "]";
+				+ descriptionVehicle + ", priceVehicle=" + priceVehicle + ", imageVehicle="
+				+ Arrays.toString(imageVehicle) + "]";
 	}
 	
 	

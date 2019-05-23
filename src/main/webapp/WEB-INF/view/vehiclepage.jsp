@@ -58,8 +58,7 @@
 	</nav>
 	<!--     END NAVBAR  -->
 	<c:choose>
-
-		<c:when test="${mode=='ALL_VEHICLES' }">
+	<c:when test="${mode=='ALL_VEHICLES' }">
 			<div class="container text-center" id="tasksDiv">
 				<h3>All Vehicles</h3>
 				<hr>
@@ -70,13 +69,20 @@
 						<tbody>
 							<c:forEach var="vehicle" items="${vehicles }">
 								<tr>
-									<td>${vehicle.imageVehicle}</td>
-									<td><strong>${vehicle.nameVehicle} </strong><br> Type
-										: ${vehicle.typeVehicle} <br> Tahun :
-										${vehicle.yearVehicle} <br> Kapasitas :
-										${vehicle.capacityVehicle} orang <br> Deskripsi :
-										${vehicle.descriptionVehicle}</td>
-									<td><button>Reservation</button></td>
+									<td>
+										<img src="/getImage/${vehicle.idVehicle}" width="300" height="200">
+									</td>
+									<td><strong>${vehicle.nameVehicle} </strong><br>
+									Harga : Rp. ${vehicle.priceVehicle},- / jam <br>
+									+ Driver : Rp. 10.000,- / jam
+									Type: ${vehicle.typeVehicle} <br> 
+									Tahun : ${vehicle.yearVehicle} <br> 
+									Kapasitas : ${vehicle.capacityVehicle} orang <br>
+									Deskripsi : ${vehicle.descriptionVehicle}<br>
+									</td>
+										<td><a
+										href="/addreservation?idVehicle=${vehicle.idVehicle }"><button>Reservation</button></a></td>
+									<!-- <td><button>Reservation</button></td> -->
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -84,6 +90,7 @@
 				</div>
 			</div>
 		</c:when>
+	
 
 
 	</c:choose>

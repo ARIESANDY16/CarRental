@@ -29,16 +29,9 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
 					href="/customer">Home <span class="sr-only">(current)</span></a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Vehicle </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/vehicles">Avanza</a> <a
-							class="dropdown-item" href="/vehicles">Mitsubishi</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="/vehicles">Daihatsu</a>
-					</div></li>
+					<li class="nav-item"><a class="nav-link" href="/vehicles">Vehicle</a></li>
+					<li class="nav-item"><a class="nav-link" href="/edit-customer?idCustomer=${customer.idCustomer }">My Information</a></li>
+					<li class="nav-item"><a class="nav-link" href="/my-reservation?idCustomer=${customer.idCustomer }">My Reservation</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 				<li class="nav-item"><a class="nav-link" href="/reservation">Reservation</a>
 				</li>
@@ -91,7 +84,10 @@
 	<br>
 	<!-- END CAROUSEL -->
 
-
+<%-- <h7>id Customer :${customer.idCustomer}	</h7><br>
+<h7>fullname Customer :${customer.fullnameCustomer}	</h7><br>
+<h7>username Customer :${customer.usernameCustomer}	</h7><br>
+<h7>password Customer :${customer.passwordCustomer}	</h7><br> --%>
 	<c:choose>
 		<c:when test="${mode=='MODE_HOME_CUSTOMER' }">
 			<!-- 	<div class="container" id="homediv">
@@ -100,7 +96,59 @@
 				</div>
 			</div> -->
 		</c:when>
+	<%-- <c:when test="${mode=='MODE_UPDATE_CUSTOMER' }">
+			<div class="container text-center">
+				<h3>Update User</h3>
+				<hr>
+				<form class="form-horizontal" method="POST" action="save-customer">
+					<input type="hidden" name="idCustomer"
+						value="${customer.idCustomer }" />
+					<div class="form-group">
+						<label class="control-label col-md-3">Full Name </label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="fullnameCustomer"
+								value="${customer.fullnameCustomer }" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-md-3">Username</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="usernameCustomer"
+								value="${customer.usernameCustomer }" />
+						</div>
+					</div>
 
+					<div class="form-group">
+						<label class="control-label col-md-3">Password</label>
+						<div class="col-md-7">
+							<input type="password" class="form-control" name="passwordCustomer"
+								value="${customer.passwordCustomer }" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-md-3">Email_Address</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="emailCustomer"
+								value="${customer.emailCustomer }" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-md-3">Mobile Number</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="contactnoCustomer"
+								value="${customer.contactnoCustomer }" />
+						</div>
+					</div>
+					
+					<div class="form-group ">
+						<input type="submit" class="btn btn-primary" value="Update" />
+					</div>
+				</form>
+			</div>
+		</c:when> --%>
 	</c:choose>
 
 </body>
