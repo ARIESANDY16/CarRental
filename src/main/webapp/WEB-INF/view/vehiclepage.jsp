@@ -30,9 +30,9 @@
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Vehicle </a>
+					class="nav-link dropdown-toggle active" href="#"
+					id="navbarDropdown" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> Vehicle </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/vehicles">Avanza</a> <a
 							class="dropdown-item" href="/vehicles">Mitsubishi</a>
@@ -58,7 +58,7 @@
 	</nav>
 	<!--     END NAVBAR  -->
 	<c:choose>
-	<c:when test="${mode=='ALL_VEHICLES' }">
+		<c:when test="${mode=='ALL_VEHICLES' }">
 			<div class="container text-center" id="tasksDiv">
 				<h3>All Vehicles</h3>
 				<hr>
@@ -69,18 +69,15 @@
 						<tbody>
 							<c:forEach var="vehicle" items="${vehicles }">
 								<tr>
-									<td>
-										<img src="/getImage/${vehicle.idVehicle}" width="300" height="200">
-									</td>
+									<td><img src="/getImage/${vehicle.idVehicle}" width="300"
+										height="200"></td>
 									<td><strong>${vehicle.nameVehicle} </strong><br>
-									Harga : Rp. ${vehicle.priceVehicle},- / jam <br>
-									+ Driver : Rp. 10.000,- / jam
-									Type: ${vehicle.typeVehicle} <br> 
-									Tahun : ${vehicle.yearVehicle} <br> 
-									Kapasitas : ${vehicle.capacityVehicle} orang <br>
-									Deskripsi : ${vehicle.descriptionVehicle}<br>
-									</td>
-										<td><a
+										Harga : Rp. ${vehicle.priceVehicle},- / jam <br> + Driver
+										: Rp. 10.000,- / jam Type: ${vehicle.typeVehicle} <br>
+										Tahun : ${vehicle.yearVehicle} <br> Kapasitas :
+										${vehicle.capacityVehicle} orang <br> Deskripsi :
+										${vehicle.descriptionVehicle}<br></td>
+									<td><a
 										href="/addreservation?idVehicle=${vehicle.idVehicle }"><button>Reservation</button></a></td>
 									<!-- <td><button>Reservation</button></td> -->
 								</tr>
@@ -90,11 +87,7 @@
 				</div>
 			</div>
 		</c:when>
-	
-
-
 	</c:choose>
-
 
 </body>
 </html>

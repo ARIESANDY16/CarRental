@@ -5,12 +5,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.miniproject.CarRental.Model.Reservation;
-import com.miniproject.CarRental.Model.Vehicle;
 import com.miniproject.CarRental.Repository.ReservationRepository;
+
 @Service
 @Transactional
 public class ReservationService {
