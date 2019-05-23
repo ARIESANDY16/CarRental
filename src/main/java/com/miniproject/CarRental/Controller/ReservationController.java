@@ -29,13 +29,23 @@ public class ReservationController {
 		return "reservationpage";
 	}
 
+	/*
+	 * @PostMapping("/save-reservation") public String
+	 * addNewReservation(@ModelAttribute Reservation reservation, BindingResult
+	 * bindingResult, HttpServletRequest request) {
+	 * reservationService.saveMyReservation(reservation);
+	 * request.setAttribute("mode", "MODE_HOME"); return "homecustomer"; }
+	 */
+	
+	/* baru */
 	@PostMapping("/save-reservation")
-	public String addNewReservation(@ModelAttribute Reservation reservation, BindingResult bindingResult,
+	public String reservationCustomer(@ModelAttribute Reservation reservation, BindingResult bindingResult,
 			HttpServletRequest request) {
 		reservationService.saveMyReservation(reservation);
 		request.setAttribute("mode", "MODE_HOME");
-		return "homecustomer";
+		return "redirect:/index";
 	}
+	/* -baru */
 
 	@PostMapping("/save-reservation-admin")
 	public String updateReservationByadmins(@ModelAttribute Reservation reservation, BindingResult bindingResult,

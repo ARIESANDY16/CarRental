@@ -6,18 +6,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="keywords" content="">
 <meta name="description" content="">
-<title>Car Rental Portal</title>
+<title>Car Rental Portal | Page details</title>
 <!--Bootstrap -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css"
 	type="text/css">
+<!--Custome Style -->
 <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+<!--OWL Carousel slider-->
 <link rel="stylesheet" href="assets/css/owl.carousel.css"
 	type="text/css">
 <link rel="stylesheet" href="assets/css/owl.transitions.css"
 	type="text/css">
+<!--slick-slider -->
 <link href="assets/css/slick.css" rel="stylesheet">
+<!--bootstrap-slider -->
 <link href="assets/css/bootstrap-slider.min.css" rel="stylesheet">
+<!--FontAwesome Font Style -->
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- SWITCHER -->
 <link rel="stylesheet" id="switcher-css" type="text/css"
 	href="assets/switcher/css/switcher.css" media="all" />
 <link rel="alternate stylesheet" type="text/css"
@@ -33,6 +40,8 @@
 	href="assets/switcher/css/green.css" title="green" media="all" />
 <link rel="alternate stylesheet" type="text/css"
 	href="assets/switcher/css/purple.css" title="purple" media="all" />
+
+<!-- Fav and touch icons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
 	href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -47,6 +56,7 @@
 	rel="stylesheet">
 </head>
 <body>
+	
 	<!-- Start Switcher -->
 	<div class="switcher-wrapper">
 		<div class="demo_changer">
@@ -130,7 +140,6 @@
 		</div>
 	</div>
 
-	<!-- Navigation -->
 	<nav id="navigation_bar" class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -196,157 +205,45 @@
 			</div>
 		</div>
 	</nav>
-	<!-- Navigation end -->
-	<!-- /Header -->
 
-	<!-- Banners -->
-	<section id="banner" class="banner-section">
+	<section class="page-header aboutus_page">
 		<div class="container">
-			<div class="div_zindex">
-				<div class="row">
-					<div class="col-md-5 col-md-push-7">
-						<div class="banner_content">
-							<h1>Find the right car for you.</h1>
-							<p>We have more than a thousand cars for you to choose.</p>
-							<a href="#" class="btn">Read More <span class="angle_arrow"><i
-									class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-						</div>
-					</div>
+			<div class="page-header_wrap">
+				<div class="page-heading">
+					<h1>
+						About Us
+					</h1>
 				</div>
+				<ul class="coustom-breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li>
+						About Us
+					</li>
+				</ul>
 			</div>
 		</div>
+		<!-- Dark Overlay-->
+		<div class="dark-overlay"></div>
 	</section>
-	<!-- /Banners -->
-
-	<!-- Resent Cat-->
-	<section class="section-padding gray-bg">
+	<section class="about_us section-padding">
 		<div class="container">
 			<div class="section-header text-center">
+
+
 				<h2>
-					Find the Best <span>CarForYou</span>
+					<?php   echo htmlentities($result->PageName); ?>
 				</h2>
-				<p>There are many variations of passages of Lorem Ipsum
-					available, but the majority have suffered alteration in some form,
-					by injected humour, or randomised words which don't look even
-					slightly believable. If you are going to use a passage of Lorem
-					Ipsum, you need to be sure there isn't anything embarrassing hidden
-					in the middle of text.</p>
+				<p>
+					<?php  echo $result->detail; ?>
+				</p>
 			</div>
-			<div class="row">
-
-				<!-- Nav tabs -->
-				<div class="recent-tab">
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a
-							href="#resentnewcar" role="tab" data-toggle="tab">New Car</a></li>
-					</ul>
-				</div>
-				<!-- Recently Listed New Cars -->
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="resentnewcar">
-						<div class="col-list-3">
-							<div class="recent-car-list">
-								<div class="car-info-box">
-									<a
-										href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><img
-										src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>"
-										class="img-responsive" alt="image"></a>
-									<ul>
-										<li><i class="fa fa-car" aria-hidden="true"></i></li>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i>Model</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i>seats</li>
-									</ul>
-								</div>
-								<div class="car-title-m">
-									<h6>
-										<a href="vehical-details.php"> </a>
-									</h6>
-									<span class="price"> /Day </span>
-								</div>
-								<div class="inventory_info_m"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php } }?>
 		</div>
 	</section>
-	<!-- /Resent Cat -->
+	<!-- /About-us-->
 
-	<!-- Fun Facts-->
-	<section class="fun-facts-section">
-		<div class="container div_zindex">
-			<div class="row">
-				<div class="col-lg-3 col-xs-6 col-sm-3">
-					<div class="fun-facts-m">
-						<div class="cell">
-							<h2>
-								<i class="fa fa-calendar" aria-hidden="true"></i>40+
-							</h2>
-							<p>Years In Business</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-xs-6 col-sm-3">
-					<div class="fun-facts-m">
-						<div class="cell">
-							<h2>
-								<i class="fa fa-car" aria-hidden="true"></i>1200+
-							</h2>
-							<p>New Cars For Sale</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-xs-6 col-sm-3">
-					<div class="fun-facts-m">
-						<div class="cell">
-							<h2>
-								<i class="fa fa-car" aria-hidden="true"></i>1000+
-							</h2>
-							<p>Used Cars For Sale</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-xs-6 col-sm-3">
-					<div class="fun-facts-m">
-						<div class="cell">
-							<h2>
-								<i class="fa fa-user-circle-o" aria-hidden="true"></i>600+
-							</h2>
-							<p>Satisfied Customers</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Dark Overlay-->
-		<div class="dark-overlay"></div>
-	</section>
-	<!-- /Fun Facts-->
 
-	<!--Testimonial -->
-	<section class="section-padding testimonial-section parallex-bg">
-		<div class="container div_zindex">
-			<div class="section-header white-text text-center">
-				<h2>
-					Our Satisfied <span>Customers</span>
-				</h2>
-			</div>
-			<div class="row">
-				<div id="testimonial-slider">
-					<div class="testimonial-m">
 
-						<div class="testimonial-content">
-							<div class="testimonial-heading"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Dark Overlay-->
-		<div class="dark-overlay"></div>
-	</section>
-	<!-- /Testimonial-->
 
 
 	<!--Footer -->
@@ -357,8 +254,8 @@
 				<div class="col-md-6">
 					<h6>About Us</h6>
 					<ul>
-						<li><a href="/about-us">About Us</a></li>
-						<li><a href="/faqs">FAQs</a></li>
+						<li><a href="page.php?type=aboutus">About Us</a></li>
+						<li><a href="page.php?type=faqs">FAQs</a></li>
 						<li><a href="page.php?type=privacy">Privacy</a></li>
 						<li><a href="page.php?type=terms">Terms of use</a></li>
 						<li><a href="admin/">Admin Login</a></li>
@@ -436,14 +333,14 @@
 					<div class="row">
 						<div class="login_wrap">
 							<div class="col-md-12 col-sm-6">
-								<form method="post" action="/login-customer">
+								<form method="post">
 									<div class="form-group">
-										<input type="email" class="form-control" name="usernameCustomer"
-											placeholder="Email address*" value="${customer.usernameCustomer}">
+										<input type="email" class="form-control" name="email"
+											placeholder="Email address*">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" name="passwordCustomer"
-											placeholder="Password*" value="${customer.passwordCustomer}">
+										<input type="password" class="form-control" name="password"
+											placeholder="Password*">
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="remember">
@@ -489,34 +386,30 @@
 					<div class="row">
 						<div class="signup_wrap">
 							<div class="col-md-12 col-sm-6">
-								<form class="form-horizontal" method="POST" name="signup" action="/save-customer">
-									
-										<input type="hidden" name="idCustomer" value="${customer.idCustomer}">
-									
+								<form method="post" name="signup" onSubmit="return valid();">
 									<div class="form-group">
-										<input type="text" class="form-control" name="fullnameCustomer"
-											placeholder="Full Name" maxlength="10"
-											 value="${customer.fullnameCustomer}">
+										<input type="text" class="form-control" name="fullname"
+											placeholder="Full Name" required="required">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="usernameCustomer"
-											onBlur="checkAvailability()"
-											placeholder="Username" value="${customer.usernameCustomer}"> <span
+										<input type="text" class="form-control" name="mobileno"
+											placeholder="Mobile Number" maxlength="10"
+											required="required">
+									</div>
+									<div class="form-group">
+										<input type="email" class="form-control" name="emailid"
+											id="emailid" onBlur="checkAvailability()"
+											placeholder="Email Address" required="required"> <span
 											id="user-availability-status" style="font-size: 12px;"></span>
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" name="passwordCustomer"
-											placeholder="Password" value="${customer.passwordCustomer}">
+										<input type="password" class="form-control" name="password"
+											placeholder="Password" required="required">
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control"
-											name="emailCustomer" placeholder="Email Address"
-											 value="${customer.emailCustomer}">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control"
-											name="contactnoCustomer" placeholder="Mobile Phone"
-											 value="${customer.contactnoCustomer}">
+										<input type="password" class="form-control"
+											name="confirmpassword" placeholder="Confirm Password"
+											required="required">
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="terms_agree" required="required"
@@ -525,7 +418,7 @@
 										</label>
 									</div>
 									<div class="form-group">
-										<input type="submit" value="Sign Up"
+										<input type="submit" value="Sign Up" name="signup" id="submit"
 											class="btn btn-block">
 									</div>
 								</form>
@@ -542,6 +435,7 @@
 			</div>
 		</div>
 	</div>
+
 	<!--/Register-Form -->
 
 	<!--Forgot-password-Form -->
@@ -612,5 +506,9 @@
 	<!--Slider-JS-->
 	<script src="assets/js/slick.min.js"></script>
 	<script src="assets/js/owl.carousel.min.js"></script>
+
+
 </body>
+
+<!-- Mirrored from themes.webmasterdriver.net/carforyou/demo/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Jun 2017 07:26:12 GMT -->
 </html>

@@ -6,18 +6,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="keywords" content="">
 <meta name="description" content="">
-<title>Car Rental Portal</title>
+<title>Car Rental Port | Vehicle Details</title>
 <!--Bootstrap -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css"
 	type="text/css">
+<!--Custome Style -->
 <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+<!--OWL Carousel slider-->
 <link rel="stylesheet" href="assets/css/owl.carousel.css"
 	type="text/css">
 <link rel="stylesheet" href="assets/css/owl.transitions.css"
 	type="text/css">
+<!--slick-slider -->
 <link href="assets/css/slick.css" rel="stylesheet">
+<!--bootstrap-slider -->
 <link href="assets/css/bootstrap-slider.min.css" rel="stylesheet">
+<!--FontAwesome Font Style -->
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- SWITCHER -->
 <link rel="stylesheet" id="switcher-css" type="text/css"
 	href="assets/switcher/css/switcher.css" media="all" />
 <link rel="alternate stylesheet" type="text/css"
@@ -47,6 +54,7 @@
 	rel="stylesheet">
 </head>
 <body>
+
 	<!-- Start Switcher -->
 	<div class="switcher-wrapper">
 		<div class="demo_changer">
@@ -129,6 +137,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- /Header -->
 
 	<!-- Navigation -->
 	<nav id="navigation_bar" class="navbar navbar-default">
@@ -188,166 +197,307 @@
 			<div class="collapse navbar-collapse" id="navigation">
 				<ul class="nav navbar-nav">
 					<li><a href="/index">Home</a></li>
-					<li><a href="/about-us">About Us</a></li>
-					<li><a href="/car-listing">Car Listing</a>
-					<li><a href="/faqs">FAQs</a></li>
+					<li><a href="page.php?type=aboutus">About Us</a></li>
+					<li><a href="/car-listing">Car Listing</a> <li><a href="page.php?type=faqs">FAQs</a></li>
 					<li><a href="/contact-us">Contact Us</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- Navigation end -->
-	<!-- /Header -->
+	<!--Listing-Image-Slider-->
 
-	<!-- Banners -->
-	<section id="banner" class="banner-section">
-		<div class="container">
-			<div class="div_zindex">
-				<div class="row">
-					<div class="col-md-5 col-md-push-7">
-						<div class="banner_content">
-							<h1>Find the right car for you.</h1>
-							<p>We have more than a thousand cars for you to choose.</p>
-							<a href="#" class="btn">Read More <span class="angle_arrow"><i
-									class="fa fa-angle-right" aria-hidden="true"></i></span></a>
-						</div>
-					</div>
-				</div>
-			</div>
+
+
+						<section id="listing_img_slider">
+		<div>
+			<img src="admin/img/vehicleimages" class="img-responsive" alt="image"
+									width="900" height="560">
 		</div>
-	</section>
-	<!-- /Banners -->
+		<div>
+			<img src="admin/img/vehicleimages" class="img-responsive" alt="image"
+									width="900" height="560">
+		</div>
+		<div>
+			<img src="admin/img/vehicleimages" class="img-responsive" alt="image"
+									width="900" height="560">
+		</div>
+		<div>
+			<img src="admin/img/vehicleimages" class="img-responsive" alt="image"
+									width="900" height="560">
+		</div>
 
-	<!-- Resent Cat-->
-	<section class="section-padding gray-bg">
+		<div>
+			<img src="admin/img/vehicleimages" class="img-responsive" alt="image"
+									width="900" height="560">
+		</div>
+
+	</section>
+	<!--/Listing-Image-Slider-->
+
+
+	<!--Listing-detail-->
+	<section class="listing-detail">
 		<div class="container">
-			<div class="section-header text-center">
-				<h2>
-					Find the Best <span>CarForYou</span>
-				</h2>
-				<p>There are many variations of passages of Lorem Ipsum
-					available, but the majority have suffered alteration in some form,
-					by injected humour, or randomised words which don't look even
-					slightly believable. If you are going to use a passage of Lorem
-					Ipsum, you need to be sure there isn't anything embarrassing hidden
-					in the middle of text.</p>
+			<div class="listing_detail_head row">
+				<div class="col-md-9"></div>
+				<div class="col-md-3">
+					<div class="price_info">Per Day</div>
+				</div>
 			</div>
 			<div class="row">
+				<div class="col-md-9">
+					<div class="main_features">
+						<ul>
 
-				<!-- Nav tabs -->
-				<div class="recent-tab">
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a
-							href="#resentnewcar" role="tab" data-toggle="tab">New Car</a></li>
-					</ul>
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>
+
+								<p>Reg.Year</p></li>
+							<li><i class="fa fa-cogs" aria-hidden="true"></i>
+
+								<p>Fuel Type</p></li>
+
+							<li><i class="fa fa-user-plus" aria-hidden="true"></i>
+
+								<p>Seats</p></li>
+						</ul>
+					</div>
+					<div class="listing_more_info">
+						<div class="listing_detail_wrap">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs gray-bg" role="tablist">
+								<li role="presentation" class="active"><a
+														href="#vehicle-overview " aria-controls="vehicle-overview"
+														role="tab" data-toggle="tab">Vehicle Overview </a></li>
+
+								<li role="presentation"><a href="#accessories"
+														aria-controls="accessories" role="tab" data-toggle="tab">Accessories</a></li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<!-- vehicle-overview -->
+								<div role="tabpanel" class="tab-pane active"
+														id="vehicle-overview"></div>
+
+
+								<!-- Accessories -->
+								<div role="tabpanel" class="tab-pane" id="accessories">
+									<!--Accessories-->
+									<table>
+										<thead>
+											<tr>
+												<th colspan="2">Accessories</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Air Conditioner</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+											</tr>
+
+											<tr>
+												<td>AntiLock Braking System</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+											<tr>
+												<td>Power Steering</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+
+											<tr>
+
+												<td>Power Windows</td>
+
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+											<tr>
+												<td>CD Player</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+											<tr>
+												<td>Leather Seats</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+											<tr>
+												<td>Central Locking</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+											<tr>
+												<td>Power Door Locks</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+											<tr>
+												<td>Brake Assist</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+											<tr>
+												<td>Driver Airbag</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+											<tr>
+												<td>Passenger Airbag</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+											<tr>
+												<td>Crash Sensor</td>
+
+												<td><i class="fa fa-check" aria-hidden="true"></i></td>
+
+												<td><i class="fa fa-close" aria-hidden="true"></i></td>
+
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
 				</div>
-				<!-- Recently Listed New Cars -->
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="resentnewcar">
-						<div class="col-list-3">
-							<div class="recent-car-list">
-								<div class="car-info-box">
-									<a
-										href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><img
-										src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>"
-										class="img-responsive" alt="image"></a>
-									<ul>
-										<li><i class="fa fa-car" aria-hidden="true"></i></li>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i>Model</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i>seats</li>
-									</ul>
-								</div>
-								<div class="car-title-m">
-									<h6>
-										<a href="vehical-details.php"> </a>
-									</h6>
-									<span class="price"> /Day </span>
-								</div>
-								<div class="inventory_info_m"></div>
+
+				<!--Side-Bar-->
+				<aside class="col-md-3">
+
+					<div class="share_vehicle">
+						<p>
+							Share: <a href="#"><i class="fa fa-facebook-square"
+													aria-hidden="true"></i></a> <a href="#"><i
+													class="fa fa-twitter-square" aria-hidden="true"></i></a> <a
+													href="#"><i class="fa fa-linkedin-square"
+													aria-hidden="true"></i></a> <a href="#"><i
+													class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+						</p>
+					</div>
+					<div class="sidebar_widget">
+						<div class="widget_heading">
+							<h5>
+								<i class="fa fa-envelope" aria-hidden="true"></i>Book Now
+							</h5>
+						</div>
+						<form method="post">
+							<div class="form-group">
+								<input type="text" class="form-control" name="fromdate"
+														placeholder="From Date(dd/mm/yyyy)" required>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" name="todate"
+														placeholder="To Date(dd/mm/yyyy)" required>
+							</div>
+							<div class="form-group">
+								<textarea rows="4" class="form-control" name="message"
+														placeholder="Message" required></textarea>
+							</div>
+
+							<div class="form-group">
+								<input type="submit" class="btn" name="submit" value="Book Now">
+							</div>
+
+							<a href="#loginform" class="btn btn-xs uppercase"
+													data-toggle="modal" data-dismiss="modal">Login For Book</a>
+
+
+						</form>
+					</div>
+				</aside>
+				<!--/Side-Bar-->
+			</div>
+
+			<div class="space-20"></div>
+			<div class="divider"></div>
+
+			<!--Similar-Cars-->
+			<div class="similar_cars">
+				<h3>Similar Cars</h3>
+				<div class="row">
+
+					<div class="col-md-3 grid_listing">
+						<div class="product-listing-m gray-bg">
+							<div class="product-listing-img">
+								<a
+														href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><img
+														src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>"
+														class="img-responsive" alt="image" /> </a>
+							</div>
+							<div class="product-listing-content">
+								<h5>
+									<a href="vehical-details.php"></a>
+								</h5>
+								<p class="list-price"></p>
+
+								<ul class="features_list">
+
+									<li><i class="fa fa-user" aria-hidden="true"></i>seats</li>
+									<li><i class="fa fa-calendar" aria-hidden="true"></i></li>
+									<li><i class="fa fa-car" aria-hidden="true"></i></li>
+								</ul>
 							</div>
 						</div>
 					</div>
+
+
 				</div>
 			</div>
+			<!--/Similar-Cars-->
+
 		</div>
 	</section>
-	<!-- /Resent Cat -->
-
-	<!-- Fun Facts-->
-	<section class="fun-facts-section">
-		<div class="container div_zindex">
-			<div class="row">
-				<div class="col-lg-3 col-xs-6 col-sm-3">
-					<div class="fun-facts-m">
-						<div class="cell">
-							<h2>
-								<i class="fa fa-calendar" aria-hidden="true"></i>40+
-							</h2>
-							<p>Years In Business</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-xs-6 col-sm-3">
-					<div class="fun-facts-m">
-						<div class="cell">
-							<h2>
-								<i class="fa fa-car" aria-hidden="true"></i>1200+
-							</h2>
-							<p>New Cars For Sale</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-xs-6 col-sm-3">
-					<div class="fun-facts-m">
-						<div class="cell">
-							<h2>
-								<i class="fa fa-car" aria-hidden="true"></i>1000+
-							</h2>
-							<p>Used Cars For Sale</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-xs-6 col-sm-3">
-					<div class="fun-facts-m">
-						<div class="cell">
-							<h2>
-								<i class="fa fa-user-circle-o" aria-hidden="true"></i>600+
-							</h2>
-							<p>Satisfied Customers</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Dark Overlay-->
-		<div class="dark-overlay"></div>
-	</section>
-	<!-- /Fun Facts-->
-
-	<!--Testimonial -->
-	<section class="section-padding testimonial-section parallex-bg">
-		<div class="container div_zindex">
-			<div class="section-header white-text text-center">
-				<h2>
-					Our Satisfied <span>Customers</span>
-				</h2>
-			</div>
-			<div class="row">
-				<div id="testimonial-slider">
-					<div class="testimonial-m">
-
-						<div class="testimonial-content">
-							<div class="testimonial-heading"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Dark Overlay-->
-		<div class="dark-overlay"></div>
-	</section>
-	<!-- /Testimonial-->
-
+	<!--/Listing-detail-->
 
 	<!--Footer -->
 	<div class="footer-top">
@@ -357,8 +507,8 @@
 				<div class="col-md-6">
 					<h6>About Us</h6>
 					<ul>
-						<li><a href="/about-us">About Us</a></li>
-						<li><a href="/faqs">FAQs</a></li>
+						<li><a href="page.php?type=aboutus">About Us</a></li>
+						<li><a href="page.php?type=faqs">FAQs</a></li>
 						<li><a href="page.php?type=privacy">Privacy</a></li>
 						<li><a href="page.php?type=terms">Terms of use</a></li>
 						<li><a href="admin/">Admin Login</a></li>
@@ -371,12 +521,12 @@
 						<form method="post">
 							<div class="form-group">
 								<input type="email" name="subscriberemail"
-									class="form-control newsletter-input" required
-									placeholder="Enter Email Address" />
+														class="form-control newsletter-input" required
+														placeholder="Enter Email Address" />
 							</div>
 							<button type="submit" name="emailsubscibe" class="btn btn-block">
 								Subscribe <span class="angle_arrow"><i
-									class="fa fa-angle-right" aria-hidden="true"></i></span>
+														class="fa fa-angle-right" aria-hidden="true"></i></span>
 							</button>
 						</form>
 						<p class="subscribed-text">*We send great deals and latest
@@ -394,15 +544,15 @@
 						<p>Connect with Us:</p>
 						<ul>
 							<li><a href="#"><i class="fa fa-facebook-square"
-									aria-hidden="true"></i></a></li>
+														aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter-square"
-									aria-hidden="true"></i></a></li>
+														aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-linkedin-square"
-									aria-hidden="true"></i></a></li>
+														aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-google-plus-square"
-									aria-hidden="true"></i></a></li>
+														aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-instagram"
-									aria-hidden="true"></i></a></li>
+														aria-hidden="true"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -427,7 +577,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+											aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h3 class="modal-title">Login</h3>
@@ -436,14 +586,14 @@
 					<div class="row">
 						<div class="login_wrap">
 							<div class="col-md-12 col-sm-6">
-								<form method="post" action="/login-customer">
+								<form method="post">
 									<div class="form-group">
-										<input type="email" class="form-control" name="usernameCustomer"
-											placeholder="Email address*" value="${customer.usernameCustomer}">
+										<input type="email" class="form-control" name="email"
+																placeholder="Email address*">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" name="passwordCustomer"
-											placeholder="Password*" value="${customer.passwordCustomer}">
+										<input type="password" class="form-control" name="password"
+																placeholder="Password*">
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="remember">
@@ -451,7 +601,7 @@
 									</div>
 									<div class="form-group">
 										<input type="submit" name="login" value="Login"
-											class="btn btn-block">
+																class="btn btn-block">
 									</div>
 								</form>
 							</div>
@@ -462,7 +612,7 @@
 				<div class="modal-footer text-center">
 					<p>
 						Don't have an account? <a href="#signupform" data-toggle="modal"
-							data-dismiss="modal">Signup Here</a>
+												data-dismiss="modal">Signup Here</a>
 					</p>
 					<p>
 						<a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot
@@ -480,7 +630,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+											aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h3 class="modal-title">Sign Up</h3>
@@ -489,44 +639,40 @@
 					<div class="row">
 						<div class="signup_wrap">
 							<div class="col-md-12 col-sm-6">
-								<form class="form-horizontal" method="POST" name="signup" action="/save-customer">
-									
-										<input type="hidden" name="idCustomer" value="${customer.idCustomer}">
-									
+								<form method="post" name="signup" onSubmit="return valid();">
 									<div class="form-group">
-										<input type="text" class="form-control" name="fullnameCustomer"
-											placeholder="Full Name" maxlength="10"
-											 value="${customer.fullnameCustomer}">
+										<input type="text" class="form-control" name="fullname"
+																placeholder="Full Name" required="required">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="usernameCustomer"
-											onBlur="checkAvailability()"
-											placeholder="Username" value="${customer.usernameCustomer}"> <span
-											id="user-availability-status" style="font-size: 12px;"></span>
+										<input type="text" class="form-control" name="mobileno"
+																placeholder="Mobile Number" maxlength="10"
+																required="required">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" name="passwordCustomer"
-											placeholder="Password" value="${customer.passwordCustomer}">
+										<input type="email" class="form-control" name="emailid"
+																id="emailid" onBlur="checkAvailability()"
+																placeholder="Email Address" required="required"> <span
+																id="user-availability-status" style="font-size: 12px;"></span>
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control"
-											name="emailCustomer" placeholder="Email Address"
-											 value="${customer.emailCustomer}">
+										<input type="password" class="form-control" name="password"
+																placeholder="Password" required="required">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control"
-											name="contactnoCustomer" placeholder="Mobile Phone"
-											 value="${customer.contactnoCustomer}">
+										<input type="password" class="form-control"
+																name="confirmpassword" placeholder="Confirm Password"
+																required="required">
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="terms_agree" required="required"
-											checked=""> <label for="terms_agree">I Agree
+																checked=""> <label for="terms_agree">I Agree
 											with <a href="#">Terms and Conditions</a>
 										</label>
 									</div>
 									<div class="form-group">
-										<input type="submit" value="Sign Up"
-											class="btn btn-block">
+										<input type="submit" value="Sign Up" name="signup" id="submit"
+																class="btn btn-block">
 									</div>
 								</form>
 							</div>
@@ -536,12 +682,13 @@
 				<div class="modal-footer text-center">
 					<p>
 						Already got an account? <a href="#loginform" data-toggle="modal"
-							data-dismiss="modal">Login Here</a>
+												data-dismiss="modal">Login Here</a>
 					</p>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<!--/Register-Form -->
 
 	<!--Forgot-password-Form -->
@@ -550,7 +697,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+											aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h3 class="modal-title">Password Recovery</h3>
@@ -562,24 +709,24 @@
 								<form name="chngpwd" method="post" onSubmit="return valid();">
 									<div class="form-group">
 										<input type="email" name="email" class="form-control"
-											placeholder="Your Email address*" required="">
+																placeholder="Your Email address*" required="">
 									</div>
 									<div class="form-group">
 										<input type="text" name="mobile" class="form-control"
-											placeholder="Your Reg. Mobile*" required="">
+																placeholder="Your Reg. Mobile*" required="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="newpassword" class="form-control"
-											placeholder="New Password*" required="">
+																placeholder="New Password*" required="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="confirmpassword"
-											class="form-control" placeholder="Confirm Password*"
-											required="">
+																class="form-control" placeholder="Confirm Password*"
+																required="">
 									</div>
 									<div class="form-group">
 										<input type="submit" value="Reset My Password" name="update"
-											class="btn btn-block">
+																class="btn btn-block">
 									</div>
 								</form>
 								<div class="text-center">
@@ -588,7 +735,7 @@
 										be send.</p>
 									<p>
 										<a href="#loginform" data-toggle="modal" data-dismiss="modal"><i
-											class="fa fa-angle-double-left" aria-hidden="true"></i> Back
+																class="fa fa-angle-double-left" aria-hidden="true"></i> Back
 											to Login</a>
 									</p>
 								</div>
@@ -599,18 +746,15 @@
 			</div>
 		</div>
 	</div>
-	<!--/Forgot-password-Form -->
 
-	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/interface.js"></script>
-	<!--Switcher-->
 	<script src="assets/switcher/js/switcher.js"></script>
-	<!--bootstrap-slider-JS-->
 	<script src="assets/js/bootstrap-slider.min.js"></script>
-	<!--Slider-JS-->
 	<script src="assets/js/slick.min.js"></script>
 	<script src="assets/js/owl.carousel.min.js"></script>
-</body>
+
+
+					</body>
 </html>
