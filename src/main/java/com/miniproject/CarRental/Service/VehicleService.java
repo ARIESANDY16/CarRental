@@ -18,46 +18,38 @@ import com.miniproject.CarRental.Repository.VehicleRepository;
 public class VehicleService {
 
 	private final VehicleRepository vehicleRepository;
-	/* private static EntityManager entityManager; */
-	
+
 	public VehicleService(VehicleRepository vehicleRepository) {
 		this.vehicleRepository = vehicleRepository;
 	}
-	
+
 	public void saveMyVehicle(Vehicle vehicle) {
 		vehicleRepository.save(vehicle);
 	}
-	
-	public List<Vehicle> showAllVehicles() throws UnsupportedEncodingException{
-		List<Vehicle> vehicles = new ArrayList<Vehicle>() ;
-			for(Vehicle vehicle:vehicleRepository.findAll()) {
 
-				vehicles.add(vehicle);
-			}
-			return vehicles;
+	public List<Vehicle> showAllVehicles() throws UnsupportedEncodingException {
+		List<Vehicle> vehicles = new ArrayList<Vehicle>();
+		for (Vehicle vehicle : vehicleRepository.findAll()) {
+
+			vehicles.add(vehicle);
 		}
-	public List<Vehicle> showVehicles(){
-		List<Vehicle> vehicles = new ArrayList<Vehicle>() ;
-			for(Vehicle vehicle:vehicleRepository.findAll()) {
-				vehicles.add(vehicle);
-			}
-			return vehicles;
+		return vehicles;
+	}
+
+	public List<Vehicle> showVehicles() {
+		List<Vehicle> vehicles = new ArrayList<Vehicle>();
+		for (Vehicle vehicle : vehicleRepository.findAll()) {
+			vehicles.add(vehicle);
 		}
-	
+		return vehicles;
+	}
+
 	public void deleteMyVehicle(int idVehicle) {
 		vehicleRepository.deleteById(idVehicle);
 	}
-	
+
 	public Vehicle editVehicle(int idVehicle) {
 		return vehicleRepository.findById(idVehicle).orElse(null);
 	}
-	
-	/*
-	 * public byte[] loadImage(int idVehicle) { return
-	 * entityManager.find(Vehicle.class, idVehicle).getImageVehicle(); }
-	 */
 
-	
-	}
-	
-
+}

@@ -20,7 +20,8 @@ public class Driver {
 
 	}
 
-	public Driver(String fullnameDriver, String usernameDriver, String passwordDriver, int priceDriver, String statusDriver) {
+	public Driver(String fullnameDriver, String usernameDriver, String passwordDriver, int priceDriver,
+			String statusDriver) {
 		super();
 		this.fullnameDriver = fullnameDriver;
 		this.usernameDriver = usernameDriver;
@@ -68,7 +69,7 @@ public class Driver {
 	public void setPriceDriver(int priceDriver) {
 		this.priceDriver = priceDriver;
 	}
-	
+
 	public String getStatusDriver() {
 		return statusDriver;
 	}
@@ -84,7 +85,4 @@ public class Driver {
 				+ ", statusDriver=" + statusDriver + "]";
 	}
 
-	
-	
-	
 }

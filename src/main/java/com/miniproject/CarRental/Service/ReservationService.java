@@ -6,27 +6,13 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import com.miniproject.CarRental.Model.Customer;
 import com.miniproject.CarRental.Model.Reservation;
 import com.miniproject.CarRental.Repository.ReservationRepository;
 
 @Service
 @Transactional
 public class ReservationService {
-	/* @Autowired */
 	private final ReservationRepository reservationRepository;
-
-	/*
-	 * public List<Reservation> fetchReservationDataInnerJoin() { return
-	 * reservationRepository.fetchReservationDataInnerJoin(); }
-	 */
-
-	/*
-	 * @Override public Vehicle get(int idVehicle) { try { return
-	 * reservationRepository.getCurrentSession()
-	 * .get(Vehicle.class,Integer.valueOf(idVehicle)); } catch(Exception ex) {
-	 * ex.printStackTrace(); } return null; }
-	 */
 
 	public ReservationService(ReservationRepository reservationRepository) {
 		this.reservationRepository = reservationRepository;
@@ -81,20 +67,13 @@ public class ReservationService {
 		reservationRepository.save(reservation);
 	}
 
-	/*
-	 * public void saveMyReservation(Reservation reservation) {
-	 * reservationRepository.save(reservation);
-	 * 
-	 * }
-	 */
-	
-	//Add New
-		public List<Reservation> showReservations(int idCustomer) {
-			return reservationRepository.findByCustomer(idCustomer);
-		}
-		
-		public List<Reservation> driverTask(int idDriver) {
-			return reservationRepository.findByDriver(idDriver);
-		}
+	// Add New
+	public List<Reservation> showReservations(int idCustomer) {
+		return reservationRepository.findByCustomer(idCustomer);
+	}
+
+	public List<Reservation> driverTask(int idDriver) {
+		return reservationRepository.findByDriver(idDriver);
+	}
 
 }

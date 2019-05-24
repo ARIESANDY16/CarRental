@@ -154,7 +154,7 @@
 
 								<li><a href="/edit-customer">Profile Settings</a></li>
 								
-								<li><a href="/customer-reservation">My Booking</a></li>
+								<li><a href="/my-reservation">My Booking</a></li>
 								
 								<li><a href="/logout-customer">Sign Out</a></li>
 

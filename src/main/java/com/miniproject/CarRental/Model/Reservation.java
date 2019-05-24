@@ -2,10 +2,8 @@
 package com.miniproject.CarRental.Model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -34,14 +32,13 @@ public class Reservation {
 	private int totalPayment;
 	private String statusPayment;
 
-
 	public Reservation() {
 
 	}
-	
-	
+
 	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, String rentDate,
-			String rentTime, int rentDuration,String pickupLocation,String returnDate,String returnTime, String rentStatus, int totalPayment,String statusPayment) {
+			String rentTime, int rentDuration, String pickupLocation, String returnDate, String returnTime,
+			String rentStatus, int totalPayment, String statusPayment) {
 		super();
 		this.idReservation = idReservation;
 		this.customer = customer;
@@ -58,7 +55,6 @@ public class Reservation {
 		this.statusPayment = statusPayment;
 	}
 
-
 	public int getIdReservation() {
 		return idReservation;
 	}
@@ -66,7 +62,7 @@ public class Reservation {
 	public void setIdReservation(int idReservation) {
 		this.idReservation = idReservation;
 	}
-	
+
 	public Customer getCustomer() {
 		if (customer == null) {
 			customer = new Customer();
@@ -123,37 +119,30 @@ public class Reservation {
 	public void setRentDuration(int rentDuration) {
 		this.rentDuration = rentDuration;
 	}
-	
 
 	public String getPickupLocation() {
 		return pickupLocation;
 	}
 
-
 	public void setPickupLocation(String pickupLocation) {
 		this.pickupLocation = pickupLocation;
 	}
-
 
 	public String getReturnDate() {
 		return returnDate;
 	}
 
-
 	public void setReturnDate(String returnDate) {
 		this.returnDate = returnDate;
 	}
-
 
 	public String getReturnTime() {
 		return returnTime;
 	}
 
-
 	public void setReturnTime(String returnTime) {
 		this.returnTime = returnTime;
 	}
-
 
 	public String getRentStatus() {
 		return rentStatus;
@@ -170,16 +159,14 @@ public class Reservation {
 	public void setTotalPayment(int totalPayment) {
 		this.totalPayment = totalPayment;
 	}
-	
+
 	public String getStatusPayment() {
 		return statusPayment;
 	}
 
-
 	public void setStatusPayment(String statusPayment) {
 		this.statusPayment = statusPayment;
 	}
-
 
 	@Override
 	public String toString() {
@@ -190,11 +177,4 @@ public class Reservation {
 				+ statusPayment + "]";
 	}
 
-
-
-	
-	
-	
 }
-
-

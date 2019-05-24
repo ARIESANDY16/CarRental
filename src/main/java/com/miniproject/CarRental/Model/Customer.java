@@ -26,7 +26,8 @@ public class Customer {
 	}
 
 	public Customer(String fullnameCustomer, String usernameCustomer, String passwordCustomer, String emailCustomer,
-			String contactnoCustomer, String genderCustomer,String dobCustomer, String addressCustomer,String cityCustomer, String countryCustomer) {
+			String contactnoCustomer, String genderCustomer, String dobCustomer, String addressCustomer,
+			String cityCustomer, String countryCustomer) {
 		super();
 		this.fullnameCustomer = fullnameCustomer;
 		this.usernameCustomer = usernameCustomer;
@@ -87,8 +88,8 @@ public class Customer {
 
 	public void setcontactnoCustomer(String contactnoCustomer) {
 		this.contactnoCustomer = contactnoCustomer;
-	}	
-	
+	}
+
 	public String getGenderCustomer() {
 		return genderCustomer;
 	}
@@ -138,5 +139,4 @@ public class Customer {
 				+ ", countryCustomer=" + countryCustomer + "]";
 	}
 
-	
 }
