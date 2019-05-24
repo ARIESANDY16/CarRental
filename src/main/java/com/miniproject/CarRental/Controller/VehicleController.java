@@ -54,7 +54,7 @@ public class VehicleController {
 		  try {    
 			   InputStream inputStream = new ByteArrayInputStream(file.getBytes());
 			    
-			   File newFile = new File("C:/images/" + file.getOriginalFilename());    
+			   File newFile = new File("D:/images/" + file.getOriginalFilename());    
 			   if (!newFile.exists()) {    
 			    newFile.createNewFile();    
 			   }    

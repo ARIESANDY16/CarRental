@@ -19,21 +19,6 @@
 <title>Car Rental JDT7</title>
 </head>
 
-<p>id vehicle : ${vehicle.idVehicle } value</p>
-<p>id vehicle : ${param.idVehicle }</p>
-<p>id vehicle : ${param.vehicle.nameVehicle }</p>
-
-	<jsp:useBean id="Customer" scope="session" class="com.miniproject.CarRental.Model.Customer" /> 
-	<jsp:setProperty name="Customer" property="*" /> 
- <h2> Selamat Datang , <%=Customer.getidCustomer()%> </h2>         
-username = <jsp:getProperty name="Customer" property="usernameCustomer" /> <br>         
-Nama Lengkap = <jsp:getProperty name="Customer" property="fullnameCustomer" /> <br> 
-
- 
- <jsp:useBean id="Vehicle" scope="session" class="com.miniproject.CarRental.Model.Vehicle" /> <jsp:setProperty name="Vehicle" property="*" /> 
- <h2> Id Vehicle : <%=Vehicle.getIdVehicle()%> </h2>         
-Vehicle = <jsp:getProperty name="Vehicle" property="nameVehicle" />
-
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-blue">
@@ -76,16 +61,27 @@ Vehicle = <jsp:getProperty name="Vehicle" property="nameVehicle" />
 <c:when test="${mode=='MODE_ADD_RESERVATION' }">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<div class="card-group">
 					<div class="card p-4">
 						<div class="card-body">
 							<h1>Reservation</h1>
+							<table class="table table-striped table-bordered">
+						<thead>
+						</thead>
+						<tbody>	
+						<tr>
+									<td>
+										<img src="/getImage/${reservation.vehicle.idVehicle}" width="365" height="250"></td>
 							<hr>
+							<td>
 							<form class="form-horizontal" method="POST"
 								action="save-reservation">
 								<input type="hidden" name="idReservation"
 									value="" />
+									
+								
+								
 										<label>Customer Name</label>
 										<%-- <jsp:getProperty name="Customer" property="usernameCustomer" /> --%> 
 								<div class="input-group mb-3">
@@ -159,6 +155,10 @@ Vehicle = <jsp:getProperty name="Vehicle" property="nameVehicle" />
 									</div>
 								</div>
 							</form>
+							</td>
+							</tr>
+						</tbody>
+					</table>
 							<hr>
 							<div class="text-center">
 								<p>

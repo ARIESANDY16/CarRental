@@ -11,18 +11,6 @@ import org.springframework.data.repository.query.Param;
 import com.miniproject.CarRental.Model.Reservation;
 
 public interface ReservationRepository extends CrudRepository<Reservation, Integer>,JpaRepository<Reservation, Integer>,PagingAndSortingRepository<Reservation, Integer> {
-
-	/*
-	 * @Query(value =
-	 * "SELECT r FROM Reservation r where r.customer.idCustomer =:idCustomer order by r.vehicle.nameVehicle"
-	 * ) List<Reservation> findByCustomer(@Param("idCustomer") int idCustomer);
-	 * 
-	 * @Query(value =
-	 * "SELECT r FROM Reservation r where r.driver.idDriver =:idDriver order by r.driver.fullnameDriver"
-	 * ) List<Reservation> findByDriver(@Param("idDriver") int idDriver);
-	 */
-	  
-	  
 	
 	  @Query(value =
 	  "SELECT r FROM Reservation r where r.customer.idCustomer =:idCustomer order By r.idReservation" )
