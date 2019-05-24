@@ -67,7 +67,7 @@
 							<h1>Register</h1>
 							<hr>
 							<form class="form-horizontal" method="POST"
-								action="save-customer">
+								action="/save-customer">
 								<input type="hidden" name="idCustomer"
 									value="${customer.idCustomer }" />
 								<div class="input-group mb-3">

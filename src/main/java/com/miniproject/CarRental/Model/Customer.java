@@ -1,11 +1,12 @@
 package com.miniproject.CarRental.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customer")
+@Table(name ="customer")
 public class Customer {
 
 	@Id
@@ -16,12 +17,22 @@ public class Customer {
 	private String emailCustomer;
 	private String contactnoCustomer;
 
+	/*
+	 * @OneToMany(targetEntity = Customer.class, mappedBy = "idCustomer",
+	 * orphanRemoval = false, fetch = FetchType.LAZY) private Set<Customer>
+	 * customers;
+	 * 
+	 * public Set<Customer> getCustomers() { return customers; }
+	 * 
+	 * public void setCustomers(Set<Customer> customers) { this.customers =
+	 * customers; }
+	 */
 	public Customer() {
 
 	}
 
 	public Customer(String fullnameCustomer, String usernameCustomer, String passwordCustomer, String emailCustomer,
-			String contactnoCustomer) {
+			long contactnoCustomer) {
 		super();
 		this.fullnameCustomer = fullnameCustomer;
 		this.usernameCustomer = usernameCustomer;
@@ -84,5 +95,19 @@ public class Customer {
 		return "Customer [idCustomer=" + idCustomer + ", fullnameCustomer=" + fullnameCustomer + ", usernameCustomer="
 				+ usernameCustomer + ", passwordCustomer=" + passwordCustomer + ", emailCustomer=" + emailCustomer
 				+ ", contactnoCustomer=" + contactnoCustomer + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (idCustomer != other.idCustomer)
+			return false;
+		return true;
 	}
 }

@@ -1,32 +1,66 @@
 package com.miniproject.CarRental.Controller;
 
-import java.sql.Blob;
-import java.sql.Date;
-import java.sql.Time;
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.miniproject.CarRental.Model.Customer;
-import com.miniproject.CarRental.Model.Driver;
-import com.miniproject.CarRental.Model.Reservation;
-import com.miniproject.CarRental.Model.Vehicle;
-import com.miniproject.CarRental.Service.CustomerService;
-import com.miniproject.CarRental.Service.DriverService;
-import com.miniproject.CarRental.Service.ReservationService;
 import com.miniproject.CarRental.Service.VehicleService;
 
-@RestController
-@RequestMapping("/carrental/api/")
+@Controller
 public class AllController {
 	@Autowired
-	private CustomerService customerService;
-	private VehicleService vehicleService;
-	private ReservationService reservationService;
-	private DriverService driverService;
+	
+	VehicleService vehicleService;
+	
+
+	@RequestMapping("/index")
+	public String home(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOME");
+		return "homeutama";
+	}
+	
+	@RequestMapping("/about-us")
+	public String about(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOME");
+		return "about-us";
+	}
+	
+	@GetMapping("/car-listing")
+	public String showVehicles(HttpServletRequest request) throws UnsupportedEncodingException {
+		request.setAttribute("vehicles", vehicleService.showAllVehicles());
+		request.setAttribute("mode", "ALL_VEHICLES");
+		return"car-listing";
+		
+	}
+	
+	@RequestMapping("/vehicle-details")
+	public String vehicleDetails(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOME");
+		return "vehicle-details";
+	}
+	
+	@RequestMapping("/contact-us")
+	public String contact(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOME");
+		return "contact-us";
+	}
+	
+	@RequestMapping("/faqs")
+	public String faqs(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOME");
+		return "faqs";
+	}
+	
+	@RequestMapping("/update-password")
+	public String updatePassword(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOME");
+		return "update-password";
+	}
 
 	/*
 	 * @GetMapping("/save-customer") public String saveCustomer(@RequestParam String
@@ -38,8 +72,7 @@ public class AllController {
 	 * Customer(fullnameCustomer, usernameCustomer, passwordCustomer, emailCustomer,
 	 * contactnoCustomer); customerService.saveMyCustomer(customer); return
 	 * "User Saved"; }
-	 */
-	/*
+	 * 
 	 * @GetMapping("/save-customer-edit") public String
 	 * saveCustomerEdit(@RequestParam String fullnameCustomer, @RequestParam String
 	 * usernameCustomer,
@@ -50,9 +83,7 @@ public class AllController {
 	 * Customer(fullnameCustomer, usernameCustomer, passwordCustomer, emailCustomer,
 	 * contactnoCustomer); customerService.saveMyCustomer(customer); return
 	 * "User Saved"; }
-	 */
-
-	/*
+	 * 
 	 * @GetMapping("/savevehicle") public String saveVehicle(@RequestParam String
 	 * nameVehicle, @RequestParam String typeVehicle,
 	 * 
@@ -63,17 +94,14 @@ public class AllController {
 	 * vehicle = new Vehicle(nameVehicle, typeVehicle, yearVehicle, capacityVehicle,
 	 * descriptionVehicle, priceVehicle, imageVehicle);
 	 * vehicleService.saveMyVehicle(vehicle); return "Vehicle Saved"; }
-	 */
-
-	/*
+	 * 
 	 * @GetMapping("/savedriver") public String saveDriver(@RequestParam String
 	 * fullnameDriver, @RequestParam String usernameDriver,
 	 * 
 	 * @RequestParam String passwordDriver, @RequestParam int priceDriver) { Driver
 	 * driver = new Driver(fullnameDriver, usernameDriver, passwordDriver,
 	 * priceDriver); driverService.saveMyDriver(driver); return "Driver Saved"; }
-	 */
-	/*
+	 * 
 	 * @GetMapping("/save-reservation") public String saveReservation(@RequestParam
 	 * int idReservation, @RequestParam Customer customer,
 	 * 
@@ -83,11 +111,11 @@ public class AllController {
 	 * @RequestParam String rentTime, @RequestParam int rentDuration, @RequestParam
 	 * String rentStatus,
 	 * 
-	 * @RequestParam int totalPayment,@RequestParam String statusPayment ) {
-	 * Reservation reservation = new Reservation(idReservation, customer, vehicle,
-	 * driver, rentDate, rentTime, rentDuration, rentStatus,
-	 * totalPayment,statusPayment);
+	 * @RequestParam int totalPayment) { Reservation reservation = new
+	 * Reservation(idReservation, customer, vehicle, driver, rentDate, rentTime,
+	 * rentDuration, rentStatus, totalPayment);
 	 * reservationService.saveMyReservation(reservation); return
 	 * "Reservation Saved"; }
 	 */
+
 }

@@ -1,76 +1,102 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> --%>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="theme-color" content="#3e454c">
+	
+	<title>Car Rental Portal |Admin Manage Vehicles   </title>
+<!-- Font awesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- Sandstone Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Bootstrap Datatables -->
+	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+	<!-- Bootstrap social button library -->
+	<link rel="stylesheet" href="css/bootstrap-social.css">
+	<!-- Bootstrap select -->
+	<link rel="stylesheet" href="css/bootstrap-select.css">
+	<!-- Bootstrap file input -->
+	<link rel="stylesheet" href="css/fileinput.min.css">
+	<!-- Awesome Bootstrap checkbox -->
+	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
+	<!-- Admin Stye -->
+	<link rel="stylesheet" href="css/style.css">
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
- <title>Car Rental JDT7</title>
-    </head>
+<style>
+		.errorWrap {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #dd3d36;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+.succWrap{
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #5cb85c;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+		</style>
+</head>
 <body>
-<!--     NAVBAR -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-blue">
-            <a class="navbar-brand" href="#">Admin Page</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+	<!--     NAVBAR -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-blue">
+		<a class="navbar-brand" href="#">Admin Page</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/register">Add Customer <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/addvehicle">Add Vehicle</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="/add-driver">Add Driver</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/show-vehicles">Vehicle</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="/show-drivers">Driver</a>
-                    </li>
-                       <li class="nav-item">
-                        <a class="nav-link" href="/show-customers">Customer</a>
-                    </li>
-                   <!--    <li class="nav-item">
-                        <a class="nav-link" href="/addreservation">Add Reservation</a>
-                    </li> -->
-                       <li class="nav-item">
-                        <a class="nav-link" href="/show-reservation">Rental Activity</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="/logout-admin">Logout</a>
-                    </li>
-                      
-                   <!--  <li class="nav-item">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					href="/register">Add Customer <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/addvehicle">Add
+						Vehicle</a></li>
+				<li class="nav-item"><a class="nav-link" href="/adddriver">Add
+						Driver</a></li>
+				<li class="nav-item"><a class="nav-link" href="/show-vehicles">Vehicle</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/show-drivers">Driver</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/show-customers">Customer</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/addreservation">Add
+						Reservation</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/show-reservation">Reservation</a></li>
+				<li class="nav-item"><a class="nav-link" href="/logout-admin">Logout</a>
+				</li>
+
+				<!--  <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li> -->
-                </ul>
-                <!-- <form class="form-inline my-2 my-lg-0">
+			</ul>
+			<!-- <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form> -->
-            </div>
-        </nav>
-<!--     END NAVBAR  -->
-			
-			
-			
+		</div>
+	</nav>
+	<!--     END NAVBAR  -->
 
-			
-			
-			<c:choose>
-			<c:when test="${mode=='ALL_CUSTOMERS' }">
+	<c:choose>
+		<c:when test="${mode=='ALL_CUSTOMERS' }">
 			<div class="container text-center" id="tasksDiv">
 				<h3>All Customers</h3>
 				<hr>
@@ -97,7 +123,8 @@
 									<td>${customer.contactnoCustomer}</td>
 									<td><a
 										href="/delete-customer?idCustomer=${customer.idCustomer }"><button>delete</button></a></td>
-									<td><a href="/edit-customer?idCustomer=${customer.idCustomer }"><button>edit</button></a></td>
+									<td><a
+										href="/edit-customer?idCustomer=${customer.idCustomer }"><button>edit</button></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -105,15 +132,15 @@
 				</div>
 			</div>
 		</c:when>
-		
-		
+
+
 		<c:when test="${mode=='MODE_ADD_VEHICLE' }">
 			<div class="container text-center">
 				<h3>Vehicle</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-vehicle" enctype="multipart/form-data">
-					<input type="hidden" name="idVehicle"
-						value="${vehicle.idVehicle }" />
+				<form class="form-horizontal" method="POST" action="save-vehicle"
+					enctype="multipart/form-data">
+					<input type="hidden" name="idVehicle" value="${vehicle.idVehicle }" />
 
 					<div class="form-group">
 						<label class="control-label col-md-3">Name Vehicle </label>
@@ -161,14 +188,14 @@
 								value="${vehicle.priceVehicle }" />
 						</div>
 					</div>
-					
-						<div class="form-group">
+
+					<div class="form-group">
 						<label class="control-label col-md-3">Image</label>
 						<div class="col-md-7">
 							<input type="file" class="form-control" name="file"
 								value="${vehicle.imageVehicle }" />
 						</div>
-					</div>	
+					</div>
 
 					<div class="form-group ">
 						<input type="submit" class="btn btn-primary" value="addvehicle" />
@@ -176,15 +203,15 @@
 				</form>
 			</div>
 		</c:when>
-	
-	
-	<c:when test="${mode=='MODE_UPDATE_VEHICLE' }">
+
+
+		<c:when test="${mode=='MODE_UPDATE_VEHICLE' }">
 			<div class="container text-center">
 				<h3>Update Vehicle</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-vehicle" enctype="multipart/form-data">
-					<input type="hidden" name="idVehicle"
-						value="${vehicle.idVehicle }" />
+				<form class="form-horizontal" method="POST" action="save-vehicle"
+					enctype="multipart/form-data">
+					<input type="hidden" name="idVehicle" value="${vehicle.idVehicle }" />
 
 					<div class="form-group">
 						<label class="control-label col-md-3">Name Vehicle </label>
@@ -232,7 +259,7 @@
 								value="${vehicle.priceVehicle }" />
 						</div>
 					</div>
-						<div class="form-group">
+					<div class="form-group">
 						<label class="control-label col-md-3">Image</label>
 						<div class="col-md-7">
 							<input type="file" class="form-control" name="file"
@@ -246,55 +273,71 @@
 				</form>
 			</div>
 		</c:when>
-	
+
+
+
+
 		<c:when test="${mode=='ALL_VEHICLES_ADMIN' }">
 			<div class="container text-center" id="tasksDiv">
-				<h3>All Vehicles</h3>
-				<hr>
-				<div class="table-responsive">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-								<th>Id</th>
-								<th>Name</th>
-								<th>Type</th>
-								<th>Year</th>
-								<th>capacity</th>
-								<th>description</th>
-								<th>price</th>
-								<th>image</th>
-								<th>Delete</th>
-								<th>Edit</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="vehicle" items="${vehicles }">
-								<tr>
-									<td>${vehicle.idVehicle}</td>
-									<td>${vehicle.nameVehicle}</td>
-									<td>${vehicle.typeVehicle}</td>
-									<td>${vehicle.yearVehicle}</td>
-									<td>${vehicle.capacityVehicle}</td>
-									<td>${vehicle.descriptionVehicle}</td>
-									<td>${vehicle.priceVehicle}</td>
-									<td>${vehicle.imageName}</td>
-									<td><a
-										href="/delete-vehicle?idVehicle=${vehicle.idVehicle }"><button>delete</button></a></td>
-									<td><a href="/edit-vehicle?idVehicle=${vehicle.idVehicle }"><button>update</button></a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>All Vehicles</h3>
+						<hr>
+						<div class="panel panel-default">
+							<div class="panel-heading">Vehicle Details</div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+										<thead>
+											<tr>
+												<th>Id</th>
+												<th>Name</th>
+												<th>Type</th>
+												<th>Year</th>
+												<th>capacity</th>
+												<th>description</th>
+												<th>price</th>
+												<th>image</th>
+												<th>Delete</th>
+												<th>Edit</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="vehicle" items="${vehicles }">
+												<tr>
+													<td>${vehicle.idVehicle}</td>
+													<td>${vehicle.nameVehicle}</td>
+													<td>${vehicle.typeVehicle}</td>
+													<td>${vehicle.yearVehicle}</td>
+													<td>${vehicle.capacityVehicle}</td>
+													<td>${vehicle.descriptionVehicle}</td>
+													<td>${vehicle.priceVehicle}</td>
+													<td>${vehicle.imageVehicle}</td>
+													<td><a
+														href="/delete-vehicle?idVehicle=${vehicle.idVehicle }"><button>delete</button></a></td>
+													<td><a
+														href="/edit-vehicle?idVehicle=${vehicle.idVehicle }"><button>update</button></a></td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</c:when>
+
+
+
+
 		<c:when test="${mode=='MODE_ADD_DRIVER' }">
 			<div class="container text-center">
 				<h3>Add Driver</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-driver-admin">
-					<input type="hidden" name="idDriver"
-						value="${driver.idDriver }" />
+				<form class="form-horizontal" method="POST" action="save-driver">
+					<input type="hidden" name="idDriver" value="${driver.idDriver }" />
 
 					<div class="form-group">
 						<label class="control-label col-md-3">Full Name </label>
@@ -340,15 +383,14 @@
 				</form>
 			</div>
 		</c:when>
-	
-	
-	<c:when test="${mode=='UPDATE_DRIVER_ADMIN' }">
+
+
+		<c:when test="${mode=='MODE_UPDATE_DRIVER' }">
 			<div class="container text-center">
 				<h3>Add Driver</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-driver-admin">
-					<input type="hidden" name="idDriver"
-						value="${driver.idDriver }" />
+				<form class="form-horizontal" method="POST" action="save-driver">
+					<input type="hidden" name="idDriver" value="${driver.idDriver }" />
 
 					<div class="form-group">
 						<label class="control-label col-md-3">Full Name </label>
@@ -393,8 +435,8 @@
 				</form>
 			</div>
 		</c:when>
-	
-	<c:when test="${mode=='ALL_DRIVERS'}">
+
+		<c:when test="${mode=='ALL_DRIVERS'}">
 			<div class="container text-center" id="tasksDiv">
 				<h3>All Drivers</h3>
 				<hr>
@@ -414,10 +456,10 @@
 								<tr>
 									<td>${driver.idDriver}</td>
 									<td>${driver.fullnameDriver}</td>
-									<td>${driver.statusDriver}</td>
-									<td><a
-										href="/delete-driver-admin?idDriver=${driver.idDriver }"><button>delete</button></a></td>
-									<td><a href="/edit-driver-admin?idDriver=${driver.idDriver }"><button>edit</button></a></td>
+									<td>${driver.usernameDriver}</td>
+									<td>${driver.priceDriver}</td>
+									<td><a href="/delete-driver?idDriver=${driver.idDriver }"><button>delete</button></a></td>
+									<td><a href="/edit-driver?idDriver=${driver.idDriver }"><button>edit</button></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -425,7 +467,7 @@
 				</div>
 			</div>
 		</c:when>
-	<c:when test="${mode=='ALL_RESERVATION'}">
+		<c:when test="${mode=='ALL_RESERVATION'}">
 			<div class="container text-center" id="tasksDiv">
 				<h3>Rental Activity</h3>
 				<hr>
@@ -472,7 +514,8 @@
 									<td>${reservation.statusPayment}</td>
 									<td><a
 										href="/delete-reservation?idReservation=${reservation.idReservation }"><button>delete</button></a></td>
-									<td><a href="/edit-reservation?idReservation=${reservation.idReservation }"><button>update</button></a></td>
+									<td><a
+										href="/edit-reservation?idReservation=${reservation.idReservation }"><button>update</button></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -480,139 +523,173 @@
 				</div>
 			</div>
 		</c:when>
-		
-		
-			<c:when test="${mode=='MODE_UPDATE_RESERVATION' }">
+
+
+		<c:when test="${mode=='MODE_UPDATE_RESERVATION' }">
 			<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-6">
-				<div class="card-group">
-					<div class="card p-4">
-						<div class="card-body">
-							<h1>Reservation</h1>
-							<hr>
-							<form class="form-horizontal" method="POST"
-								action="save-reservation-admin">
-								<input type="hidden" name="idReservation"
-									value="${reservation.idReservation }" />
-										<label>Name Customer</label>
-								<div class="input-group mb-3">
+				<div class="row justify-content-center">
+					<div class="col-md-6">
+						<div class="card-group">
+							<div class="card p-4">
+								<div class="card-body">
+									<h1>Reservation</h1>
+									<hr>
+									<form class="form-horizontal" method="POST"
+										action="save-reservation-admin">
+										<input type="hidden" name="idReservation"
+											value="${reservation.idReservation }" /> <label>Id
+											Customer</label>
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+
+											<input class="form-control" type="text" name="customer"
+												value="${reservation.customer.idCustomer }">
+										</div>
+										<label>Id Vehicle</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="text" name="vehicle"
+												value="${reservation.vehicle.idVehicle }">
+										</div>
+										<label>Price Vehicle</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="text" name="vehicle"
+												value="${reservation.vehicle.priceVehicle }">
+										</div>
+										<label>Id Driver</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="text" name="driver"
+												value="${reservation.driver.idDriver }">
+										</div>
+										<label>Price Driver</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="text" name="driver"
+												value="${reservation.driver.priceDriver }">
+										</div>
+										<label>Rent Date</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="date" name="rentDate"
+												value="${reservation.rentDate }">
+										</div>
+										<%-- <div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-								
-									<input class="form-control" type="text" name="customer.fullnameCustomer" readonly="readonly"
-										value="${reservation.customer.fullnameCustomer }">
-										<input type="hidden" name="customer.idCustomer" value="${reservation.customer.idCustomer }">
-								</div>
-									<label>Name Vehicle</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="vehicle.nameVehicle" readonly="readonly"
-										value="${reservation.vehicle.nameVehicle }">
-									<input type="hidden" name="vehicle.idVehicle" value="${reservation.vehicle.idVehicle }">
-									<input type="hidden" name="vehicle.priceVehicle" value="${reservation.vehicle.priceVehicle }">
-								</div>
-								
-									<label>ID Driver</label>
-									<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="driver"
-										value="${reservation.driver.idDriver }">
-								</div>	
-					<%-- 			<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="driver.idDriver"
-										value="${reservation.driver.idDriver }">
-									<input type="hidden" name="driver.priceDriver" value="${reservation.driver.priceDriver }">
+									<input class="form-control" type="date" name="fromDate"
+										<fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.fromDate}"/>>
 								</div> --%>
-								<label>Check Out Date</label>
-								<div class="input-group mb-4">
+										<!-- <label>Date range:</label>
+
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-calendar"></i>
+									</div>
+									<input type="text" class="form-control pull-right"
+										id="reservation">
+								</div> -->
+										<label>Rent Time</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="time" name="rentTime"
+												value="${reservation.rentTime }">
+										</div>
+										<%-- <div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="date" name="rentDate"  readonly="readonly"
-										value="${reservation.rentDate }">
-								</div>
-								<label>Check Out Time</label>
-								<div class="input-group mb-4">
+									<input class="form-control" type="date" name="toDate" 
+									<fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.toDate}"/>>
+								</div> --%>
+
+										<label>Duration</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="number" name="rentDuration"
+												value="${reservation.rentDuration }">
+										</div>
+										<label>Condition</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="text" name="rentStatus"
+												value="${reservation.rentStatus }">
+
+										</div>
+										<label>Total Payment</label>
+										<div class="input-group mb-4">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> </span>
+											</div>
+											<input class="form-control" type="number" name="totalPayment"
+												value="${reservation.totalPayment }">
+
+										</div>
+
+										<!-- <label>Reservation Date</label> -->
+										<%-- <div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="time" name="rentTime"  readonly="readonly"
-										value="${reservation.rentTime }">
-								</div>
-								
-								<label>Duration</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="number" name="rentDuration"  readonly="readonly"
-										value="${reservation.rentDuration }">
-								</div>
-										<label>Pickup Location</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="pickupLocation" 
-										value="${reservation.pickupLocation }">
-								</div>
-								<label>Check In Date</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="date" name="returnDate" 
-										value="${reservation.returnDate }">
-								</div>
-								<label>Check In Time</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="time" name="returnTime" 
-										value="${reservation.returnTime }">
-								</div>
-								<label>Rent Status</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="rentStatus"  readonly="readonly"
-										value="${reservation.rentStatus }">
-										
-								</div>
-							<label>Status Payment</label>
-										<select name="statusPayment">
-											<option value="Pending">Pending</option>
-											<option value="Success">Success</option>
-										</select>	
-								<div class="row">
-									<div class="form-group ">
-										<input type="submit" class="btn btn-block btn-primary"
-											value="Update Reservation" />
+									<input class="form-control" type="text" name="reservationdate"
+										value="${reservasi.reservationDate }">
+								</div> --%>
+										<p>
+											<input type="checkbox">I Agree with <a href="#">Terms
+												and Condition</a>
+										</p>
+										<div class="row">
+											<div class="form-group ">
+												<input type="submit" class="btn btn-block btn-primary"
+													value="addreservation" />
+											</div>
+										</div>
+									</form>
+									<hr>
+									<div class="text-center">
+										<p>
+											Already got an account? <a href="/login">Login Here</a>
+										</p>
 									</div>
 								</div>
-							</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	</c:when>
-		
-		
+		</c:when>
+
+
 	</c:choose>
-				
-			
+
+<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap-select.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/dataTables.bootstrap.min.js"></script>
+	<script src="js/Chart.min.js"></script>
+	<script src="js/fileinput.js"></script>
+	<script src="js/chartData.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
