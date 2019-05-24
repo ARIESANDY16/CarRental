@@ -1,12 +1,7 @@
 package com.miniproject.CarRental.Model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,31 +9,19 @@ import javax.persistence.Table;
 public class Customer {
 
 	@Id
-	@GeneratedValue
 	private int idCustomer;
 	private String fullnameCustomer;
 	private String usernameCustomer;
 	private String passwordCustomer;
 	private String emailCustomer;
-	private long contactnoCustomer;
+	private String contactnoCustomer;
 
-	
-	/*
-	 * @OneToMany(targetEntity = Customer.class, mappedBy = "idCustomer",
-	 * orphanRemoval = false, fetch = FetchType.LAZY) private Set<Customer>
-	 * customers;
-	 * 
-	 * public Set<Customer> getCustomers() { return customers; }
-	 * 
-	 * public void setCustomers(Set<Customer> customers) { this.customers =
-	 * customers; }
-	 */
 	public Customer() {
 
 	}
 
-	public Customer(String fullnameCustomer,String usernameCustomer,
-			String passwordCustomer,String emailCustomer,long contactnoCustomer) {
+	public Customer(String fullnameCustomer, String usernameCustomer, String passwordCustomer, String emailCustomer,
+			String contactnoCustomer) {
 		super();
 		this.fullnameCustomer = fullnameCustomer;
 		this.usernameCustomer = usernameCustomer;
@@ -88,11 +71,11 @@ public class Customer {
 		this.emailCustomer = emailCustomer;
 	}
 
-	public long getcontactnoCustomer() {
+	public String getcontactnoCustomer() {
 		return contactnoCustomer;
 	}
 
-	public void setcontactnoCustomer(long contactnoCustomer) {
+	public void setcontactnoCustomer(String contactnoCustomer) {
 		this.contactnoCustomer = contactnoCustomer;
 	}
 

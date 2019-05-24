@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.miniproject.CarRental.Model.Driver;
 import com.miniproject.CarRental.Service.DriverService;
@@ -30,19 +31,14 @@ public class DriverController {
 		return "driverlogin";
 	}
 
+	//New
 	@RequestMapping(value = "/login-driver", method = RequestMethod.POST)
 	public String loginDriver(ModelMap model, @ModelAttribute Driver driver, HttpServletRequest request) {
 		Driver driverData = driverService.findByUsernameDriverAndPasswordDriver(driver.getUsernameDriver(),
 				driver.getPasswordDriver());
-				
-		if ( driverData != null) {
-
+		if (driverData != null) {
 			int driverId = driverData.getIdDriver();
-		//	String sessionUserName = driver.getUsernameDriver();
-
-//			model.put("sessionId", sessionId);
-			driver.setIdDriver(driverId);
-
+			request.getSession().setAttribute("driverId", driverId);
 			return "homedriver";
 		} else {
 			request.setAttribute("error", "Invalid Username or Password");
@@ -51,6 +47,27 @@ public class DriverController {
 		}
 
 	}
+	
+	/*
+	 * @RequestMapping(value = "/login-driver", method = RequestMethod.POST) public
+	 * String loginDriver(ModelMap model, @ModelAttribute Driver driver,
+	 * HttpServletRequest request) { Driver driverData =
+	 * driverService.findByUsernameDriverAndPasswordDriver(driver.getUsernameDriver(
+	 * ), driver.getPasswordDriver());
+	 * 
+	 * if ( driverData != null) {
+	 * 
+	 * int driverId = driverData.getIdDriver(); // String sessionUserName =
+	 * driver.getUsernameDriver();
+	 * 
+	 * // model.put("sessionId", sessionId); driver.setIdDriver(driverId);
+	 * 
+	 * return "homedriver"; } else { request.setAttribute("error",
+	 * "Invalid Username or Password"); request.setAttribute("mode",
+	 * "MODE_LOGIN_DRIVER"); return "driverlogin"; }
+	 * 
+	 * }
+	 */
 
 	@RequestMapping(value = "/logout-driver", method = RequestMethod.GET)
 	public String logoutDriver(@ModelAttribute Driver driver, HttpServletRequest request, Object logout) {
@@ -58,19 +75,27 @@ public class DriverController {
 		return "driverlogin";
 	}
 
-	@RequestMapping(value = "/adddriver", method = RequestMethod.GET)
+	@RequestMapping(value = "/add-driver", method = RequestMethod.GET)
 	public String driver(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_ADD_DRIVER");
 		return "homeadmin";
 	}
-
+	
 	@PostMapping(value = "/save-driver")
-	public String addNewDriver(@ModelAttribute Driver driver, BindingResult bindingResult, HttpServletRequest request) {
+	public String saveDriver(@ModelAttribute Driver driver, BindingResult bindingResult, HttpServletRequest request) {
 		driverService.saveMyDriver(driver);
 		request.setAttribute("mode", "MODE_HOME");
-		return "homeadmin";
+		return "homedriver";
 	}
 
+	@PostMapping(value = "/save-driver-admin")
+	public String saveDriverByAdmin(@ModelAttribute Driver driver, BindingResult bindingResult, HttpServletRequest request) {
+		driverService.saveMyDriver(driver);
+		request.setAttribute("mode", "ALL_DRIVERS");
+		return "redirect:/show-drivers";
+	}
+	
+	
 	@GetMapping("/show-drivers")
 	public String showAllDrivers(HttpServletRequest request) {
 		request.setAttribute("drivers", driverService.showAllDrivers());
@@ -87,30 +112,27 @@ public class DriverController {
 		return "homeadmin";
 	}
 
-	@RequestMapping(value = "/edit-driver", method = RequestMethod.GET)
-	public String editDriver(@RequestParam int idDriver, HttpServletRequest request) {
+	/*
+	 * @RequestMapping(value = "/edit-driver", method = RequestMethod.GET) public
+	 * String editDriver(@RequestParam int idDriver, HttpServletRequest request) {
+	 * request.setAttribute("driver", driverService.editDriver(idDriver));
+	 * request.setAttribute("mode", "UPDATE_DRIVER"); return "homedriver"; }
+	 */
+	
+	@RequestMapping(value = "/edit-driver")
+	public ModelAndView  editDriver(HttpServletRequest request) {
+		int idDriver =(int)request.getSession().getAttribute("driverId");
+		//request.setAttribute("driver", driverService.editDriver(idDriver));
+		request.setAttribute("mode", "UPDATE_DRIVER");
+		Driver driver = driverService.editDriver(idDriver);
+		return new ModelAndView("homedriver", "driver", driver);
+	}
+	
+	@RequestMapping(value = "/edit-driver-admin", method = RequestMethod.GET)
+	public String editDriverByAdmin(@RequestParam int idDriver, HttpServletRequest request) {
 		request.setAttribute("driver", driverService.editDriver(idDriver));
-		request.setAttribute("mode", "MODE_UPDATE_DRIVER");
+		request.setAttribute("mode", "UPDATE_DRIVER_ADMIN");
 		return "homeadmin";
 	}
 
-	/*
-	 * @RequestMapping(value = "/edit-driver{idDriver}", method = RequestMethod.GET,
-	 * produces = { "application/json" }) public Driver
-	 * getIdDriver(@PathVariable("idDriver") String idDriver) { return
-	 * driverService.findbyIdDriver(Integer.parseInt(idDriver)); }
-	 */
-
-	/*
-	 * @RequestMapping("/edit-driver{idDriver}")
-	 * 
-	 * @ResponseBody public String editDriver(@RequestParam int idDriver,String
-	 * fullnameDriver, String usernameDriver, String passwordDriver, int
-	 * priceDriver) { try { Driver driver = driverService.findById(idDriver);
-	 * driver.setFullnameDriver(fullnameDriver);
-	 * driver.setUsernameDriver(usernameDriver);
-	 * driver.setPasswordDriver(passwordDriver); driver.setPriceDriver(priceDriver);
-	 * } catch (Exception ex) { return "Error updating the user: " + ex.toString();
-	 * } return "User successfully updated!"; }
-	 */
 }

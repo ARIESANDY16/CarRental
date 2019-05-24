@@ -30,21 +30,12 @@
 				<li class="nav-item active"><a class="nav-link"
 					href="/customer">Home <span class="sr-only">(current)</span></a></li>
 					<li class="nav-item"><a class="nav-link" href="/vehicles">Vehicle</a></li>
-					<li class="nav-item"><a class="nav-link" href="/edit-customer?idCustomer=${customer.idCustomer }">My Information</a></li>
-					<li class="nav-item"><a class="nav-link" href="/my-reservation?idCustomer=${customer.idCustomer }">My Reservation</a></li>
+					<li class="nav-item"><a class="nav-link" href="/edit-customer">My Information</a></li>
+					<li class="nav-item"><a class="nav-link" href="/my-reservation">My Reservation</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">About</a></li>
-				<li class="nav-item"><a class="nav-link" href="/reservation">Reservation</a>
-				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="/logout-customer">Logout</a></li>
-				<!--  <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li> -->
 			</ul>
-			<!-- <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form> -->
 		</div>
 	</nav>
 	<!--     END NAVBAR  -->
@@ -82,7 +73,12 @@
 		</a>
 	</div>
 	<br>
+
 	<!-- END CAROUSEL -->
+<jsp:useBean id="Customer" scope="session" class="com.miniproject.CarRental.Model.Customer" /> <jsp:setProperty name="Customer" property="*" /> 
+ <h2> Selamat Datang , <%=Customer.getidCustomer()%> </h2>         
+ ID ANDA = <jsp:getProperty name="Customer" property="usernameCustomer" /> <br>         
+ USIA ANDA = <jsp:getProperty name="Customer" property="fullnameCustomer" /> <br> 
 
 <%-- <h7>id Customer :${customer.idCustomer}	</h7><br>
 <h7>fullname Customer :${customer.fullnameCustomer}	</h7><br>

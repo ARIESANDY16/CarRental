@@ -96,7 +96,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="emailCustomer"
+									<input class="form-control" type="email" name="emailCustomer"
 										value="${customer.emailCustomer }" placeholder="Email">
 								</div>
 								<div class="input-group mb-4">

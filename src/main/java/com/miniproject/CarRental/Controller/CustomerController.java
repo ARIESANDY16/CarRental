@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.miniproject.CarRental.Model.Customer;
 import com.miniproject.CarRental.Service.CustomerService;
@@ -24,12 +25,12 @@ public class CustomerController {
 	CustomerService customerService;
 
 	@ApiOperation(value = "homecustomer", notes = "Returns the Data from user database with....")
-	@RequestMapping("/login")
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
 		return "customerlogin";
 	}
-
+//New
 	@RequestMapping(value = "/login-customer", method = RequestMethod.POST)
 	public String loginCustomer(ModelMap model, @ModelAttribute Customer customer, HttpServletRequest request) {
 		Customer customerData = customerService.findByUsernameCustomerAndPasswordCustomer(
@@ -38,10 +39,7 @@ public class CustomerController {
 		if (customerData != null) {
 			int customerId = customerData.getidCustomer();
 			customer.setidCustomer(customerId);
-			/*
-			 * String customerFullname =customerData.getfullnameCustomer();
-			 * customer.setfullnameCustomer(customerFullname);
-			 */
+			request.getSession().setAttribute("customerId", customerId);
 
 			return "homecustomer";
 		} else {
@@ -55,6 +53,7 @@ public class CustomerController {
 	@RequestMapping("/logout-customer")
 	public String logoutCustomer(@ModelAttribute Customer customer, HttpServletRequest request, Object logout) {
 		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
+		request.getSession().invalidate();
 		return "homeutama";
 	}
 
@@ -80,7 +79,8 @@ public class CustomerController {
 			HttpServletRequest request) {
 		customerService.saveMyCustomer(customer);
 		request.setAttribute("mode", "MODE_REGISTER");
-		return "redirect:/login";
+		return "redirect:/login"; 
+		//return "registrationsuccess";
 	}
 
 	@RequestMapping("/forgotpassword")
@@ -115,10 +115,14 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/edit-customer")
-	public String editCustomer(@RequestParam int idCustomer, HttpServletRequest request) {
-		request.setAttribute("customer", customerService.editCustomer(idCustomer));
+	public ModelAndView editCustomer( HttpServletRequest request) {
+		 int idCustomer = (int)request.getSession().getAttribute("customerId");
+	//	request.setAttribute("customer", customerService.editCustomer(idCustomer));
 		request.setAttribute("mode", "MODE_UPDATE_CUSTOMER");
-		return "customeredit";
+	
+		 Customer customer = customerService.editCustomer(idCustomer);
+		 return new ModelAndView( "customeredit", "customer", customer);
+		
 	}
 	/*
 	 * @PostMapping("/save-customer-edit") public String

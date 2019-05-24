@@ -57,6 +57,10 @@
 		</div>
 	</nav>
 	<!--     END NAVBAR  -->
+	
+
+	
+	
 	<c:choose>
 	<c:when test="${mode=='ALL_VEHICLES' }">
 			<div class="container text-center" id="tasksDiv">
@@ -73,6 +77,7 @@
 										<img src="/getImage/${vehicle.idVehicle}" width="300" height="200">
 									</td>
 									<td><strong>${vehicle.nameVehicle} </strong><br>
+									
 									Harga : Rp. ${vehicle.priceVehicle},- / jam <br>
 									+ Driver : Rp. 10.000,- / jam
 									Type: ${vehicle.typeVehicle} <br> 

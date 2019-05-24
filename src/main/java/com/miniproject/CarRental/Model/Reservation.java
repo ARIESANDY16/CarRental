@@ -22,13 +22,17 @@ public class Reservation {
 	@JoinColumn(name = "idVehicle")
 	private Vehicle vehicle;
 	@ManyToOne
-	@JoinColumn(name = "idDriver")
+	@JoinColumn(name = "idDriver", nullable = true)
 	private Driver driver;
 	private String rentDate;
 	private String rentTime;
 	private int rentDuration;
+	private String pickupLocation;
+	private String returnDate;
+	private String returnTime;
 	private String rentStatus;
 	private int totalPayment;
+	private String statusPayment;
 
 
 	public Reservation() {
@@ -37,7 +41,7 @@ public class Reservation {
 	
 	
 	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, String rentDate,
-			String rentTime, int rentDuration, String rentStatus, int totalPayment) {
+			String rentTime, int rentDuration,String pickupLocation,String returnDate,String returnTime, String rentStatus, int totalPayment,String statusPayment) {
 		super();
 		this.idReservation = idReservation;
 		this.customer = customer;
@@ -46,8 +50,12 @@ public class Reservation {
 		this.rentDate = rentDate;
 		this.rentTime = rentTime;
 		this.rentDuration = rentDuration;
+		this.pickupLocation = pickupLocation;
+		this.returnDate = returnDate;
+		this.returnTime = returnTime;
 		this.rentStatus = rentStatus;
 		this.totalPayment = totalPayment;
+		this.statusPayment = statusPayment;
 	}
 
 
@@ -60,6 +68,9 @@ public class Reservation {
 	}
 	
 	public Customer getCustomer() {
+		if (customer == null) {
+			customer = new Customer();
+		}
 		return customer;
 	}
 
@@ -68,6 +79,9 @@ public class Reservation {
 	}
 
 	public Vehicle getVehicle() {
+		if (vehicle == null) {
+			vehicle = new Vehicle();
+		}
 		return vehicle;
 	}
 
@@ -76,6 +90,9 @@ public class Reservation {
 	}
 
 	public Driver getDriver() {
+		if (driver == null) {
+			driver = new Driver();
+		}
 		return driver;
 	}
 
@@ -106,6 +123,37 @@ public class Reservation {
 	public void setRentDuration(int rentDuration) {
 		this.rentDuration = rentDuration;
 	}
+	
+
+	public String getPickupLocation() {
+		return pickupLocation;
+	}
+
+
+	public void setPickupLocation(String pickupLocation) {
+		this.pickupLocation = pickupLocation;
+	}
+
+
+	public String getReturnDate() {
+		return returnDate;
+	}
+
+
+	public void setReturnDate(String returnDate) {
+		this.returnDate = returnDate;
+	}
+
+
+	public String getReturnTime() {
+		return returnTime;
+	}
+
+
+	public void setReturnTime(String returnTime) {
+		this.returnTime = returnTime;
+	}
+
 
 	public String getRentStatus() {
 		return rentStatus;
@@ -122,19 +170,28 @@ public class Reservation {
 	public void setTotalPayment(int totalPayment) {
 		this.totalPayment = totalPayment;
 	}
+	
+	public String getStatusPayment() {
+		return statusPayment;
+	}
 
 
-
+	public void setStatusPayment(String statusPayment) {
+		this.statusPayment = statusPayment;
+	}
 
 
 	@Override
 	public String toString() {
 		return "Reservation [idReservation=" + idReservation + ", customer=" + customer + ", vehicle=" + vehicle
 				+ ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime=" + rentTime + ", rentDuration="
-				+ rentDuration + ", rentStatus=" + rentStatus + ", totalPayment=" + totalPayment + "]";
+				+ rentDuration + ", pickupLocation=" + pickupLocation + ", returnDate=" + returnDate + ", returnTime="
+				+ returnTime + ", rentStatus=" + rentStatus + ", totalPayment=" + totalPayment + ", statusPayment="
+				+ statusPayment + "]";
 	}
-	
-	
+
+
+
 	
 	
 	

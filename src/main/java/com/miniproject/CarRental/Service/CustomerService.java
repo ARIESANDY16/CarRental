@@ -48,4 +48,6 @@ public class CustomerService {
 	public Customer findByUsernameCustomerAndPasswordCustomer(String usernameCustomer, String passwordCustomer) {
 		return customerRepository.findByUsernameCustomerAndPasswordCustomer(usernameCustomer, passwordCustomer);
 	}
+
+	
 }

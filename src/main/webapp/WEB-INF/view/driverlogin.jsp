@@ -66,7 +66,7 @@
 			<div class="container text-center">
 				<h3>Driver Login</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="/login-driver">
+				<form class="form-horizontal" method="POST" action="login-driver">
 					<c:if test="${not empty error }">
 						<div class="alert alert-danger">
 							<c:out value="${error }"></c:out>
@@ -84,7 +84,7 @@
 						<label class="control-label col-md-3">Password</label>
 						<div class="col-md-7">
 							<input type="password" class="form-control" name="passwordDriver"
-								value="${admin.passwordDriver }" />
+								value="${driver.passwordDriver }" />
 						</div>
 					</div>
 					

@@ -34,7 +34,7 @@
 		</div>
 	</nav>
 	
-		<!--     END NAVBAR  -->
+	<!--     END NAVBAR  -->
 	
 		<c:choose>
 		
