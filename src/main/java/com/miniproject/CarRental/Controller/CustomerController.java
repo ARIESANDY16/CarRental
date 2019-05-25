@@ -6,15 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.miniproject.CarRental.Model.Customer;
 import com.miniproject.CarRental.Service.CustomerService;
 
-/*@SessionAttributes("name")*/
 @Controller
 public class CustomerController {
 	@Autowired
@@ -28,10 +30,7 @@ public class CustomerController {
 		if (customerData != null) {
 			int customerId = customerData.getidCustomer();
 			customer.setidCustomer(customerId);
-			/*
-			 * String customerFullname =customerData.getfullnameCustomer();
-			 * customer.setfullnameCustomer(customerFullname);
-			 */
+			request.getSession().setAttribute("customerId", customerId);
 
 			return "homeutama";
 		} else {
@@ -45,7 +44,7 @@ public class CustomerController {
 	@RequestMapping("/logout-customer")
 	public String logoutCustomer(@ModelAttribute Customer customer, HttpServletRequest request, Object logout) {
 		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
-		return "redirect:/homeutama";
+		return "redirect:/index";
 	}
 
 	@PostMapping("/save-customer")
@@ -70,24 +69,30 @@ public class CustomerController {
 		return "redirect:/login";
 	}
 
-	/*
-	 * @GetMapping("/show-customers") public String
-	 * showAllCustomers(HttpServletRequest request) {
-	 * request.setAttribute("customers", customerService.showAllCustomers());
-	 * request.setAttribute("mode", "ALL_CUSTOMERS"); return "homeadmin";
-	 * 
-	 * }
-	 * 
-	 * @RequestMapping("/delete-customer") public String
-	 * deleteCustomer(@RequestParam int idCustomer, HttpServletRequest request) {
-	 * customerService.deleteMyCustomer(idCustomer);
-	 * request.setAttribute("customers", customerService.showAllCustomers());
-	 * request.setAttribute("mode", "ALL_CUSTOMERS"); return "homeadmin"; }
-	 * 
-	 * @RequestMapping("/edit-customer") public String editCustomer(@RequestParam
-	 * int idCustomer, HttpServletRequest request) {
-	 * request.setAttribute("customer", customerService.editCustomer(idCustomer));
-	 * request.setAttribute("mode", "MODE_UPDATE_CUSTOMER"); return "customeredit";
-	 * }
-	 */
+	@RequestMapping("/edit-customer")
+	public ModelAndView editCustomer(HttpServletRequest request) {
+		int idCustomer = (int) request.getSession().getAttribute("customerId");
+		request.setAttribute("mode", "MODE_UPDATE_CUSTOMER");
+
+		Customer customer = customerService.editCustomer(idCustomer);
+		return new ModelAndView("customerprofile", "customer", customer);
+
+	}
+
+	@RequestMapping("/delete-customer")
+	public String deleteCustomer(@RequestParam int idCustomer, HttpServletRequest request) {
+		customerService.deleteMyCustomer(idCustomer);
+		request.setAttribute("customers", customerService.showAllCustomers());
+		request.setAttribute("mode", "ALL_CUSTOMERS");
+		return "homeadmin";
+	}
+
+	@GetMapping("/show-customers")
+	public String showAllCustomers(HttpServletRequest request) {
+		request.setAttribute("customers", customerService.showAllCustomers());
+		request.setAttribute("mode", "ALL_CUSTOMERS");
+		return "homeadmin";
+
+	}
+
 }

@@ -19,9 +19,6 @@
 <title>Car Rental JDT7</title>
 </head>
 
-<p>id vehicle : ${vehicle.idVehicle }</p>
-<p>id vehicle : ${param.idVehicle }</p>
-<p>id vehicle : ${param.vehicle.nameVehicle }</p>
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-blue">
@@ -51,8 +48,10 @@
 				<li class="nav-item"><a class="nav-link disabled" href="#">About</a></li>
 				<li class="nav-item active"><a class="nav-link"
 					href="/reservation">Reservation</a></li>
-				<li class="nav-item"><a class="nav-link disabled"
-					href="/logout-customer">Logout</a></li>
+					<li class="nav-item"><a class="nav-link" href="/logout-customer" >Logout
+					
+						<span class="sr-only">(current)</span>
+				</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -62,41 +61,50 @@
 <c:when test="${mode=='MODE_ADD_RESERVATION' }">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<div class="card-group">
 					<div class="card p-4">
 						<div class="card-body">
 							<h1>Reservation</h1>
+							<table class="table table-striped table-bordered">
+						<thead>
+						</thead>
+						<tbody>	
+						<tr>
+									<td>
+										<img src="/getImage/${reservation.vehicle.idVehicle}" width="365" height="250"></td>
 							<hr>
+							<td>
 							<form class="form-horizontal" method="POST"
 								action="save-reservation">
 								<input type="hidden" name="idReservation"
-									value="${reservation.idReservation }" />
+									value="" />
+									
+								
+								
 										<label>Customer Name</label>
+										<%-- <jsp:getProperty name="Customer" property="usernameCustomer" /> --%> 
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 								
-									<input class="form-control" type="text" name="customer"
-										value="${reservation.customer.idCustomer }">
+									<input class="form-control" type="text" name="customer.fullnameCustomer"
+										value="${reservation.customer.fullnameCustomer }">
+										<input type="hidden" name="customer.idCustomer" value="${reservation.customer.idCustomer }">
+								<input type="hidden" name="driver.idDriver" value="1">
+								<input type="hidden" name="driver.priceDriver" value="${reservation.driver.priceDriver }">
 								</div>
 									<label>Vehicle Name</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="vehicle"
-										value="${param.idVehicle}">
+									<input class="form-control" type="text" name="vehicle.nameVehicle"
+										value="${reservation.vehicle.nameVehicle }">
+									<input type="hidden" name="vehicle.idVehicle" value="${reservation.vehicle.idVehicle }">
+									<input type="hidden" name="vehicle.priceVehicle" value="${reservation.vehicle.priceVehicle }">
 								</div>
-									<%-- <label>Id Driver</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="driver"
-										value="${reservation.driver }">
-								</div> --%>
 								<label>Rent Date</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
@@ -114,38 +122,6 @@
 									<input class="form-control" type="time" name="rentTime"
 										value="${reservation.rentTime }">
 								</div>
-								<%-- <div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="date" name="fromDate"
-										<fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.fromDate}"/>>
-								</div> --%>
-								<!-- <label>Date range:</label>
-
-								<div class="input-group">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
-									</div>
-									<input type="text" class="form-control pull-right"
-										id="reservation">
-								</div> -->
-								<%-- <label>Jam</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="date" name="toDate"
-										value="${reservation.toDate }">
-								</div> --%>
-								<%-- <div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="date" name="toDate" 
-									<fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.toDate}"/>>
-								</div> --%>
-								
 								<label>Rent Duration</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
@@ -154,24 +130,20 @@
 									<input class="form-control" type="number" name="rentDuration"
 										value="${reservation.rentDuration }">
 								</div>
-								<label>Rent Status</label>
-								
+										<label>Rent Status</label>
+										<select name="rentStatus">
+											<option value="Self Drive">Self Drive</option>
+											<option value="With Driver">With Driver</option>
+										</select>
+										<br>
+										<label>Pickup Location</label>
 								<div class="input-group mb-4">
-									<!-- <div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div> -->
-											<input class="form-control" type="text"
-												name="statusReservation" value="${reservation.rentStatus} "> 
-										</div>
-										<p>if you order driver, please field "With Driver" </p>
-								<!-- <label>Reservation Date</label> -->
-								<%-- <div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="reservationdate"
-										value="${reservasi.reservationDate }">
-								</div> --%>
+									<input class="form-control" type="text" name="pickupLocation"
+										value="${reservation.pickupLocation }">
+								</div>
 								<p>
 									<input type="checkbox">I Agree with <a href="#">Terms
 										and Condition</a>
@@ -183,6 +155,10 @@
 									</div>
 								</div>
 							</form>
+							</td>
+							</tr>
+						</tbody>
+					</table>
 							<hr>
 							<div class="text-center">
 								<p>

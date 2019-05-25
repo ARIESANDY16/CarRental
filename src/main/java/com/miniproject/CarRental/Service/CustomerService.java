@@ -13,7 +13,7 @@ import com.miniproject.CarRental.Repository.CustomerRepository;
 @Service
 @Transactional
 public class CustomerService {
-	
+
 	private final CustomerRepository customerRepository;
 
 	public CustomerService(CustomerRepository customerRepository) {
@@ -38,16 +38,6 @@ public class CustomerService {
 		return customers;
 	}
 
-//	public List<Customer> showAllCustomers(String usernameCustomer) {   
-//		List<Customer> Customers = new ArrayList<Customer>();   
-//		for (Customer customers : customerRepository.findAllById(ids)) {    
-//			if (customers.getusernameCustomer().equals(usernameCustomer)) {     
-//				Customers.add(customers);    
-//				}   
-//			return Customers;
-//			}
-//	}
-
 	public void deleteMyCustomer(int idCustomer) {
 		customerRepository.deleteById(idCustomer);
 	}
@@ -59,4 +49,5 @@ public class CustomerService {
 	public Customer findByUsernameCustomerAndPasswordCustomer(String usernameCustomer, String passwordCustomer) {
 		return customerRepository.findByUsernameCustomerAndPasswordCustomer(usernameCustomer, passwordCustomer);
 	}
+
 }
