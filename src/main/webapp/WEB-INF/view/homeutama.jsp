@@ -438,7 +438,7 @@
 							<div class="col-md-12 col-sm-6">
 								<form method="post" action="/login-customer">
 									<div class="form-group">
-										<input type="email" class="form-control" name="usernameCustomer"
+										<input type="text" class="form-control" name="usernameCustomer"
 											placeholder="Email address*" value="${customer.usernameCustomer}">
 									</div>
 									<div class="form-group">
