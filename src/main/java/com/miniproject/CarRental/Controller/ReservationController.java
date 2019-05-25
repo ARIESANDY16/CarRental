@@ -1,5 +1,7 @@
 package com.miniproject.CarRental.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.ModelAndView;
 import com.miniproject.CarRental.Model.Reservation;
+import com.miniproject.CarRental.Service.CustomerService;
 import com.miniproject.CarRental.Service.ReservationService;
 import com.miniproject.CarRental.Service.VehicleService;
 
@@ -22,51 +26,75 @@ public class ReservationController {
 	@Autowired
 	VehicleService vehicleService;
 
-	@RequestMapping("/addreservation")
-	public String reservation(HttpServletRequest request) {
+	@Autowired
+	CustomerService customerService;
 
+	@RequestMapping(value = "/addreservation", method = RequestMethod.GET)
+	public ModelAndView reservation(@RequestParam("idVehicle") int idVehicle, HttpServletRequest request) {
+
+		System.out.println("idVehicle: " + idVehicle);
+
+		int idCustomer = (int) request.getSession().getAttribute("customerId");
 		request.setAttribute("mode", "MODE_ADD_RESERVATION");
-		return "reservationpage";
+
+		Reservation reservation = new Reservation();
+
+		System.out.println("idCustomer: " + idCustomer);
+		reservation.setCustomer(customerService.editCustomer(idCustomer));
+		reservation.setVehicle(vehicleService.editVehicle(idVehicle));
+		return new ModelAndView("reservationpage", "reservation", reservation);
 	}
 
-	/*
-	 * @PostMapping("/save-reservation") public String
-	 * addNewReservation(@ModelAttribute Reservation reservation, BindingResult
-	 * bindingResult, HttpServletRequest request) {
-	 * reservationService.saveMyReservation(reservation);
-	 * request.setAttribute("mode", "MODE_HOME"); return "homecustomer"; }
-	 */
-	
-	/* baru */
 	@PostMapping("/save-reservation")
-	public String reservationCustomer(@ModelAttribute Reservation reservation, BindingResult bindingResult,
+	public String addNewReservation(@ModelAttribute Reservation reservation, BindingResult bindingResult,
 			HttpServletRequest request) {
-		reservationService.saveMyReservation(reservation);
+		reservationService.reservationCustomer(reservation);
 		request.setAttribute("mode", "MODE_HOME");
-		return "redirect:/index";
+		return "homecustomer";
 	}
-	/* -baru */
 
 	@PostMapping("/save-reservation-admin")
 	public String updateReservationByadmins(@ModelAttribute Reservation reservation, BindingResult bindingResult,
 			HttpServletRequest request) {
-		reservationService.saveMyReservation(reservation);
+		reservationService.reservationAdmin(reservation);
 		request.setAttribute("mode", "ALL_RESERVATION");
 		return "redirect:/show-reservation";
 	}
 
 	@GetMapping("/show-reservation")
 	public String showAllReservation(HttpServletRequest request) {
-		request.setAttribute("reservation", reservationService.showAllReservations());
-		request.setAttribute("mode", "ALL_RESERVATION_1");
-		return "redirect:/homecustomer";
+		request.setAttribute("reservations", reservationService.showAllReservations());
+		request.setAttribute("mode", "ALL_RESERVATION");
+		return "homeadmin";
+
 	}
 
+	// Add New My-Reservation
+
 	@GetMapping("/my-reservation")
-	public String showReservation(HttpServletRequest request) {
-		request.setAttribute("reservations", reservationService.showAllReservations());
+	public ModelAndView showReservation(HttpServletRequest request) {
+		int idCustomer = (int) request.getSession().getAttribute("customerId");
 		request.setAttribute("mode", "CUSTOMER_RESERVATION");
-		return "customerreservation";
+		List<Reservation> customerreservation = reservationService.showReservations(idCustomer);
+		return new ModelAndView("customerreservation", "reservations", customerreservation);
+
+	}
+
+	@GetMapping("/task-driver")
+	public ModelAndView taskDriver(HttpServletRequest request) {
+		int idDriver = (int) request.getSession().getAttribute("driverId");
+		request.setAttribute("mode", "TASK_DRIVER");
+		List<Reservation> driverTask = reservationService.driverTask(idDriver);
+		return new ModelAndView("homedriver", "reservations", driverTask);
+
+	}
+
+	@RequestMapping("/delete-reservation")
+	public String deleteReservation(@RequestParam int idReservation, HttpServletRequest request) {
+		reservationService.deleteMyReservation(idReservation);
+		request.setAttribute("reservation", reservationService.showAllReservations());
+		request.setAttribute("mode", "MODE_DELETE_RESERVATION");
+		return "homeadmin";
 	}
 
 	@RequestMapping("/edit-reservation")
@@ -75,4 +103,5 @@ public class ReservationController {
 		request.setAttribute("mode", "MODE_UPDATE_RESERVATION");
 		return "homeadmin";
 	}
+
 }

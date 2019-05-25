@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> --%>
 <html lang="en">
 <head>
 <!-- Required meta tags -->
@@ -9,16 +8,11 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/daterangepicker.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<script src="js/daterangepicker.js"></script>
-<script src="js/moment.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <title>Car Rental JDT7</title>
 </head>
-
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-blue">
@@ -32,7 +26,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/customer">Home
+				<li class="nav-item"><a class="nav-link" href="/home">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item dropdown"><a
@@ -45,104 +39,74 @@
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="/vehicles">Daihatsu</a>
 					</div></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle disabled" href="#"
+					id="navbarDropdown" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> Service </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/servis1">Sewa Mobil Dengan
+							Supir</a> <a class="dropdown-item" href="/servis2">Sewa Mobil
+							Lepas Kunci</a>
+					</div></li>
+				<li class="nav-item"><a class="nav-link disabled" href="#">Contact</a></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#">About</a></li>
-				<li class="nav-item active"><a class="nav-link"
-					href="/reservation">Reservation</a></li>
-					<li class="nav-item"><a class="nav-link" href="/logout-customer" >Logout
-					
-						<span class="sr-only">(current)</span>
-				</a></li>
+				<!--  <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> -->
 			</ul>
 		</div>
 	</nav>
 	<!--     END NAVBAR  -->
 
-	<c:choose>
-<c:when test="${mode=='MODE_ADD_RESERVATION' }">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-9">
+			<div class="col-md-6">
 				<div class="card-group">
 					<div class="card p-4">
 						<div class="card-body">
-							<h1>Reservation</h1>
-							<table class="table table-striped table-bordered">
-						<thead>
-						</thead>
-						<tbody>	
-						<tr>
-									<td>
-										<img src="/getImage/${reservation.vehicle.idVehicle}" width="365" height="250"></td>
+							<h1>Register</h1>
 							<hr>
-							<td>
 							<form class="form-horizontal" method="POST"
-								action="save-reservation">
-								<input type="hidden" name="idReservation"
-									value="" />
-									
-								
-								
-										<label>Customer Name</label>
-										<%-- <jsp:getProperty name="Customer" property="usernameCustomer" /> --%> 
+								action="/save-customer">
+								<input type="hidden" name="idCustomer"
+									value="${customer.idCustomer }" />
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-								
-									<input class="form-control" type="text" name="customer.fullnameCustomer"
-										value="${reservation.customer.fullnameCustomer }">
-										<input type="hidden" name="customer.idCustomer" value="${reservation.customer.idCustomer }">
-								<input type="hidden" name="driver.idDriver" value="1">
-								<input type="hidden" name="driver.priceDriver" value="${reservation.driver.priceDriver }">
+									<input class="form-control" type="text" name="fullnameCustomer"
+										value="${customer.fullnameCustomer }" placeholder="Fullname">
 								</div>
-									<label>Vehicle Name</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="vehicle.nameVehicle"
-										value="${reservation.vehicle.nameVehicle }">
-									<input type="hidden" name="vehicle.idVehicle" value="${reservation.vehicle.idVehicle }">
-									<input type="hidden" name="vehicle.priceVehicle" value="${reservation.vehicle.priceVehicle }">
+									<input class="form-control" type="text" name="usernameCustomer"
+										value="${customer.usernameCustomer }" placeholder="Username">
 								</div>
-								<label>Rent Date</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="date" name="rentDate"
-										value="${reservation.rentDate }">
+									<input class="form-control" type="password"
+										name="passwordCustomer" value="${customer.passwordCustomer }"
+										placeholder="Password">
 								</div>
-								
-									<label>Rent Time</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="time" name="rentTime"
-										value="${reservation.rentTime }">
+									<input class="form-control" type="email" name="emailCustomer"
+										value="${customer.emailCustomer }" placeholder="Email">
 								</div>
-								<label>Rent Duration</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="number" name="rentDuration"
-										value="${reservation.rentDuration }">
-								</div>
-										<label>Rent Status</label>
-										<select name="rentStatus">
-											<option value="Self Drive">Self Drive</option>
-											<option value="With Driver">With Driver</option>
-										</select>
-										<br>
-										<label>Pickup Location</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="pickupLocation"
-										value="${reservation.pickupLocation }">
+									<input class="form-control" type="text"
+										name="contactnoCustomer"
+										value="${customer.contactnoCustomer }"
+										placeholder="Mobile Phone">
 								</div>
 								<p>
 									<input type="checkbox">I Agree with <a href="#">Terms
@@ -151,14 +115,10 @@
 								<div class="row">
 									<div class="form-group ">
 										<input type="submit" class="btn btn-block btn-primary"
-											value="addreservation" />
+											value="Register" />
 									</div>
 								</div>
 							</form>
-							</td>
-							</tr>
-						</tbody>
-					</table>
 							<hr>
 							<div class="text-center">
 								<p>
@@ -171,11 +131,6 @@
 			</div>
 		</div>
 	</div>
-	</c:when>
-
-
-	</c:choose>
-	
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="js/jquery-3.3.1.min.js"></script>

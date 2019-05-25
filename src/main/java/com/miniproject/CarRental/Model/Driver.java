@@ -1,9 +1,6 @@
 package com.miniproject.CarRental.Model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,24 +9,25 @@ import javax.persistence.Table;
 public class Driver {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDriver;
-	@Column(name = "fullname_driver")
 	private String fullnameDriver;
 	private String usernameDriver;
 	private String passwordDriver;
 	private int priceDriver;
+	private String statusDriver;
 
 	public Driver() {
 
 	}
 
-	public Driver(String fullnameDriver, String usernameDriver, String passwordDriver, int priceDriver) {
+	public Driver(String fullnameDriver, String usernameDriver, String passwordDriver, int priceDriver,
+			String statusDriver) {
 		super();
 		this.fullnameDriver = fullnameDriver;
 		this.usernameDriver = usernameDriver;
 		this.passwordDriver = passwordDriver;
 		this.priceDriver = priceDriver;
+		this.statusDriver = statusDriver;
 	}
 
 	public int getIdDriver() {
@@ -72,10 +70,19 @@ public class Driver {
 		this.priceDriver = priceDriver;
 	}
 
+	public String getStatusDriver() {
+		return statusDriver;
+	}
+
+	public void setStatusDriver(String statusDriver) {
+		this.statusDriver = statusDriver;
+	}
+
 	@Override
 	public String toString() {
 		return "Driver [idDriver=" + idDriver + ", fullnameDriver=" + fullnameDriver + ", usernameDriver="
-				+ usernameDriver + ", passwordDriver=" + passwordDriver + ", priceDriver=" + priceDriver + "]";
+				+ usernameDriver + ", passwordDriver=" + passwordDriver + ", priceDriver=" + priceDriver
+				+ ", statusDriver=" + statusDriver + "]";
 	}
 
 }

@@ -57,6 +57,10 @@
 		</div>
 	</nav>
 	<!--     END NAVBAR  -->
+	
+
+	
+	
 	<c:choose>
 		<c:when test="${mode=='ALL_VEHICLES' }">
 			<div class="container text-center" id="tasksDiv">

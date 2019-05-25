@@ -144,7 +144,6 @@
 			</div>
 			<div class="header_wrap">
 				<div class="user_login">
-				<p>${customer.usernameCustomer }</p>
 					<ul>
 						<li class="dropdown"><a href="#" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false"><i
@@ -152,10 +151,10 @@
 								class="fa fa-angle-down" aria-hidden="true"></i></a>
 							<ul class="dropdown-menu">
 
-								<li><a href="/edit-customer">Profile Settings</a></li>
-								
-								<li><a href="/my-reservation">My Booking</a></li>
-								
+								<li><a href="profile.php">Profile Settings</a></li>
+
+								<li><a href="my-booking.php">My Booking</a></li>
+
 								<li><a href="/logout-customer">Sign Out</a></li>
 
 								<!-- <li><a href="#loginform" data-toggle="modal"
@@ -217,8 +216,101 @@
 		</div>
 	</section>
 	<!-- /Banners -->
+	<c:choose>
+		<c:when test="${mode=='MODE_UPDATE_CUSTOMER' }">
+			<div class="container text-center">
+				<h3>Update User</h3>
+				<hr>
+				<form class="form-horizontal" method="POST" action="save-customer">
+					<input type="hidden" name="idCustomer"
+						value="${customer.idCustomer }" />
+					<div class="form-group">
+						<label class="control-label col-md-3">Full Name </label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="fullnameCustomer"
+								value="${customer.fullnameCustomer }" />
+						</div>
+					</div>
 
-	<!-- Resent Cat-->
+					<div class="form-group">
+						<label class="control-label col-md-3">Username</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="usernameCustomer"
+								value="${customer.usernameCustomer }" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-md-3">Password</label>
+						<div class="col-md-7">
+							<input type="password" class="form-control"
+								name="passwordCustomer" value="${customer.passwordCustomer }" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-md-3">Email_Address</label>
+						<div class="col-md-7">
+							<input type="email" class="form-control" name="emailCustomer"
+								value="${customer.emailCustomer }" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-md-3">Mobile Number</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="contactnoCustomer"
+								value="${customer.contactnoCustomer }" />
+						</div>
+					</div>
+
+					<!-- NEW UPDATE COLUMN	 -->
+
+						<div class="form-group select">
+						<label class="control-label col-md-3">Gender</label>
+										<select class="form-control" name="genderCustomer">
+											<option>Select Gender</option>
+											<option value="Male">Male</option>
+											<option value="Female">Female</option>
+										</select>
+									</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Date of Birth</label>
+						<div class="col-md-7">
+							<input type="date" class="form-control" name="dobCustomer"
+								value="${customer.dobCustomer }" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Address</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="addressCustomer"
+								value="${customer.addressCustomer }" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">City</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="cityCustomer"
+								value="${customer.cityCustomer }" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Country</label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="countryCustomer"
+								value="${customer.countryCustomer }" />
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<input type="submit" class="btn btn-primary" value="Save" />
+					</div>
+				</form>
+			</div>
+		</c:when>
+	</c:choose>
+	<%-- <!-- Resent Cat-->
 	<section class="section-padding gray-bg">
 		<div class="container">
 			<div class="section-header text-center">
@@ -322,9 +414,9 @@
 		<!-- Dark Overlay-->
 		<div class="dark-overlay"></div>
 	</section>
-	<!-- /Fun Facts-->
+	<!-- /Fun Facts--> --%>
 
-	<!--Testimonial -->
+	<!-- <!--Testimonial -->
 	<section class="section-padding testimonial-section parallex-bg">
 		<div class="container div_zindex">
 			<div class="section-header white-text text-center">
@@ -343,10 +435,10 @@
 				</div>
 			</div>
 		</div>
-		<!-- Dark Overlay-->
+		Dark Overlay
 		<div class="dark-overlay"></div>
 	</section>
-	<!-- /Testimonial-->
+	/Testimonial -->
 
 
 	<!--Footer -->
@@ -438,16 +530,14 @@
 							<div class="col-md-12 col-sm-6">
 								<form method="post" action="/login-customer">
 									<div class="form-group">
-										<input type="text" class="form-control" name="usernameCustomer"
-<<<<<<< HEAD
-											placeholder="Email address*" value="${customer.usernameCustomer}">
-=======
-											placeholder="Username*" value="${customer.usernameCustomer}">
->>>>>>> Feature/Ray
+										<input type="text" class="form-control"
+											name="usernameCustomer" placeholder="Username*"
+											value="${customer.usernameCustomer}">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" name="passwordCustomer"
-											placeholder="Password*" value="${customer.passwordCustomer}">
+										<input type="password" class="form-control"
+											name="passwordCustomer" placeholder="Password*"
+											value="${customer.passwordCustomer}">
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="remember">
@@ -493,34 +583,36 @@
 					<div class="row">
 						<div class="signup_wrap">
 							<div class="col-md-12 col-sm-6">
-								<form class="form-horizontal" method="POST" name="signup" action="/save-customer">
-									
-										<input type="hidden" name="idCustomer" value="${customer.idCustomer}">
-									
+								<form class="form-horizontal" method="POST" name="signup"
+									action="/save-customer">
+
+									<input type="hidden" name="idCustomer"
+										value="${customer.idCustomer}">
+
 									<div class="form-group">
-										<input type="text" class="form-control" name="fullnameCustomer"
-											placeholder="Full Name" maxlength="10"
-											 value="${customer.fullnameCustomer}">
+										<input type="text" class="form-control"
+											name="fullnameCustomer" placeholder="Full Name"
+											maxlength="10" value="${customer.fullnameCustomer}">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="usernameCustomer"
-											onBlur="checkAvailability()"
-											placeholder="Username" value="${customer.usernameCustomer}"> <span
-											id="user-availability-status" style="font-size: 12px;"></span>
+										<input type="text" class="form-control"
+											name="usernameCustomer" onBlur="checkAvailability()"
+											placeholder="Username" value="${customer.usernameCustomer}">
+										<span id="user-availability-status" style="font-size: 12px;"></span>
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" name="passwordCustomer"
-											placeholder="Password" value="${customer.passwordCustomer}">
+										<input type="password" class="form-control"
+											name="passwordCustomer" placeholder="Password"
+											value="${customer.passwordCustomer}">
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control"
-											name="emailCustomer" placeholder="Email Address"
-											 value="${customer.emailCustomer}">
+										<input type="email" class="form-control" name="emailCustomer"
+											placeholder="Email Address" value="${customer.emailCustomer}">
 									</div>
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="contactnoCustomer" placeholder="Mobile Phone"
-											 value="${customer.contactnoCustomer}">
+											value="${customer.contactnoCustomer}">
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="terms_agree" required="required"
@@ -529,8 +621,7 @@
 										</label>
 									</div>
 									<div class="form-group">
-										<input type="submit" value="Sign Up"
-											class="btn btn-block">
+										<input type="submit" value="Sign Up" class="btn btn-block">
 									</div>
 								</form>
 							</div>
@@ -547,9 +638,9 @@
 		</div>
 	</div>
 	<!--/Register-Form -->
-	
-<!-- 	Customer Edit -->
-	
+
+	<!-- 	Customer Edit -->
+
 
 	<!--Forgot-password-Form -->
 	<div class="modal fade" id="forgotpassword">
