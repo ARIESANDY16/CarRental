@@ -91,7 +91,7 @@ public class CustomerController {
 	public String showAllCustomers(HttpServletRequest request) {
 		request.setAttribute("customers", customerService.showAllCustomers());
 		request.setAttribute("mode", "ALL_CUSTOMERS");
-		return "homeadmin";
+		return "dashboard";
 
 	}
 
