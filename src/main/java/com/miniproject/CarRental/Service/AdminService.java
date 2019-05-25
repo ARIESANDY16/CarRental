@@ -10,13 +10,14 @@ import com.miniproject.CarRental.Repository.AdminRepository;
 @Service
 @Transactional
 public class AdminService {
-private final AdminRepository adminRepository;
-	
+	private final AdminRepository adminRepository;
+
 	public AdminService(AdminRepository adminRepository) {
 		this.adminRepository = adminRepository;
 	}
-public Admin findByUsernameAdminAndPasswordAdmin(String usernameAdmin, String passwordAdmin) {
-	return adminRepository.findByUsernameAdminAndPasswordAdmin(usernameAdmin, passwordAdmin);
-}
+
+	public Admin findByUsernameAdminAndPasswordAdmin(String usernameAdmin, String passwordAdmin) {
+		return adminRepository.findByUsernameAdminAndPasswordAdmin(usernameAdmin, passwordAdmin);
+	}
 
 }

@@ -5,18 +5,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="admin")
+@Table(name = "admin")
 public class Admin {
 
 	@Id
 	private int idAdmin;
 	private String usernameAdmin;
 	private String passwordAdmin;
-	
+
 	public Admin() {
-		
+
 	}
-	
+
 	public Admin(String usernameAdmin, String passwordAdmin) {
 		super();
 		this.usernameAdmin = usernameAdmin;
@@ -49,9 +49,8 @@ public class Admin {
 
 	@Override
 	public String toString() {
-		return "Admin [idAdmin=" + idAdmin + ", usernameAdmin=" + usernameAdmin + ", passwordAdmin="
-				+ passwordAdmin + "]";
+		return "Admin [idAdmin=" + idAdmin + ", usernameAdmin=" + usernameAdmin + ", passwordAdmin=" + passwordAdmin
+				+ "]";
 	}
-	
-}
 
+}

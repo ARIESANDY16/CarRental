@@ -67,7 +67,7 @@
 							<h1>Register</h1>
 							<hr>
 							<form class="form-horizontal" method="POST"
-								action="save-customer">
+								action="/save-customer">
 								<input type="hidden" name="idCustomer"
 									value="${customer.idCustomer }" />
 								<div class="input-group mb-3">
@@ -96,7 +96,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="emailCustomer"
+									<input class="form-control" type="email" name="emailCustomer"
 										value="${customer.emailCustomer }" placeholder="Email">
 								</div>
 								<div class="input-group mb-4">

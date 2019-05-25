@@ -46,14 +46,16 @@
 							<tr>
 								<th>Customer</th>
 								<th>Vehicle</th>
-							
 								<th>Driver</th>
-						
 								<th>Rent Date</th>
 								<th>Rent Time</th>
 								<th>Rent Duration</th>
+								<th>Pickup Location</th>
+								<th>Return Date</th>
+								<th>Return Time</th>
 								<th>Rent Status</th>
 								<th>Total Payment</th>
+								<th>Status Payment</th>
 							
 							</tr>
 						</thead>
@@ -63,14 +65,16 @@
 								
 								<td>${reservation.customer.fullnameCustomer}</td>
 									<td>${reservation.vehicle.nameVehicle}</td>
-								
 									<td>${reservation.driver.fullnameDriver}</td>
-								
 									<td>${reservation.rentDate}</td>
 									<td>${reservation.rentTime}</td>
 									<td>${reservation.rentDuration}</td>
+									<td>${reservation.pickupLocation}</td>
+									<td>${reservation.returnDate}</td>
+									<td>${reservation.returnTime}</td>
 									<td>${reservation.rentStatus}</td>
 									<td>${reservation.totalPayment}</td>
+									<td>${reservation.statusPayment}</td>
 								</tr>
 							</c:forEach>
 						</tbody>

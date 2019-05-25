@@ -24,14 +24,11 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/register">Add Customer <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/addvehicle">Add Vehicle</a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="/adddriver">Add Driver</a>
+                        <a class="nav-link" href="/add-driver">Add Driver</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/show-vehicles">Vehicle</a>
@@ -42,11 +39,11 @@
                        <li class="nav-item">
                         <a class="nav-link" href="/show-customers">Customer</a>
                     </li>
-                      <li class="nav-item">
+                   <!--    <li class="nav-item">
                         <a class="nav-link" href="/addreservation">Add Reservation</a>
-                    </li>
+                    </li> -->
                        <li class="nav-item">
-                        <a class="nav-link" href="/show-reservation">Reservation</a>
+                        <a class="nav-link" href="/show-reservation">Rental Activity</a>
                     </li>
                      <li class="nav-item">
                         <a class="nav-link" href="/logout-admin">Logout</a>
@@ -64,6 +61,11 @@
         </nav>
 <!--     END NAVBAR  -->
 			
+			
+			
+
+			
+			
 			<c:choose>
 			<c:when test="${mode=='ALL_CUSTOMERS' }">
 			<div class="container text-center" id="tasksDiv">
@@ -78,8 +80,12 @@
 								<th>UserName</th>
 								<th>Email Address</th>
 								<th>Mobile Number</th>
-								<th>Delete</th>
-								<th>Edit</th>
+								<th>Gender</th>
+								<th>Date of Birth</th>
+								<th>Address</th>
+								<th>City</th>
+								<th>Country</th>
+					
 							</tr>
 						</thead>
 						<tbody>
@@ -90,9 +96,13 @@
 									<td>${customer.usernameCustomer}</td>
 									<td>${customer.emailCustomer}</td>
 									<td>${customer.contactnoCustomer}</td>
-									<td><a
-										href="/delete-customer?idCustomer=${customer.idCustomer }"><button>delete</button></a></td>
-									<td><a href="/edit-customer?idCustomer=${customer.idCustomer }"><button>edit</button></a></td>
+									<td>${customer.genderCustomer}</td>
+									<td>${customer.dobCustomer}</td>
+									<td>${customer.addressCustomer}</td>
+									<td>${customer.cityCustomer}</td>
+									<td>${customer.countryCustomer}</td>
+								
+							
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -166,7 +176,7 @@
 					</div>	
 
 					<div class="form-group ">
-						<input type="submit" class="btn btn-primary" value="addvehicle" />
+						<input type="submit" class="btn btn-primary" value="Save" />
 					</div>
 				</form>
 			</div>
@@ -242,9 +252,6 @@
 			</div>
 		</c:when>
 	
-	
-	
-	
 		<c:when test="${mode=='ALL_VEHICLES_ADMIN' }">
 			<div class="container text-center" id="tasksDiv">
 				<h3>All Vehicles</h3>
@@ -260,7 +267,6 @@
 								<th>capacity</th>
 								<th>description</th>
 								<th>price</th>
-								<th>image</th>
 								<th>Delete</th>
 								<th>Edit</th>
 							</tr>
@@ -275,7 +281,7 @@
 									<td>${vehicle.capacityVehicle}</td>
 									<td>${vehicle.descriptionVehicle}</td>
 									<td>${vehicle.priceVehicle}</td>
-									<td>${vehicle.imageVehicle}</td>
+						
 									<td><a
 										href="/delete-vehicle?idVehicle=${vehicle.idVehicle }"><button>delete</button></a></td>
 									<td><a href="/edit-vehicle?idVehicle=${vehicle.idVehicle }"><button>update</button></a></td>
@@ -286,15 +292,11 @@
 				</div>
 			</div>
 		</c:when>
-	
-	
-	
-	
 		<c:when test="${mode=='MODE_ADD_DRIVER' }">
 			<div class="container text-center">
 				<h3>Add Driver</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-driver">
+				<form class="form-horizontal" method="POST" action="save-driver-admin">
 					<input type="hidden" name="idDriver"
 						value="${driver.idDriver }" />
 
@@ -330,20 +332,25 @@
 								value="${driver.priceDriver }" />
 						</div>
 					</div>
+						<label>Status Driver</label>
+						<select name="statusDriver">
+											<option value="Standby">Standby</option>
+											<option value="On Job">On Job</option>
+										</select>
 
 					<div class="form-group ">
-						<input type="submit" class="btn btn-primary" value="adddriver" />
+						<input type="submit" class="btn btn-primary" value="Save" />
 					</div>
 				</form>
 			</div>
 		</c:when>
 	
 	
-	<c:when test="${mode=='MODE_UPDATE_DRIVER' }">
+	<c:when test="${mode=='UPDATE_DRIVER_ADMIN' }">
 			<div class="container text-center">
 				<h3>Add Driver</h3>
 				<hr>
-				<form class="form-horizontal" method="POST" action="save-driver">
+				<form class="form-horizontal" method="POST" action="save-driver-admin">
 					<input type="hidden" name="idDriver"
 						value="${driver.idDriver }" />
 
@@ -358,7 +365,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-3">Username</label>
 						<div class="col-md-7">
-							<input type="text" class="form-control" name="usernameDriver"
+							<input type="text" class="form-control" name="usernameDriver" readonly="readonly"
 								value="${driver.usernameDriver }" />
 						</div>
 					</div>
@@ -366,7 +373,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-3">Password</label>
 						<div class="col-md-7">
-							<input type="password" class="form-control" name="passwordDriver"
+							<input type="password" class="form-control" name="passwordDriver" readonly="readonly"
 								value="${driver.passwordDriver }" />
 						</div>
 					</div>
@@ -379,9 +386,13 @@
 								value="${driver.priceDriver }" />
 						</div>
 					</div>
+					<label>Status Driver</label> <select name="statusDriver">
+						<option value="Standby">Standby</option>
+						<option value="On Job">On Job</option>
+					</select>
 
 					<div class="form-group ">
-						<input type="submit" class="btn btn-primary" value="adddriver" />
+						<input type="submit" class="btn btn-primary" value="Save" />
 					</div>
 				</form>
 			</div>
@@ -397,8 +408,7 @@
 							<tr>
 								<th>Id</th>
 								<th>Full Name</th>
-								<th>UserName</th>
-								<th>Price</th>
+								<th>Status</th>
 								<th>Delete</th>
 								<th>Edit</th>
 							</tr>
@@ -408,11 +418,10 @@
 								<tr>
 									<td>${driver.idDriver}</td>
 									<td>${driver.fullnameDriver}</td>
-									<td>${driver.usernameDriver}</td>
-									<td>${driver.priceDriver}</td>
+									<td>${driver.statusDriver}</td>
 									<td><a
-										href="/delete-driver?idDriver=${driver.idDriver }"><button>delete</button></a></td>
-									<td><a href="/edit-driver?idDriver=${driver.idDriver }"><button>edit</button></a></td>
+										href="/delete-driver-admin?idDriver=${driver.idDriver }"><button>delete</button></a></td>
+									<td><a href="/edit-driver-admin?idDriver=${driver.idDriver }"><button>edit</button></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -422,7 +431,7 @@
 		</c:when>
 	<c:when test="${mode=='ALL_RESERVATION'}">
 			<div class="container text-center" id="tasksDiv">
-				<h3>All Reservation</h3>
+				<h3>Rental Activity</h3>
 				<hr>
 				<div class="table-responsive">
 					<table class="table table-striped table-bordered">
@@ -434,11 +443,15 @@
 								<th>Price Vehicle</th>
 								<th>Driver</th>
 								<th>Price Driver</th>
-								<th>Rent Date</th>
-								<th>Rent Time</th>
+								<th>Check Out Date</th>
+								<th>Check Out Time</th>
 								<th>Rent Duration</th>
+								<th>Pickup Location</th>
+								<th>Check In Date</th>
+								<th>Check In Time</th>
 								<th>Rent Status</th>
 								<th>Total Payment</th>
+								<th>Status Payment</th>
 								<th>Delete</th>
 								<th>Edit</th>
 							</tr>
@@ -455,8 +468,12 @@
 									<td>${reservation.rentDate}</td>
 									<td>${reservation.rentTime}</td>
 									<td>${reservation.rentDuration}</td>
-									<td>${reservation.rentStatus}</td>
+									<td>${reservation.pickupLocation}</td>
+									<td>${reservation.returnDate}</td>
+									<td>${reservation.rentTime}</td>
+									<td>${reservation.returnTime}</td>
 									<td>${reservation.totalPayment}</td>
+									<td>${reservation.statusPayment}</td>
 									<td><a
 										href="/delete-reservation?idReservation=${reservation.idReservation }"><button>delete</button></a></td>
 									<td><a href="/edit-reservation?idReservation=${reservation.idReservation }"><button>update</button></a></td>
@@ -482,139 +499,113 @@
 								action="save-reservation-admin">
 								<input type="hidden" name="idReservation"
 									value="${reservation.idReservation }" />
-										<label>Id Customer</label>
+										<label>Name Customer</label>
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 								
-									<input class="form-control" type="text" name="customer"
-										value="${reservation.customer.idCustomer }">
+									<input class="form-control" type="text" name="customer.fullnameCustomer" readonly="readonly"
+										value="${reservation.customer.fullnameCustomer }">
+										<input type="hidden" name="customer.idCustomer" value="${reservation.customer.idCustomer }">
 								</div>
-									<label>Id Vehicle</label>
+									<label>Name Vehicle</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="vehicle"
-										value="${reservation.vehicle.idVehicle }">
+									<input class="form-control" type="text" name="vehicle.nameVehicle" readonly="readonly"
+										value="${reservation.vehicle.nameVehicle }">
+									<input type="hidden" name="vehicle.idVehicle" value="${reservation.vehicle.idVehicle }">
+									<input type="hidden" name="vehicle.priceVehicle" value="${reservation.vehicle.priceVehicle }">
 								</div>
-								<label>Price Vehicle</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="vehicle"
-										value="${reservation.vehicle.priceVehicle }">
-								</div>
-									<label>Id Driver</label>
-								<div class="input-group mb-4">
+								
+									<label>ID Driver</label>
+									<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
 									<input class="form-control" type="text" name="driver"
 										value="${reservation.driver.idDriver }">
-								</div>
-								<label>Price Driver</label>
+								</div>	
+					<%-- 			<div class="input-group mb-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> </span>
+									</div>
+									<input class="form-control" type="text" name="driver.idDriver"
+										value="${reservation.driver.idDriver }">
+									<input type="hidden" name="driver.priceDriver" value="${reservation.driver.priceDriver }">
+								</div> --%>
+								<label>Check Out Date</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="driver"
-										value="${reservation.driver.priceDriver }">
-								</div>
-								<label>Rent Date</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="date" name="rentDate"
+									<input class="form-control" type="date" name="rentDate"  readonly="readonly"
 										value="${reservation.rentDate }">
 								</div>
-								<%-- <div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="date" name="fromDate"
-										<fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.fromDate}"/>>
-								</div> --%>
-								<!-- <label>Date range:</label>
-
-								<div class="input-group">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
-									</div>
-									<input type="text" class="form-control pull-right"
-										id="reservation">
-								</div> -->
-								<label>Rent Time</label>
+								<label>Check Out Time</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="time" name="rentTime"
+									<input class="form-control" type="time" name="rentTime"  readonly="readonly"
 										value="${reservation.rentTime }">
 								</div>
-								<%-- <div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="date" name="toDate" 
-									<fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.toDate}"/>>
-								</div> --%>
 								
 								<label>Duration</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="number" name="rentDuration"
+									<input class="form-control" type="number" name="rentDuration"  readonly="readonly"
 										value="${reservation.rentDuration }">
 								</div>
-								<label>Condition</label>
+										<label>Pickup Location</label>
 								<div class="input-group mb-4">
 									<div class="input-group-prepend">
 										<span class="input-group-text"> </span>
 									</div>
-									<input class="form-control" type="text" name="rentStatus"
+									<input class="form-control" type="text" name="pickupLocation" 
+										value="${reservation.pickupLocation }">
+								</div>
+								<label>Check In Date</label>
+								<div class="input-group mb-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> </span>
+									</div>
+									<input class="form-control" type="date" name="returnDate" 
+										value="${reservation.returnDate }">
+								</div>
+								<label>Check In Time</label>
+								<div class="input-group mb-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> </span>
+									</div>
+									<input class="form-control" type="time" name="returnTime" 
+										value="${reservation.returnTime }">
+								</div>
+								<label>Rent Status</label>
+								<div class="input-group mb-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> </span>
+									</div>
+									<input class="form-control" type="text" name="rentStatus"  readonly="readonly"
 										value="${reservation.rentStatus }">
 										
 								</div>
-								<label>Total Payment</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="number" name="totalPayment"
-										value="${reservation.totalPayment }">
-										
-								</div>
-							
-								<!-- <label>Reservation Date</label> -->
-								<%-- <div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="reservationdate"
-										value="${reservasi.reservationDate }">
-								</div> --%>
-								<p>
-									<input type="checkbox">I Agree with <a href="#">Terms
-										and Condition</a>
-								</p>
+							<label>Status Payment</label>
+										<select name="statusPayment">
+											<option value="Pending">Pending</option>
+											<option value="Success">Success</option>
+										</select>	
 								<div class="row">
 									<div class="form-group ">
 										<input type="submit" class="btn btn-block btn-primary"
-											value="addreservation" />
+											value="Update Reservation" />
 									</div>
 								</div>
 							</form>
-							<hr>
-							<div class="text-center">
-								<p>
-									Already got an account? <a href="/login">Login Here</a>
-								</p>
-							</div>
 						</div>
 					</div>
 				</div>

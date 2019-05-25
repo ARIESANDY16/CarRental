@@ -12,23 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.miniproject.CarRental.Model.Customer;
 import com.miniproject.CarRental.Service.CustomerService;
-
-import io.swagger.annotations.ApiOperation;
 
 @Controller
 public class CustomerController {
 	@Autowired
 	CustomerService customerService;
-
-	@ApiOperation(value = "homecustomer", notes = "Returns the Data from user database with....")
-	@RequestMapping("/login")
-	public String login(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
-		return "customerlogin";
-	}
 
 	@RequestMapping(value = "/login-customer", method = RequestMethod.POST)
 	public String loginCustomer(ModelMap model, @ModelAttribute Customer customer, HttpServletRequest request) {
@@ -38,16 +30,13 @@ public class CustomerController {
 		if (customerData != null) {
 			int customerId = customerData.getidCustomer();
 			customer.setidCustomer(customerId);
-			/*
-			 * String customerFullname =customerData.getfullnameCustomer();
-			 * customer.setfullnameCustomer(customerFullname);
-			 */
+			request.getSession().setAttribute("customerId", customerId);
 
-			return "homecustomer";
+			return "homeutama";
 		} else {
 			request.setAttribute("error", "Invalid Username or Password");
 			request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
-			return "customerlogin";
+			return "redirect:/index";
 		}
 
 	}
@@ -55,24 +44,7 @@ public class CustomerController {
 	@RequestMapping("/logout-customer")
 	public String logoutCustomer(@ModelAttribute Customer customer, HttpServletRequest request, Object logout) {
 		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
-		return "homeutama";
-	}
-
-	@RequestMapping("/customer")
-	public String homeCustomer(@ModelAttribute Customer customer, HttpServletRequest request, Object logout) {
-		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
-		return "homecustomer";
-	}
-
-	/*
-	 * @RequestMapping("/reservation") public String Reservation(HttpServletRequest
-	 * request) { request.setAttribute("mode", "MODE_HOME"); return "reservation"; }
-	 */
-
-	@RequestMapping("/register")
-	public String registration(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_REGISTER");
-		return "customerregistration";
+		return "redirect:/index";
 	}
 
 	@PostMapping("/save-customer")
@@ -80,7 +52,7 @@ public class CustomerController {
 			HttpServletRequest request) {
 		customerService.saveMyCustomer(customer);
 		request.setAttribute("mode", "MODE_REGISTER");
-		return "redirect:/login";
+		return "redirect:/index";
 	}
 
 	@RequestMapping("/forgotpassword")
@@ -97,15 +69,16 @@ public class CustomerController {
 		return "redirect:/login";
 	}
 
-	@GetMapping("/show-customers")
-	public String showAllCustomers(HttpServletRequest request) {
-		request.setAttribute("customers", customerService.showAllCustomers());
-		request.setAttribute("mode", "ALL_CUSTOMERS");
-		return "homeadmin";
+	@RequestMapping("/edit-customer")
+	public ModelAndView editCustomer(HttpServletRequest request) {
+		int idCustomer = (int) request.getSession().getAttribute("customerId");
+		request.setAttribute("mode", "MODE_UPDATE_CUSTOMER");
+
+		Customer customer = customerService.editCustomer(idCustomer);
+		return new ModelAndView("customerprofile", "customer", customer);
 
 	}
 
-//
 	@RequestMapping("/delete-customer")
 	public String deleteCustomer(@RequestParam int idCustomer, HttpServletRequest request) {
 		customerService.deleteMyCustomer(idCustomer);
@@ -114,18 +87,12 @@ public class CustomerController {
 		return "homeadmin";
 	}
 
-	@RequestMapping("/edit-customer")
-	public String editCustomer(@RequestParam int idCustomer, HttpServletRequest request) {
-		request.setAttribute("customer", customerService.editCustomer(idCustomer));
-		request.setAttribute("mode", "MODE_UPDATE_CUSTOMER");
-		return "customeredit";
+	@GetMapping("/show-customers")
+	public String showAllCustomers(HttpServletRequest request) {
+		request.setAttribute("customers", customerService.showAllCustomers());
+		request.setAttribute("mode", "ALL_CUSTOMERS");
+		return "homeadmin";
+
 	}
-	/*
-	 * @PostMapping("/save-customer-edit") public String
-	 * editCustomer(@ModelAttribute Customer customer, BindingResult bindingResult,
-	 * HttpServletRequest request) { customerService.saveMyCustomer(customer);
-	 * //request.setAttribute("mode", "MODE_REGISTER"); return "redirect:/customer";
-	 * }
-	 */
 
 }
