@@ -61,8 +61,8 @@
 					src="assets/admin/img/ts-avatar.jpg" class="ts-avatar hidden-side"
 					alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
 				<ul>
-					<li><a href="change-password.php">Change Password</a></li>
-					<li><a href="logout.php">Logout</a></li>
+					<!-- <li><a href="change-password.php">Change Password</a></li> -->
+					<li><a href="/logout-admin">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -85,9 +85,9 @@
 						<li><a href="/show-drivers">Manage Drivers</a></li>
 					</ul></li>
 				<li><a href="/show-customers"><i class="fa fa-users"></i>
-						Reg Customers</a></li>
+						Customers</a></li>
 				<li><a href="/show-reservation"><i class="fa fa-users"></i>
-						Manage Booking</a></li>
+						Rental Activity</a></li>
 				<!-- <li><a href="testimonials.php"><i class="fa fa-table"></i>
 						Manage Testimonials</a></li>
 				<li><a href="manage-conactusquery.php"><i
@@ -620,8 +620,8 @@
 														<td>${reservation.rentDuration}</td>
 														<td>${reservation.pickupLocation}</td>
 														<td>${reservation.returnDate}</td>
-														<td>${reservation.rentTime}</td>
 														<td>${reservation.returnTime}</td>
+														<td>${reservation.rentStatus}</td>
 														<td>${reservation.totalPayment}</td>
 														<td>${reservation.statusPayment}</td>
 
