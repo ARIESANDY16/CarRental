@@ -30,10 +30,10 @@ public class VehicleController {
 	@Autowired
 	VehicleService vehicleService;
 
-	@RequestMapping("/addvehicle")
+	@RequestMapping("/add-vehicle")
 	public String vehicle(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_ADD_VEHICLE");
-		return "homeadmin";
+		request.setAttribute("mode", "ADD_VEHICLE");
+		return "dashboard";
 	}
 
 	@PostMapping("/save-vehicle")
@@ -47,7 +47,7 @@ public class VehicleController {
 		try {
 			InputStream inputStream = new ByteArrayInputStream(file.getBytes());
 
-			File newFile = new File("D:/images/" + file.getOriginalFilename());
+			File newFile = new File("/images/" + file.getOriginalFilename());
 			if (!newFile.exists()) {
 				newFile.createNewFile();
 			}
@@ -63,15 +63,15 @@ public class VehicleController {
 			e.printStackTrace();
 		}
 
-		request.setAttribute("mode", "MODE_HOME");
-		return "homeadmin";
+		request.setAttribute("mode", "ADD_VEHICLE");
+		return "redirect:/show-vehicles";
 	}
 
 	@GetMapping("/show-vehicles")
 	public String showAllVehicles(HttpServletRequest request) throws UnsupportedEncodingException {
 		request.setAttribute("vehicles", vehicleService.showAllVehicles());
-		request.setAttribute("mode", "ALL_VEHICLES_ADMIN");
-		return "homeadmin";
+		request.setAttribute("mode", "ALL_VEHICLES");
+		return "dashboard";
 
 	}
 
@@ -89,14 +89,14 @@ public class VehicleController {
 		vehicleService.deleteMyVehicle(idVehicle);
 		request.setAttribute("vehicles", vehicleService.showAllVehicles());
 		request.setAttribute("mode", "ALL_VEHICLES");
-		return "homeadmin";
+		return "redirect:/show-vehicles";
 	}
 
 	@RequestMapping("/edit-vehicle")
 	public String editVehicle(@RequestParam int idVehicle, HttpServletRequest request) {
 		request.setAttribute("vehicle", vehicleService.editVehicle(idVehicle));
-		request.setAttribute("mode", "MODE_UPDATE_VEHICLE");
-		return "homeadmin";
+		request.setAttribute("mode", "UPDATE_VEHICLE");
+		return "dashboard";
 	}
 
 	@RequestMapping("/getImage/{vehicleId}")

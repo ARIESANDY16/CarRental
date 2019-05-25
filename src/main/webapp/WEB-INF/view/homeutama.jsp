@@ -144,7 +144,7 @@
 			</div>
 			<div class="header_wrap">
 				<div class="user_login">
-				<p>${customer.usernameCustomer }</p>
+					<p>${customer.usernameCustomer }</p>
 					<ul>
 						<li class="dropdown"><a href="#" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false"><i
@@ -153,9 +153,9 @@
 							<ul class="dropdown-menu">
 
 								<li><a href="/edit-customer">Profile Settings</a></li>
-								
+
 								<li><a href="/my-reservation">My Booking</a></li>
-								
+
 								<li><a href="/logout-customer">Sign Out</a></li>
 
 								<!-- <li><a href="#loginform" data-toggle="modal"
@@ -422,6 +422,7 @@
 	<!--/Back to top-->
 
 	<!--Login-Form -->
+
 	<div class="modal fade" id="loginform">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -438,12 +439,14 @@
 							<div class="col-md-12 col-sm-6">
 								<form method="post" action="/login-customer">
 									<div class="form-group">
-										<input type="text" class="form-control" name="usernameCustomer"
-											placeholder="Username*" value="${customer.usernameCustomer}">
+										<input type="text" class="form-control"
+											name="usernameCustomer" placeholder="Username"
+											value="${customer.usernameCustomer}">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" name="passwordCustomer"
-											placeholder="Password*" value="${customer.passwordCustomer}">
+										<input type="password" class="form-control"
+											name="passwordCustomer" placeholder="Password*"
+											value="${customer.passwordCustomer}">
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="remember">
@@ -465,7 +468,7 @@
 							data-dismiss="modal">Signup Here</a>
 					</p>
 					<p>
-						<a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot
+						<a href="/forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot
 							Password ?</a>
 					</p>
 				</div>
@@ -489,34 +492,36 @@
 					<div class="row">
 						<div class="signup_wrap">
 							<div class="col-md-12 col-sm-6">
-								<form class="form-horizontal" method="POST" name="signup" action="/save-customer">
-									
-										<input type="hidden" name="idCustomer" value="${customer.idCustomer}">
-									
+								<form class="form-horizontal" method="POST" name="signup"
+									action="/save-customer">
+
+									<input type="hidden" name="idCustomer"
+										value="${customer.idCustomer}">
+
 									<div class="form-group">
-										<input type="text" class="form-control" name="fullnameCustomer"
-											placeholder="Full Name" maxlength="10"
-											 value="${customer.fullnameCustomer}">
+										<input type="text" class="form-control"
+											name="fullnameCustomer" placeholder="Full Name"
+											maxlength="10" value="${customer.fullnameCustomer}">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="usernameCustomer"
-											onBlur="checkAvailability()"
-											placeholder="Username" value="${customer.usernameCustomer}"> <span
-											id="user-availability-status" style="font-size: 12px;"></span>
+										<input type="text" class="form-control"
+											name="usernameCustomer" onBlur="checkAvailability()"
+											placeholder="Username" value="${customer.usernameCustomer}">
+										<span id="user-availability-status" style="font-size: 12px;"></span>
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" name="passwordCustomer"
-											placeholder="Password" value="${customer.passwordCustomer}">
+										<input type="password" class="form-control"
+											name="passwordCustomer" placeholder="Password"
+											value="${customer.passwordCustomer}">
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control"
-											name="emailCustomer" placeholder="Email Address"
-											 value="${customer.emailCustomer}">
+										<input type="email" class="form-control" name="emailCustomer"
+											placeholder="Email Address" value="${customer.emailCustomer}">
 									</div>
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="contactnoCustomer" placeholder="Mobile Phone"
-											 value="${customer.contactnoCustomer}">
+											value="${customer.contactnoCustomer}">
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="terms_agree" required="required"
@@ -525,8 +530,7 @@
 										</label>
 									</div>
 									<div class="form-group">
-										<input type="submit" value="Sign Up"
-											class="btn btn-block">
+										<input type="submit" value="Sign Up" class="btn btn-block">
 									</div>
 								</form>
 							</div>
@@ -543,9 +547,9 @@
 		</div>
 	</div>
 	<!--/Register-Form -->
-	
-<!-- 	Customer Edit -->
-	
+
+	<!-- 	Customer Edit -->
+
 
 	<!--Forgot-password-Form -->
 	<div class="modal fade" id="forgotpassword">

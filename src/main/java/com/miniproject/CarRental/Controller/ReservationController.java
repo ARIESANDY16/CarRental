@@ -50,7 +50,7 @@ public class ReservationController {
 			HttpServletRequest request) {
 		reservationService.reservationCustomer(reservation);
 		request.setAttribute("mode", "MODE_HOME");
-		return "homecustomer";
+		return "redirect:/index";
 	}
 
 	@PostMapping("/save-reservation-admin")
@@ -65,7 +65,7 @@ public class ReservationController {
 	public String showAllReservation(HttpServletRequest request) {
 		request.setAttribute("reservations", reservationService.showAllReservations());
 		request.setAttribute("mode", "ALL_RESERVATION");
-		return "homeadmin";
+		return "dashboard";
 
 	}
 
