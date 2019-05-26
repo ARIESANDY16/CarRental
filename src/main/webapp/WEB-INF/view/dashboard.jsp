@@ -539,19 +539,6 @@
 															<input type="text" name="fullnameDriver"
 																class="form-control" value="${driver.fullnameDriver }">
 														</div>
-														<label class="col-sm-2 control-label">Username<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input type="text" class="form-control"
-																name="usernameDriver" value="${driver.usernameDriver }">
-														</div>
-
-														<label class="col-sm-2 control-label">Password<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input type="text" class="form-control"
-																name="passwordDriver" value="${driver.passwordDriver }">
-														</div>
 														<label class="col-sm-2 control-label">Price Driver<span
 															style="color: red">*</span>
 														</label>
@@ -559,6 +546,12 @@
 															<input type="text" class="form-control"
 																name="priceDriver" value="${driver.priceDriver }"
 																required>
+														</div>
+														<label class="col-sm-2 control-label">Username<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input type="text" class="form-control"
+																name="usernameDriver" value="${driver.usernameDriver }">
 														</div>
 														<label class="col-sm-2 control-label">Status
 															Driver<span style="color: red">*</span>
@@ -569,6 +562,12 @@
 																<option value="Standby">Standby</option>
 																<option value="On Job">On Job</option>
 															</select>
+														</div>
+														<label class="col-sm-2 control-label">Password<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input type="text" class="form-control"
+																name="passwordDriver" value="${driver.passwordDriver }">
 														</div>
 													</div>
 													<div class="form-group">
@@ -611,20 +610,8 @@
 															style="color: red">*</span></label>
 														<div class="col-sm-4">
 															<input type="text" name="fullnameDriver"
-																class="form-control" value="${driver.fullnameDriver }">
-														</div>
-														<label class="col-sm-2 control-label">Username<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input type="text" class="form-control"
-																name="usernameDriver" value="${driver.usernameDriver }">
-														</div>
-
-														<label class="col-sm-2 control-label">Password<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input type="text" class="form-control"
-																name="passwordDriver" value="${driver.passwordDriver }">
+																readonly="readonly" class="form-control"
+																value="${driver.fullnameDriver }">
 														</div>
 														<label class="col-sm-2 control-label">Price Driver<span
 															style="color: red">*</span>
@@ -633,6 +620,13 @@
 															<input type="text" class="form-control"
 																name="priceDriver" value="${driver.priceDriver }"
 																required>
+														</div>
+														<label class="col-sm-2 control-label">Username<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input type="text" class="form-control"
+																readonly="readonly" name="usernameDriver"
+																value="${driver.usernameDriver }">
 														</div>
 														<label class="col-sm-2 control-label">Status
 															Driver<span style="color: red">*</span>
@@ -643,6 +637,13 @@
 																<option value="Standby">Standby</option>
 																<option value="On Job">On Job</option>
 															</select>
+														</div>
+														<label class="col-sm-2 control-label">Password<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input type="password" class="form-control"
+																readonly="readonly" name="passwordDriver"
+																value="${driver.passwordDriver }">
 														</div>
 													</div>
 													<div class="form-group">
@@ -770,13 +771,6 @@
 																type="hidden" name="vehicle.priceVehicle"
 																value="${reservation.vehicle.priceVehicle }">
 														</div>
-
-														<label class="col-sm-2 control-label">ID Driver<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text" name="driver"
-																value="${reservation.driver.idDriver }">
-														</div>
 														<label class="col-sm-2 control-label">Check Out
 															Date<span style="color: red">*</span>
 														</label>
@@ -790,22 +784,6 @@
 														<div class="col-sm-4">
 															<input class="form-control" type="time" name="rentTime"
 																readonly="readonly" value="${reservation.rentTime }">
-														</div>
-														<label class="col-sm-2 control-label">Duration<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="number"
-																name="rentDuration" readonly="readonly"
-																value="${reservation.rentDuration }">
-														</div>
-														<label class="col-sm-2 control-label">Pickup
-															Location<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="pickupLocation"
-																value="${reservation.pickupLocation }">
 														</div>
 														<label class="col-sm-2 control-label">Check In
 															Date<span style="color: red">*</span>
@@ -827,6 +805,28 @@
 														<div class="col-sm-4">
 															<input class="form-control" type="text" name="rentStatus"
 																readonly="readonly" value="${reservation.rentStatus }">
+														</div>
+														<label class="col-sm-2 control-label">Duration<span
+															style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="number"
+																name="rentDuration" readonly="readonly"
+																value="${reservation.rentDuration }">
+														</div>
+														<label class="col-sm-2 control-label">ID Driver<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="driver"
+																value="${reservation.driver.idDriver }">
+														</div>
+														<label class="col-sm-2 control-label">Pickup
+															Location<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="pickupLocation"
+																value="${reservation.pickupLocation }">
 														</div>
 														<label class="col-sm-2 control-label">Status
 															Payment<span style="color: red">*</span>
@@ -858,7 +858,7 @@
 			</div>
 		</c:when>
 	</c:choose>
-	
+
 
 	<!-- Loading Scripts -->
 	<script src="assets/admin/js/jquery.min.js"></script>
