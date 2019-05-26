@@ -41,7 +41,7 @@ public class AdminController {
 	
 	@RequestMapping("/dashboard")
 	public String homeadmin(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_LOGIN_ADMIN");
+		request.setAttribute("mode", "DASHBOARD_ADMIN");
 		return "dashboard";
 	}
 
