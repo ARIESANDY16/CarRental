@@ -54,22 +54,22 @@ public class DriverController {
 
 	@RequestMapping(value = "/add-driver", method = RequestMethod.GET)
 	public String driver(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_ADD_DRIVER");
-		return "homeadmin";
+		request.setAttribute("mode", "ADD_DRIVER");
+		return "dashboard";
 	}
 
 	@PostMapping(value = "/save-driver")
 	public String saveDriver(@ModelAttribute Driver driver, BindingResult bindingResult, HttpServletRequest request) {
 		driverService.saveMyDriver(driver);
 		request.setAttribute("mode", "MODE_HOME");
-		return "homedriver";
+		return "dashboard";
 	}
 
 	@PostMapping(value = "/save-driver-admin")
 	public String saveDriverByAdmin(@ModelAttribute Driver driver, BindingResult bindingResult,
 			HttpServletRequest request) {
 		driverService.saveMyDriver(driver);
-		request.setAttribute("mode", "ALL_DRIVERS");
+		request.setAttribute("mode", "ALL_DRIVERS_ADMIN");
 		return "redirect:/show-drivers";
 	}
 
@@ -77,7 +77,7 @@ public class DriverController {
 	public String showAllDrivers(HttpServletRequest request) {
 		request.setAttribute("drivers", driverService.showAllDrivers());
 		request.setAttribute("mode", "ALL_DRIVERS");
-		return "homeadmin";
+		return "dashboard";
 
 	}
 
@@ -86,7 +86,7 @@ public class DriverController {
 		driverService.deleteMyDriver(idDriver);
 		request.setAttribute("drivers", driverService.showAllDrivers());
 		request.setAttribute("mode", "ALL_DRIVERS");
-		return "homeadmin";
+		return "redirect:/show-drivers";
 	}
 
 	@RequestMapping(value = "/edit-driver")
@@ -98,11 +98,15 @@ public class DriverController {
 		return new ModelAndView("homedriver", "driver", driver);
 	}
 
+	
 	@RequestMapping(value = "/edit-driver-admin", method = RequestMethod.GET)
 	public String editDriverByAdmin(@RequestParam int idDriver, HttpServletRequest request) {
 		request.setAttribute("driver", driverService.editDriver(idDriver));
 		request.setAttribute("mode", "UPDATE_DRIVER_ADMIN");
-		return "homeadmin";
+		return "dashboard";
 	}
 
 }
+
+
+

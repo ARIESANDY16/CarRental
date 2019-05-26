@@ -175,26 +175,11 @@
 								class="fa fa-user-circle" aria-hidden="true"></i> <i
 								class="fa fa-angle-down" aria-hidden="true"></i></a>
 							<ul class="dropdown-menu">
+								<li><a href="/edit-customer">Profile Settings</a></li>
 
-								<li><a href="profile.php">Profile Settings</a></li>
-								<li><a href="/update-password">Update Password</a></li>
-								<li><a href="my-booking.php">My Booking</a></li>
-								<li><a href="post-testimonial.php">Post a Testimonial</a></li>
-								<li><a href="my-testimonials.php">My Testimonial</a></li>
-								<li><a href="logout.php">Sign Out</a></li>
+								<li><a href="/my-reservation">My Booking</a></li>
 
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">Profile Settings</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">Update Password</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">My Booking</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">Post a Testimonial</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">My Testimonial</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">Sign Out</a></li>
+								<li><a href="/logout-customer">Sign Out</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -260,8 +245,11 @@
 										Tahun : ${vehicle.yearVehicle} <br> Kapasitas :
 										${vehicle.capacityVehicle} orang <br> Deskripsi :
 										${vehicle.descriptionVehicle}<br></td>
-										<td><a
-										href="/addreservation?idVehicle=${vehicle.idVehicle }"><button>Reservation</button></a></td>
+									<td><a
+										href="/addreservation?idVehicle=${vehicle.idVehicle }"
+										class="btn btn-xs uppercase" data-toggle="modal"
+										data-dismiss="modal"
+										onclick ="return confirm('you have to login') href='/login-customer';">Reservation</a></td>
 									<!-- <td><a href="#reservationform"
 										class="btn btn-xs uppercase" data-toggle="modal"
 										data-dismiss="modal">Reservation</a></td> -->
