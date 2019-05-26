@@ -500,7 +500,7 @@
 														<td><a
 															href="/edit-driver-admin?idDriver=${driver.idDriver }"><i
 																class="fa fa-edit"></i></a>&nbsp;&nbsp; <a
-															href="/delete-driver-admin?idDriver=${driver.idDriver }"
+															href="/delete-driver?idDriver=${driver.idDriver }"
 															onclick="return confirm('Do you want to delete');"><i
 																class="fa fa-close"></i></a></td>
 													</tr>
@@ -745,7 +745,7 @@
 											<div class="panel-heading">Basic Info</div>
 											<div class="panel-body">
 												<form method="post" class="form-horizontal"
-													action="edit-reservation-admin">
+													action="save-reservation-admin">
 													<input type="hidden" name="idReservation"
 														value="${reservation.idReservation }" />
 													<div class="form-group">

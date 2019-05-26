@@ -232,7 +232,7 @@
 					Ipsum, you need to be sure there isn't anything embarrassing hidden
 					in the middle of text.</p>
 			</div>
-			<div class="row">
+	<%-- 		<div class="row">
 
 				<!-- Nav tabs -->
 				<div class="recent-tab">
@@ -268,7 +268,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 	</section>
 	<!-- /Resent Cat -->
