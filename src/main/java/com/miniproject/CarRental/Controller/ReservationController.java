@@ -50,7 +50,7 @@ public class ReservationController {
 			HttpServletRequest request) {
 		reservationService.reservationCustomer(reservation);
 		request.setAttribute("mode", "MODE_HOME");
-		return "homecustomer";
+		return "redirect:/index";
 	}
 
 	@PostMapping("/save-reservation-admin")
@@ -65,7 +65,7 @@ public class ReservationController {
 	public String showAllReservation(HttpServletRequest request) {
 		request.setAttribute("reservations", reservationService.showAllReservations());
 		request.setAttribute("mode", "ALL_RESERVATION");
-		return "homeadmin";
+		return "dashboard";
 
 	}
 
@@ -77,7 +77,6 @@ public class ReservationController {
 		request.setAttribute("mode", "CUSTOMER_RESERVATION");
 		List<Reservation> customerreservation = reservationService.showReservations(idCustomer);
 		return new ModelAndView("customerreservation", "reservations", customerreservation);
-
 	}
 
 	@GetMapping("/task-driver")
@@ -86,7 +85,6 @@ public class ReservationController {
 		request.setAttribute("mode", "TASK_DRIVER");
 		List<Reservation> driverTask = reservationService.driverTask(idDriver);
 		return new ModelAndView("homedriver", "reservations", driverTask);
-
 	}
 
 	@RequestMapping("/delete-reservation")

@@ -44,9 +44,11 @@ public class CustomerController {
 	@RequestMapping("/logout-customer")
 	public String logoutCustomer(@ModelAttribute Customer customer, HttpServletRequest request, Object logout) {
 		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
+		request.getSession().invalidate();
 		return "redirect:/index";
 	}
-
+	
+	
 	@PostMapping("/save-customer")
 	public String registerCustomer(@ModelAttribute Customer customer, BindingResult bindingResult,
 			HttpServletRequest request) {
@@ -91,7 +93,7 @@ public class CustomerController {
 	public String showAllCustomers(HttpServletRequest request) {
 		request.setAttribute("customers", customerService.showAllCustomers());
 		request.setAttribute("mode", "ALL_CUSTOMERS");
-		return "homeadmin";
+		return "dashboard";
 
 	}
 

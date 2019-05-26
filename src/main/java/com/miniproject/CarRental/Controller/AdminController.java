@@ -18,25 +18,31 @@ public class AdminController {
 	@RequestMapping("/admin")
 	public String loginadmin(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_LOGIN_ADMIN");
-		return "adminlogin";
+		return "indexadmin";
 	}
 
 	@RequestMapping("/login-admin")
 	public String loginAdmin(@ModelAttribute Admin admin, HttpServletRequest request) {
 		if (adminService.findByUsernameAdminAndPasswordAdmin(admin.getusernameAdmin(),
 				admin.getpasswordAdmin()) != null) {
-			return "homeadmin";
+			return "dashboard";
 		} else {
 			request.setAttribute("error", "Invalid Username or Password");
 			request.setAttribute("mode", "MODE_LOGIN_ADMIN");
-			return "adminlogin";
+			return "indexadmin";
 		}
 	}
 
 	@RequestMapping("/logout-admin")
 	public String logoutAdmin(@ModelAttribute Admin admin, HttpServletRequest request, Object logout) {
 		request.setAttribute("mode", "MODE_LOGIN_ADMIN");
-		return "adminlogin";
+		return "redirect:/admin";
+	}
+	
+	@RequestMapping("/dashboard")
+	public String homeadmin(HttpServletRequest request) {
+		request.setAttribute("mode", "DASHBOARD_ADMIN");
+		return "dashboard";
 	}
 
 }
