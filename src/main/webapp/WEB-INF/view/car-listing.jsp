@@ -260,8 +260,11 @@
 										Tahun : ${vehicle.yearVehicle} <br> Kapasitas :
 										${vehicle.capacityVehicle} orang <br> Deskripsi :
 										${vehicle.descriptionVehicle}<br></td>
-										<td><a
-										href="/addreservation?idVehicle=${vehicle.idVehicle }"><button>Reservation</button></a></td>
+									<td><a
+										href="/addreservation?idVehicle=${vehicle.idVehicle }"
+										class="btn btn-xs uppercase" data-toggle="modal"
+										data-dismiss="modal"
+										onclick ="return confirm('you have to login') href='/login-customer';">Reservation</a></td>
 									<!-- <td><a href="#reservationform"
 										class="btn btn-xs uppercase" data-toggle="modal"
 										data-dismiss="modal">Reservation</a></td> -->
