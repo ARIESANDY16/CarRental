@@ -169,12 +169,15 @@
 
 					<!-- NEW UPDATE COLUMN	 -->
 					<div class="form-group">
-						<label class="control-label col-md-3">Gender</label> <select
+						<label class="control-label col-md-3">Gender</label> 
+						<div class="col-sm-7">
+						<select
 							class="form-control" name="genderCustomer">
 							<option>Select Gender</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
 						</select>
+						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Date of Birth</label>
