@@ -54,18 +54,14 @@
 
 <body>
 	<div class="brand clearfix">
-		<a href="/dashboard" style="font-size: 20px;">Car Rental Portal
-			| Admin Panel</a> <span class="menu-btn"><i class="fa fa-bars"></i></span>
+		<a href="/dashboard" style="font-size: 20px;">Car Rental Portal |
+			Admin Panel</a> <span class="menu-btn"><i class="fa fa-bars"></i></span>
 		<ul class="ts-profile-nav">
 			<li class="ts-account"><a href="#"><img
 					src="assets/admin/img/ts-avatar.jpg" class="ts-avatar hidden-side"
 					alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
 				<ul>
-<<<<<<< HEAD
 					<li><a href="change-password.php">Change Password</a></li>
-=======
-					<!-- <li><a href="change-password.php">Change Password</a></li> -->
->>>>>>> Feature/Ray
 					<li><a href="/logout-admin">Logout</a></li>
 				</ul></li>
 		</ul>
@@ -107,6 +103,97 @@
 			</ul>
 		</nav>
 	</div>
+
+	<!-- dashboard -->
+	<c:choose>
+		<c:when test="${mode=='DASHBOARD_ADMIN'}">
+			<div class="ts-main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="page-title">Dashboard</h2>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-3">
+												<div class="panel panel-default">
+													<div class="panel-body bk-primary text-light">
+														<div class="stat-panel text-center">
+															<div class="stat-panel-number h1 ">
+																<h1>${customer.rows}</h1>
+															</div>
+															<div class="stat-panel-title text-uppercase">Reg
+																Customers</div>
+														</div>
+													</div>
+													<a href="/show-customers" class="block-anchor panel-footer">Full
+														Detail <i class="fa fa-arrow-right"></i>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="panel panel-default">
+													<div class="panel-body bk-success text-light">
+														<div class="stat-panel text-center">
+															<div class="stat-panel-number h1 ">
+																<h1>${vehicle.rows}</h1>
+															</div>
+															<div class="stat-panel-title text-uppercase">Listed
+																Vehicles</div>
+														</div>
+													</div>
+													<a href="/show-vehicles"
+														class="block-anchor panel-footer text-center">Full
+														Detail &nbsp; <i class="fa fa-arrow-right"></i>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="panel panel-default">
+													<div class="panel-body bk-warning text-light">
+														<div class="stat-panel text-center">
+															<div class="stat-panel-number h1 ">
+																<h1>${driver.rows}</h1>
+															</div>
+															<div class="stat-panel-title text-uppercase">Listed
+																Drivers</div>
+														</div>
+													</div>
+													<a href="/show-drivers"
+														class="block-anchor panel-footer text-center">Full
+														Detail &nbsp; <i class="fa fa-arrow-right"></i>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="panel panel-default">
+													<div class="panel-body bk-info text-light">
+														<div class="stat-panel text-center">
+															<div class="stat-panel-number h1 ">
+																<h1>${reservation.rows}</h1>
+															</div>
+															<div class="stat-panel-title text-uppercase">Total
+																Reservations</div>
+														</div>
+													</div>
+													<a href="/show-reservation"
+														class="block-anchor panel-footer text-center">Full
+														Detail &nbsp; <i class="fa fa-arrow-right"></i>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+	</c:choose>
+	<!-- /dashboard -->
 
 	<c:choose>
 		<c:when test="${mode=='ALL_CUSTOMERS' }">
