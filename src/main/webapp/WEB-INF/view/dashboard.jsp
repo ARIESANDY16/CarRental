@@ -62,7 +62,7 @@
 					alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
 				<ul>
 					<li><a href="change-password.php">Change Password</a></li>
-					<li><a href="logout.php">Logout</a></li>
+					<li><a href="/logout-admin">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>
