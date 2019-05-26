@@ -98,7 +98,7 @@
 								class="fa fa-angle-down" aria-hidden="true"></i></a>
 							<ul class="dropdown-menu">
 
-								<li><a href="profile.php">Profile Settings</a></li>
+							<li><a href="profile.php">Profile Settings</a></li>
 								<li><a href="/update-password">Update Password</a></li>
 								<li><a href="my-booking.php">My Booking</a></li>
 								<li><a href="post-testimonial.php">Post a Testimonial</a></li>
@@ -142,24 +142,24 @@
 				</ul>
 			</div>
 		</div>
-	</nav>
-
+			</nav>
+			
 
 	<c:choose>
-		<c:when test="${mode=='MODE_ADD_RESERVATION' }">
+	<c:when test="${mode=='MODE_ADD_RESERVATION' }">
 			<div class="container">
 				<hr>
 				<h1 class="justify-content-center">Reservation</h1>
 				<hr>
-				<div class="row justify-content-center">
-					<div class="col-md-12">
+							<div class="row justify-content-center">
+								<div class="col-md-12">
 						<div class="card-group">
 							<div class="card p-4">
 								<div class="card-body">
-									<form class="form-horizontal" method="POST"
+								<form class="form-horizontal" method="POST"
 										action="save-reservation">
-
-										<!-- 					Kolom 1 -->
+										
+											<!-- 					Kolom 1 -->
 										<div class="row clearfix">
 											<div class="col-md-4">
 												<img src="/getImage/${reservation.vehicle.idVehicle}"
@@ -170,7 +170,7 @@
 												<label>Customer Name</label> <input class="form-control"
 													type="text" name="customer.fullnameCustomer"
 													value="${reservation.customer.fullnameCustomer }">
-											</div>
+																	</div>
 
 											<div class="col-md-4">
 												<label>Vehicle Name</label> <input class="form-control"

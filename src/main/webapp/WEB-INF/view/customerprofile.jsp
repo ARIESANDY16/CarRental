@@ -68,12 +68,28 @@
 								class="fa fa-user-circle" aria-hidden="true"></i> <i
 								class="fa fa-angle-down" aria-hidden="true"></i></a>
 							<ul class="dropdown-menu">
-
-								<li><a href="/edit-profile">Profile Settings</a></li>
-
-								<li><a href="/my-reservation">My Booking</a></li>
+	<li><a href="/edit-profile">Profile Settings</a></li>
+	<li><a href="/edit-profile">Profile Settings</a></li>
+	
+	<li><a href="/my-reservation">My Booking</a></li>
 
 								<li><a href="/logout-customer">Sign Out</a></li>
+<<<<<<< HEAD
+=======
+								
+								<!-- <li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">Profile Settings</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">Update Password</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">My Booking</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">Post a Testimonial</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">My Testimonial</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">Sign Out</a></li> -->
+>>>>>>> Feature/Ray
 							</ul></li>
 					</ul>
 				</div>
@@ -196,8 +212,8 @@
 			</div>
 		</c:when>
 	</c:choose>
-
-	<!--Footer -->
+	
+		<!--Footer -->
 	<div class="footer-top">
 		<div class="container">
 			<div class="row">
@@ -269,16 +285,6 @@
 	</div>
 	<!--/Back to top-->
 
-	<!-- Scripts -->
+<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/interface.js"></script>
-	<!--Switcher-->
-	<script src="assets/switcher/js/switcher.js"></script>
-	<!--bootstrap-slider-JS-->
-	<script src="assets/js/bootstrap-slider.min.js"></script>
-	<!--Slider-JS-->
-	<script src="assets/js/slick.min.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-</body>
-</html>
