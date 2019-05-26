@@ -498,9 +498,9 @@
 														<td>${driver.fullnameDriver}</td>
 														<td>${driver.statusDriver}</td>
 														<td><a
-															href="/edit-driver?idDriver=${driver.idDriver }"><i
+															href="/edit-driver-admin?idDriver=${driver.idDriver }"><i
 																class="fa fa-edit"></i></a>&nbsp;&nbsp; <a
-															href="/delete-driver?idDriver=${driver.idDriver }"
+															href="/delete-driver-admin?idDriver=${driver.idDriver }"
 															onclick="return confirm('Do you want to delete');"><i
 																class="fa fa-close"></i></a></td>
 													</tr>
@@ -590,7 +590,7 @@
 			</div>
 		</c:when>
 
-		<c:when test="${mode=='UPDATE_DRIVER' }">
+		<c:when test="${mode=='UPDATE_DRIVER_ADMIN' }">
 			<div class="ts-main-content">
 				<div class="content-wrapper">
 					<div class="container-fluid">
