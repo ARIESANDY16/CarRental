@@ -74,6 +74,8 @@
 	<li><a href="/my-reservation">My Booking</a></li>
 
 								<li><a href="/logout-customer">Sign Out</a></li>
+<<<<<<< HEAD
+=======
 								
 								<!-- <li><a href="#loginform" data-toggle="modal"
 									data-dismiss="modal">Profile Settings</a></li>
@@ -87,6 +89,7 @@
 									data-dismiss="modal">My Testimonial</a></li>
 								<li><a href="#loginform" data-toggle="modal"
 									data-dismiss="modal">Sign Out</a></li> -->
+>>>>>>> Feature/Ray
 							</ul></li>
 					</ul>
 				</div>
@@ -166,8 +169,8 @@
 
 					<!-- NEW UPDATE COLUMN	 -->
 					<div class="form-group">
-						<label class="control-label col-md-3">Gender</label> 
-						<select class="form-control" name="genderCustomer">
+						<label class="control-label col-md-3">Gender</label> <select
+							class="form-control" name="genderCustomer">
 							<option>Select Gender</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
