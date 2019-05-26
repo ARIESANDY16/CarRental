@@ -86,7 +86,7 @@ public class ReservationController {
 		List<Reservation> driverTask = reservationService.driverTask(idDriver);
 		return new ModelAndView("homedriver", "reservations", driverTask);
 	}
-
+	
 	@RequestMapping("/delete-reservation")
 	public String deleteReservation(@RequestParam int idReservation, HttpServletRequest request) {
 		reservationService.deleteMyReservation(idReservation);
@@ -99,7 +99,7 @@ public class ReservationController {
 	public String editReservation(@RequestParam int idReservation, HttpServletRequest request) {
 		request.setAttribute("reservation", reservationService.editReservation(idReservation));
 		request.setAttribute("mode", "MODE_UPDATE_RESERVATION");
-		return "homeadmin";
+		return "dashboard";
 	}
 
 }
