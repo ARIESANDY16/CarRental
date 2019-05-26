@@ -98,11 +98,15 @@ public class DriverController {
 		return new ModelAndView("homedriver", "driver", driver);
 	}
 
-	@RequestMapping(value = "/edit-driver", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/edit-driver-admin", method = RequestMethod.GET)
 	public String editDriverByAdmin(@RequestParam int idDriver, HttpServletRequest request) {
 		request.setAttribute("driver", driverService.editDriver(idDriver));
-		request.setAttribute("mode", "UPDATE_DRIVER");
+		request.setAttribute("mode", "UPDATE_DRIVER_ADMIN");
 		return "dashboard";
 	}
 
 }
+
+
+

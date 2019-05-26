@@ -48,7 +48,7 @@
 	rel="stylesheet">
 </head>
 <body>
-	<!-- Navigation -->
+<!-- Navigation -->
 	<nav id="navigation_bar" class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -98,13 +98,13 @@
 					<li><a href="/faqs">FAQs</a></li>
 					<li><a href="/contact-us">Contact Us</a></li>
 				</ul>
-			</div>
+							</div>
 		</div>
 	</nav>
-	<!-- Navigation end -->
+		<!-- Navigation end -->
 
-	<c:choose>
-		<c:when test="${mode=='CUSTOMER_RESERVATION' }">
+		<c:choose>
+			<c:when test="${mode=='CUSTOMER_RESERVATION' }">
 			<div class="ts-main-content">
 				<div class="content-wrapper">
 					<div class="container-fluid">
@@ -112,7 +112,7 @@
 							<div class="col-md-12">
 								<h2 class="page-title">Manage Reservation</h2>
 								<hr>
-								<div class="panel panel-default">
+												<div class="panel panel-default">
 									<div class="panel-heading">My Reservation</div>
 									<div class="panel-body">
 										<table id="zctb"
@@ -132,12 +132,12 @@
 													<th>Rent Status</th>
 													<th>Total Payment</th>
 													<th>Status Payment</th>
-												</tr>
+</tr>
 											</thead>
 											<tbody>
 												<c:forEach var="reservation" items="${reservations}">
 													<tr>
-														<td>${reservation.customer.fullnameCustomer}</td>
+	<td>${reservation.customer.fullnameCustomer}</td>
 														<td>${reservation.vehicle.nameVehicle}</td>
 														<td>${reservation.driver.fullnameDriver}</td>
 														<td>${reservation.rentDate}</td>
@@ -175,4 +175,4 @@
 	<script src="assets/admin/js/main.js"></script>
 
 </body>
-</html>
+</html>		
