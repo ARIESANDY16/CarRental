@@ -1,185 +1,373 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> --%>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/daterangepicker.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<script src="js/daterangepicker.js"></script>
-<script src="js/moment.js"></script>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<title>Car Rental JDT7</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<title>CarForYou - Responsive Car Dealer HTML5 Template</title>
+<!--Bootstrap -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css"
+	type="text/css">
+<!--Custome Style -->
+<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+<!--OWL Carousel slider-->
+<link rel="stylesheet" href="assets/css/owl.carousel.css"
+	type="text/css">
+<link rel="stylesheet" href="assets/css/owl.transitions.css"
+	type="text/css">
+<!--slick-slider -->
+<link href="assets/css/slick.css" rel="stylesheet">
+<!--bootstrap-slider -->
+<link href="assets/css/bootstrap-slider.min.css" rel="stylesheet">
+<!--FontAwesome Font Style -->
+<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- SWITCHER -->
+<link rel="stylesheet" id="switcher-css" type="text/css"
+	href="assets/switcher/css/switcher.css" media="all" />
+<link rel="alternate stylesheet" type="text/css"
+	href="assets/switcher/css/red.css" title="red" media="all"
+	data-default-color="true" />
+<link rel="alternate stylesheet" type="text/css"
+	href="assets/switcher/css/orange.css" title="orange" media="all" />
+<link rel="alternate stylesheet" type="text/css"
+	href="assets/switcher/css/blue.css" title="blue" media="all" />
+<link rel="alternate stylesheet" type="text/css"
+	href="assets/switcher/css/pink.css" title="pink" media="all" />
+<link rel="alternate stylesheet" type="text/css"
+	href="assets/switcher/css/green.css" title="green" media="all" />
+<link rel="alternate stylesheet" type="text/css"
+	href="assets/switcher/css/purple.css" title="purple" media="all" />
+
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
+	rel="stylesheet">
+<style>
+.errorWrap {
+	padding: 10px;
+	margin: 0 0 20px 0;
+	background: #fff;
+	border-left: 4px solid #dd3d36;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+}
+
+.succWrap {
+	padding: 10px;
+	margin: 0 0 20px 0;
+	background: #fff;
+	border-left: 4px solid #5cb85c;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+}
+</style>
 </head>
 
 <body>
-	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-blue">
-		<a class="navbar-brand" href="/home">Car Rental</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/customer">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle disabled" href="#"
-					id="navbarDropdown" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false"> Vehicle </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/vehicles">Avanza</a> <a
-							class="dropdown-item" href="/vehicles">Mitsubishi</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="/vehicles">Daihatsu</a>
-					</div></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">About</a></li>
-				<li class="nav-item active"><a class="nav-link"
-					href="/reservation">Reservation</a></li>
-					<li class="nav-item"><a class="nav-link" href="/logout-customer" >Logout
-					
-						<span class="sr-only">(current)</span>
-				</a></li>
-			</ul>
-		</div>
-	</nav>
-	<!--     END NAVBAR  -->
-
-	<c:choose>
-<c:when test="${mode=='MODE_ADD_RESERVATION' }">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-9">
-				<div class="card-group">
-					<div class="card p-4">
-						<div class="card-body">
-							<h1>Reservation</h1>
-							<table class="table table-striped table-bordered">
-						<thead>
-						</thead>
-						<tbody>	
-						<tr>
-									<td>
-										<img src="/getImage/${reservation.vehicle.idVehicle}" width="365" height="250"></td>
-							<hr>
-							<td>
-							<form class="form-horizontal" method="POST"
-								action="save-reservation">
-								<input type="hidden" name="idReservation"
-									value="" />
-									
-								
-								
-										<label>Customer Name</label>
-										<%-- <jsp:getProperty name="Customer" property="usernameCustomer" /> --%> 
-								<div class="input-group mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-								
-									<input class="form-control" type="text" name="customer.fullnameCustomer"
-										value="${reservation.customer.fullnameCustomer }">
-										<input type="hidden" name="customer.idCustomer" value="${reservation.customer.idCustomer }">
-								<input type="hidden" name="driver.idDriver" value="1">
-								<input type="hidden" name="driver.priceDriver" value="${reservation.driver.priceDriver }">
-								</div>
-									<label>Vehicle Name</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="vehicle.nameVehicle"
-										value="${reservation.vehicle.nameVehicle }">
-									<input type="hidden" name="vehicle.idVehicle" value="${reservation.vehicle.idVehicle }">
-									<input type="hidden" name="vehicle.priceVehicle" value="${reservation.vehicle.priceVehicle }">
-								</div>
-								<label>Rent Date</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="date" name="rentDate"
-										value="${reservation.rentDate }">
-								</div>
-								
-									<label>Rent Time</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="time" name="rentTime"
-										value="${reservation.rentTime }">
-								</div>
-								<label>Rent Duration</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="number" name="rentDuration"
-										value="${reservation.rentDuration }">
-								</div>
-										<label>Rent Status</label>
-										<select name="rentStatus">
-											<option value="Self Drive">Self Drive</option>
-											<option value="With Driver">With Driver</option>
-										</select>
-										<br>
-										<label>Pickup Location</label>
-								<div class="input-group mb-4">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> </span>
-									</div>
-									<input class="form-control" type="text" name="pickupLocation"
-										value="${reservation.pickupLocation }">
-								</div>
-								<p>
-									<input type="checkbox">I Agree with <a href="#">Terms
-										and Condition</a>
-								</p>
-								<div class="row">
-									<div class="form-group ">
-										<input type="submit" class="btn btn-block btn-primary"
-											value="addreservation" />
-									</div>
-								</div>
-							</form>
-							</td>
-							</tr>
-						</tbody>
-					</table>
-							<hr>
-							<div class="text-center">
-								<p>
-									Already got an account? <a href="/login">Login Here</a>
-								</p>
+	<!--Header-->
+	<div class="default-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 col-md-2">
+					<div class="logo">
+						<a href="index.php"><img src="assets/images/logo.png"
+							alt="image" /></a>
+					</div>
+				</div>
+				<div class="col-sm-9 col-md-10">
+					<div class="header_info">
+						<div class="header_widgets">
+							<div class="circle_icon">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
 							</div>
+							<p class="uppercase_text">For Support Mail us :</p>
+							<a href="mailto:info@example.com">info@example.com</a>
+						</div>
+						<div class="header_widgets">
+							<div class="circle_icon">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+							</div>
+							<p class="uppercase_text">Service Helpline Call Us:</p>
+							<a href="tel:61-1234-5678-09">+91-1234-5678-9</a>
+						</div>
+						<div class="social-follow">
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook-square"
+										aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter-square"
+										aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin-square"
+										aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus-square"
+										aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram"
+										aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+						<div class="login_btn">
+							<a href="#loginform" class="btn btn-xs uppercase"
+								data-toggle="modal" data-dismiss="modal">Login / Register</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	</c:when>
+	<!-- /Header -->
+
+	<nav id="navigation_bar" class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button id="menu_slide" data-target="#navigation"
+					aria-expanded="false" data-toggle="collapse"
+					class="navbar-toggle collapsed" type="button">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="header_wrap">
+				<div class="user_login">
+					<ul>
+						<li class="dropdown"><a href="#" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"><i
+								class="fa fa-user-circle" aria-hidden="true"></i> <i
+								class="fa fa-angle-down" aria-hidden="true"></i></a>
+							<ul class="dropdown-menu">
+
+								<li><a href="profile.php">Profile Settings</a></li>
+								<li><a href="/update-password">Update Password</a></li>
+								<li><a href="my-booking.php">My Booking</a></li>
+								<li><a href="post-testimonial.php">Post a Testimonial</a></li>
+								<li><a href="my-testimonials.php">My Testimonial</a></li>
+								<li><a href="logout.php">Sign Out</a></li>
+
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">Profile Settings</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">Update Password</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">My Booking</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">Post a Testimonial</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">My Testimonial</a></li>
+								<li><a href="#loginform" data-toggle="modal"
+									data-dismiss="modal">Sign Out</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<div class="header_search">
+					<div id="search_toggle">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</div>
+					<form action="#" method="get" id="header-search-form">
+						<input type="text" placeholder="Search..." class="form-control">
+						<button type="submit">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="collapse navbar-collapse" id="navigation">
+				<ul class="nav navbar-nav">
+					<li><a href="/index">Home</a></li>
+					<li><a href="/about-us">About Us</a></li>
+					<li><a href="/car-listing">Car Listing</a></li>
+					<li><a href="/faqs">FAQs</a></li>
+					<li><a href="/contact-us">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
 
+	<c:choose>
+		<c:when test="${mode=='MODE_ADD_RESERVATION' }">
+
+			<div class="container">
+				<h1 class="justify-content-center">Reservation</h1>
+				<hr>
+				<div class="row justify-content-center">
+					<div class="col-md-12">
+						<div class="card-group">
+							<div class="card p-4">
+								<div class="card-body">
+
+									<form class="form-horizontal" method="POST"
+										action="save-reservation">
+
+										<!-- 					Kolom 1 -->
+										<div class="row clearfix">
+											<div class="col-md-4">
+												<img src="/getImage/${reservation.vehicle.idVehicle}"
+													width="365" height="250">
+											</div>
+
+											<div class="col-md-4">
+												<label>Customer Name</label> <input class="form-control"
+													type="text" name="customer.fullnameCustomer"
+													value="${reservation.customer.fullnameCustomer }">
+											</div>
+
+											<div class="col-md-4">
+												<label>Vehicle Name</label> <input class="form-control"
+													type="text" name="vehicle.nameVehicle"
+													value="${reservation.vehicle.nameVehicle }">
+											</div>
+
+											<!-- Batas Kolom 1 -->
+
+
+
+											<!-- 	Kolom 2 -->
+
+											<input type="hidden" name="idReservation" value="" />
+											<!-- 	<div class="input-group-prepend">
+														<span class="input-group-text"> </span>
+													</div>
+ -->
+											<div class="row clearfix">
+												<div class="col-md-4">
+													<label>Rent Date</label> <input class="form-control"
+														type="date" name="rentDate"
+														value="${reservation.rentDate }">
+
+												</div>
+												<div class="row clearfix">
+													<div class="col-md-4">
+
+														<label>Rent Time</label> <input class="form-control"
+															type="time" name="rentTime"
+															value="${reservation.rentTime }">
+
+													</div>
+
+													<input type="hidden" name="customer.idCustomer"
+														value="${reservation.customer.idCustomer }"> <input
+														type="hidden" name="driver.idDriver" value="1"> <input
+														type="hidden" name="driver.priceDriver"
+														value="${reservation.driver.priceDriver }"> <input
+														type="hidden" name="vehicle.idVehicle"
+														value="${reservation.vehicle.idVehicle }"> <input
+														type="hidden" name="vehicle.priceVehicle"
+														value="${reservation.vehicle.priceVehicle }">
+												
+													<div class="row clearfix">
+														<div class="col-md-4">
+															<label>Rent Duration</label> <input class="form-control"
+																type="number" name="rentDuration"
+																value="${reservation.rentDuration }">
+														</div>
+													
+														
+															<div class="row clearfix">
+															<div class="col-md-4">
+															<label>Rent Status</label> <select class="form-control"
+																name="rentStatus">
+																<option value="Self Drive">Self Drive</option>
+																<option value="With Driver">With Driver</option>
+															</select>
+														</div>
+													
+																
+																
+																
+																<div class="row clearfix">
+															<div class="col-md-4">
+											<label>Pickup Location</label> <span class="input-group-text">
+											</span> <input class="form-control" type="text"
+												name="pickupLocation" value="${reservation.pickupLocation }">
+										</div>
+															
+															
+															<div class="row clearfix">
+											<div class="row col-md-8">
+												<div class="form-group ">
+													<input type="submit" class="btn btn-block btn-primary"
+														value="addreservation" />
+												</div>
+											</div>
+											</div>	
+													
+														</div>	
+													
+																</div>	
+													
+														
+														</div>			
+														
+												</div>
+												
+											</div> 
+											
+										</div>
+										<!-- <div class="row clearfix"> -->
+										
+											
+														
+												
+													
+													
+										
+										<!-- </div> -->
+							
+		
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									</form>
+
+								</div>
+
+
+							</div>
+							<hr>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+
+		</c:when>
 	</c:choose>
-	
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/interface.js"></script>
+	<!--Switcher-->
+	<script src="assets/switcher/js/switcher.js"></script>
+	<!--bootstrap-slider-JS-->
+	<script src="assets/js/bootstrap-slider.min.js"></script>
+	<!--Slider-JS-->
+	<script src="assets/js/slick.min.js"></script>
+	<script src="assets/js/owl.carousel.min.js"></script>
 </body>
 </html>

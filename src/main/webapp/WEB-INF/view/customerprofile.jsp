@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -151,9 +152,9 @@
 								class="fa fa-angle-down" aria-hidden="true"></i></a>
 							<ul class="dropdown-menu">
 
-								<li><a href="profile.php">Profile Settings</a></li>
+								<li><a href="/edit-customer">Profile Settings</a></li>
 
-								<li><a href="my-booking.php">My Booking</a></li>
+								<li><a href="/my-reservation">My Booking</a></li>
 
 								<li><a href="/logout-customer">Sign Out</a></li>
 
