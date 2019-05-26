@@ -501,7 +501,7 @@
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="fullnameCustomer" placeholder="Full Name"
-											maxlength="10" value="${customer.fullnameCustomer}">
+											maxlength="100" value="${customer.fullnameCustomer}">
 									</div>
 									<div class="form-group">
 										<input type="text" class="form-control"
