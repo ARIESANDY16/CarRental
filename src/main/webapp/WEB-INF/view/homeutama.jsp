@@ -324,30 +324,6 @@
 	</section>
 	<!-- /Fun Facts-->
 
-	<!--Testimonial -->
-	<section class="section-padding testimonial-section parallex-bg">
-		<div class="container div_zindex">
-			<div class="section-header white-text text-center">
-				<h2>
-					Our Satisfied <span>Customers</span>
-				</h2>
-			</div>
-			<div class="row">
-				<div id="testimonial-slider">
-					<div class="testimonial-m">
-
-						<div class="testimonial-content">
-							<div class="testimonial-heading"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Dark Overlay-->
-		<div class="dark-overlay"></div>
-	</section>
-	<!-- /Testimonial-->
-
 
 	<!--Footer -->
 	<div class="footer-top">
