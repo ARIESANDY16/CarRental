@@ -77,7 +77,6 @@ public class ReservationController {
 		request.setAttribute("mode", "CUSTOMER_RESERVATION");
 		List<Reservation> customerreservation = reservationService.showReservations(idCustomer);
 		return new ModelAndView("customerreservation", "reservations", customerreservation);
-
 	}
 
 	@GetMapping("/task-driver")
@@ -86,7 +85,6 @@ public class ReservationController {
 		request.setAttribute("mode", "TASK_DRIVER");
 		List<Reservation> driverTask = reservationService.driverTask(idDriver);
 		return new ModelAndView("homedriver", "reservations", driverTask);
-
 	}
 
 	@RequestMapping("/delete-reservation")

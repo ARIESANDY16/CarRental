@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
@@ -78,56 +77,6 @@
 </head>
 
 <body>
-	<!--Header-->
-	<div class="default-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3 col-md-2">
-					<div class="logo">
-						<a href="index.php"><img src="assets/images/logo.png"
-							alt="image" /></a>
-					</div>
-				</div>
-				<div class="col-sm-9 col-md-10">
-					<div class="header_info">
-						<div class="header_widgets">
-							<div class="circle_icon">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</div>
-							<p class="uppercase_text">For Support Mail us :</p>
-							<a href="mailto:info@example.com">info@example.com</a>
-						</div>
-						<div class="header_widgets">
-							<div class="circle_icon">
-								<i class="fa fa-phone" aria-hidden="true"></i>
-							</div>
-							<p class="uppercase_text">Service Helpline Call Us:</p>
-							<a href="tel:61-1234-5678-09">+91-1234-5678-9</a>
-						</div>
-						<div class="social-follow">
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook-square"
-										aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter-square"
-										aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin-square"
-										aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus-square"
-										aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram"
-										aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-						<div class="login_btn">
-							<a href="#loginform" class="btn btn-xs uppercase"
-								data-toggle="modal" data-dismiss="modal">Login / Register</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /Header -->
 
 	<nav id="navigation_bar" class="navbar navbar-default">
 		<div class="container">
@@ -198,8 +147,8 @@
 
 	<c:choose>
 		<c:when test="${mode=='MODE_ADD_RESERVATION' }">
-
 			<div class="container">
+				<hr>
 				<h1 class="justify-content-center">Reservation</h1>
 				<hr>
 				<div class="row justify-content-center">
@@ -207,7 +156,6 @@
 						<div class="card-group">
 							<div class="card p-4">
 								<div class="card-body">
-
 									<form class="form-horizontal" method="POST"
 										action="save-reservation">
 
@@ -230,132 +178,70 @@
 													value="${reservation.vehicle.nameVehicle }">
 											</div>
 
-											<!-- Batas Kolom 1 -->
-
-
-
-											<!-- 	Kolom 2 -->
-
 											<input type="hidden" name="idReservation" value="" />
-											<!-- 	<div class="input-group-prepend">
-														<span class="input-group-text"> </span>
-													</div>
- -->
-											<div class="row clearfix">
-												<div class="col-md-4">
-													<label>Rent Date</label> <input class="form-control"
-														type="date" name="rentDate"
-														value="${reservation.rentDate }">
 
-												</div>
-												<div class="row clearfix">
-													<div class="col-md-4">
 
-														<label>Rent Time</label> <input class="form-control"
-															type="time" name="rentTime"
-															value="${reservation.rentTime }">
+											<div class="col-md-4">
+												<label>Rent Date</label> <input class="form-control"
+													type="date" name="rentDate"
+													value="${reservation.rentDate }">
+											</div>
 
-													</div>
+											<div class="col-md-4">
+												<label>Rent Time</label> <input class="form-control"
+													type="time" name="rentTime"
+													value="${reservation.rentTime }">
+											</div>
 
-													<input type="hidden" name="customer.idCustomer"
-														value="${reservation.customer.idCustomer }"> <input
-														type="hidden" name="driver.idDriver" value="1"> <input
-														type="hidden" name="driver.priceDriver"
-														value="${reservation.driver.priceDriver }"> <input
-														type="hidden" name="vehicle.idVehicle"
-														value="${reservation.vehicle.idVehicle }"> <input
-														type="hidden" name="vehicle.priceVehicle"
-														value="${reservation.vehicle.priceVehicle }">
-												
-													<div class="row clearfix">
-														<div class="col-md-4">
-															<label>Rent Duration</label> <input class="form-control"
-																type="number" name="rentDuration"
-																value="${reservation.rentDuration }">
-														</div>
-													
-														
-															<div class="row clearfix">
-															<div class="col-md-4">
-															<label>Rent Status</label> <select class="form-control"
-																name="rentStatus">
-																<option value="Self Drive">Self Drive</option>
-																<option value="With Driver">With Driver</option>
-															</select>
-														</div>
-													
-																
-																
-																
-																<div class="row clearfix">
-															<div class="col-md-4">
-											<label>Pickup Location</label> <span class="input-group-text">
-											</span> <input class="form-control" type="text"
-												name="pickupLocation" value="${reservation.pickupLocation }">
+											<input type="hidden" name="customer.idCustomer"
+												value="${reservation.customer.idCustomer }"> <input
+												type="hidden" name="driver.idDriver" value="1"> <input
+												type="hidden" name="driver.priceDriver"
+												value="${reservation.driver.priceDriver }"> <input
+												type="hidden" name="vehicle.idVehicle"
+												value="${reservation.vehicle.idVehicle }"> <input
+												type="hidden" name="vehicle.priceVehicle"
+												value="${reservation.vehicle.priceVehicle }">
+
+
+											<div class="col-md-4">
+												<label>Rent Duration</label> <input class="form-control"
+													type="number" name="rentDuration"
+													value="${reservation.rentDuration }">
+											</div>
+
+											<div class="col-md-4">
+												<label>Rent Status</label> <select class="form-control"
+													name="rentStatus">
+													<option value="Self Drive">Self Drive</option>
+													<option value="With Driver">With Driver</option>
+												</select>
+											</div>
+
+											<div class="col-md-4">
+												<label>Pickup Location</label> <span
+													class="input-group-text"> </span> <input
+													class="form-control" type="text" name="pickupLocation"
+													value="${reservation.pickupLocation }">
+											</div>
 										</div>
-															
-															
-															<div class="row clearfix">
-											<div class="row col-md-8">
-												<div class="form-group ">
+										<hr>
+										<div class="row clearfix">
+											<div class="row col-md-6"></div>
+											<div class="row col-md-6">
+												<div class="form-group">
 													<input type="submit" class="btn btn-block btn-primary"
-														value="addreservation" />
+														value="Send" />
 												</div>
 											</div>
-											</div>	
-													
-														</div>	
-													
-																</div>	
-													
-														
-														</div>			
-														
-												</div>
-												
-											</div> 
-											
 										</div>
-										<!-- <div class="row clearfix"> -->
-										
-											
-														
-												
-													
-													
-										
-										<!-- </div> -->
-							
-		
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
 									</form>
-
 								</div>
-
-
 							</div>
-							<hr>
-
 						</div>
 					</div>
 				</div>
 			</div>
-			</div>
-
 		</c:when>
 	</c:choose>
 	<!-- Scripts -->
