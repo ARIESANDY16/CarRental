@@ -239,9 +239,10 @@
 								<tr>
 									<td><img src="/getImage/${vehicle.idVehicle}" width="300"
 										height="200"></td>
-									<td><strong>${vehicle.nameVehicle} </strong><br>
+									<td><br><strong>${vehicle.nameVehicle} </strong><br><br>
 										Harga : Rp. ${vehicle.priceVehicle},- / jam <br> + Driver
-										: Rp. 10.000,- / jam Type: ${vehicle.typeVehicle} <br>
+										: Rp. 10.000,- / jam
+										<br> Type: ${vehicle.typeVehicle} <br>
 										Tahun : ${vehicle.yearVehicle} <br> Kapasitas :
 										${vehicle.capacityVehicle} orang <br> Deskripsi :
 										${vehicle.descriptionVehicle}<br></td>
