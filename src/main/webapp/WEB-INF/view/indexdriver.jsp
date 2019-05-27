@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Car Rental Portal | Admin Login</title>
+<title>Car Rental Portal | Driver Login</title>
 <link rel="stylesheet" href="assets/admin/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/admin/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -25,7 +25,7 @@
 <body>
 	<!-- login -->
 	<c:choose>
-		<c:when test="${mode=='MODE_LOGIN_ADMIN' }">
+		<c:when test="${mode=='MODE_LOGIN_DRIVER' }">
 			<div class="login-page bk-img"
 				style="background-image: url(assets/admin/img/login-bg.jpg);">
 				<div class="form-content">
@@ -35,7 +35,7 @@
 								<h1 class="text-center text-bold text-light mt-4x">Sign in</h1>
 								<div class="well row pt-2x pb-3x bk-light">
 									<div class="col-md-8 col-md-offset-2">
-										<form method="post" action="/login-admin">
+										<form method="post" action="/login-driver">
 											<c:if test="${not empty error }">
 												<div class="alert alert-danger">
 													<c:out value="${error }"></c:out>
@@ -43,12 +43,12 @@
 											</c:if>
 											<label for="" class="text-uppercase text-sm">Your
 												Username </label> <input type="text" class="form-control"
-												name="usernameAdmin" value="${admin.usernameAdmin }" /> <label
-												for="" class="text-uppercase text-sm">Password</label> <input
-												type="password" class="form-control" name="passwordAdmin"
-												value="${admin.passwordAdmin }" />
+												name="usernameDriver" value="${driver.usernameDriver }" />
+											<label for="" class="text-uppercase text-sm">Password</label>
+											<input type="password" class="form-control"
+												name="passwordDriver" value="${driver.passwordDriver }" />
 
-											<button class="btn btn-primary btn-block" href="/dashboard" name="login"
+											<button class="btn btn-primary btn-block" name="login"
 												type="submit">LOGIN</button>
 										</form>
 									</div>
