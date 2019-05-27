@@ -35,7 +35,7 @@
 								<h1 class="text-center text-bold text-light mt-4x">Sign in</h1>
 								<div class="well row pt-2x pb-3x bk-light">
 									<div class="col-md-8 col-md-offset-2">
-										<form method="post" action="login-driver">
+										<form method="post" action="/login-driver">
 											<c:if test="${not empty error }">
 												<div class="alert alert-danger">
 													<c:out value="${error }"></c:out>

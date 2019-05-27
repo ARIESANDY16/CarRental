@@ -61,8 +61,7 @@
 					src="assets/admin/img/ts-avatar.jpg" class="ts-avatar hidden-side"
 					alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
 				<ul>
-					<li><a href="change-password.php">Change Password</a></li>
-					<li><a href="/logout-admin">Logout</a></li>
+					<li><a href="/logout-driver">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>

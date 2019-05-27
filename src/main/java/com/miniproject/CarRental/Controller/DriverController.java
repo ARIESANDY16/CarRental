@@ -41,9 +41,8 @@ public class DriverController {
 		} else {
 			request.setAttribute("error", "Invalid Username or Password");
 			request.setAttribute("mode", "MODE_LOGIN_DRIVER");
-			return "redirect:/indexdriver";
+			return "redirect:/driver";
 		}
-
 	}
 
 	@RequestMapping(value = "/logout-driver", method = RequestMethod.GET)
