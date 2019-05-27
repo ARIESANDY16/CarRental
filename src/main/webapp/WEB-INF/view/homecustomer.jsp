@@ -219,43 +219,6 @@
 					Ipsum, you need to be sure there isn't anything embarrassing hidden
 					in the middle of text.</p>
 			</div>
-			<div class="row">
-
-				<!-- Nav tabs -->
-				<div class="recent-tab">
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a
-							href="#resentnewcar" role="tab" data-toggle="tab">New Car</a></li>
-					</ul>
-				</div>
-				<!-- Recently Listed New Cars -->
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="resentnewcar">
-						<div class="col-list-3">
-							<div class="recent-car-list">
-								<div class="car-info-box">
-									<a
-										href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><img
-										src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>"
-										class="img-responsive" alt="image"></a>
-									<ul>
-										<li><i class="fa fa-car" aria-hidden="true"></i></li>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i>Model</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i>seats</li>
-									</ul>
-								</div>
-								<div class="car-title-m">
-									<h6>
-										<a href="vehical-details.php"> </a>
-									</h6>
-									<span class="price"> /Day </span>
-								</div>
-								<div class="inventory_info_m"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</section>
 	<!-- /Resent Cat -->
