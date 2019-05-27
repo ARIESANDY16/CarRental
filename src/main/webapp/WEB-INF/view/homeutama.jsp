@@ -232,7 +232,7 @@
 					Ipsum, you need to be sure there isn't anything embarrassing hidden
 					in the middle of text.</p>
 			</div>
-			<div class="row">
+	<%-- 		<div class="row">
 
 				<!-- Nav tabs -->
 				<div class="recent-tab">
@@ -268,7 +268,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 	</section>
 	<!-- /Resent Cat -->
@@ -323,30 +323,6 @@
 		<div class="dark-overlay"></div>
 	</section>
 	<!-- /Fun Facts-->
-
-	<!--Testimonial -->
-	<section class="section-padding testimonial-section parallex-bg">
-		<div class="container div_zindex">
-			<div class="section-header white-text text-center">
-				<h2>
-					Our Satisfied <span>Customers</span>
-				</h2>
-			</div>
-			<div class="row">
-				<div id="testimonial-slider">
-					<div class="testimonial-m">
-
-						<div class="testimonial-content">
-							<div class="testimonial-heading"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Dark Overlay-->
-		<div class="dark-overlay"></div>
-	</section>
-	<!-- /Testimonial-->
 
 
 	<!--Footer -->
