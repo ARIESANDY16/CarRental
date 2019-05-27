@@ -831,7 +831,7 @@
 															Payment<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
-															<select class="selectpicker" name="statusDriver">
+															<select class="selectpicker" name="statusPayment">
 																<option value="">Select</option>
 																<option value="Pending">Pending</option>
 																<option value="Success">Success</option>
