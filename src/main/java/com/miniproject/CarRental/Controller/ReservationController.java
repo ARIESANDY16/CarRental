@@ -50,7 +50,7 @@ public class ReservationController {
 			HttpServletRequest request) {
 		reservationService.reservationCustomer(reservation);
 		request.setAttribute("mode", "MODE_HOME");
-		return "redirect:/index";
+		return "redirect:/customer";
 	}
 
 	@PostMapping("/save-reservation-admin")

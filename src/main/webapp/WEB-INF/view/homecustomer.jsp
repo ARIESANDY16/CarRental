@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -121,8 +122,7 @@
 							</ul>
 						</div>
 						<div class="login_btn">
-							<a href="#loginform" class="btn btn-xs uppercase"
-								data-toggle="modal" data-dismiss="modal">Login / Register</a>
+							<a>Welcome To Car Rental : ${customer.usernameCustomer}</a>
 						</div>
 					</div>
 				</div>
@@ -143,6 +143,23 @@
 				</button>
 			</div>
 			<div class="header_wrap">
+				<div class="user_login">
+					<p>${customer.usernameCustomer }</p>
+					<ul>
+						<li class="dropdown"><a href="#" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"><i
+								class="fa fa-user-circle" aria-hidden="true"></i> <i
+								class="fa fa-angle-down" aria-hidden="true"></i></a>
+							<ul class="dropdown-menu">
+
+								<li><a href="/edit-customer">Profile Settings</a></li>
+
+								<li><a href="/my-reservation">My Booking</a></li>
+
+								<li><a href="/logout-customer">Sign Out</a></li>
+							</ul></li>
+					</ul>
+				</div>
 				<div class="header_search">
 					<div id="search_toggle">
 						<i class="fa fa-search" aria-hidden="true"></i>
@@ -202,6 +219,43 @@
 					Ipsum, you need to be sure there isn't anything embarrassing hidden
 					in the middle of text.</p>
 			</div>
+			<div class="row">
+
+				<!-- Nav tabs -->
+				<div class="recent-tab">
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a
+							href="#resentnewcar" role="tab" data-toggle="tab">New Car</a></li>
+					</ul>
+				</div>
+				<!-- Recently Listed New Cars -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="resentnewcar">
+						<div class="col-list-3">
+							<div class="recent-car-list">
+								<div class="car-info-box">
+									<a
+										href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><img
+										src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>"
+										class="img-responsive" alt="image"></a>
+									<ul>
+										<li><i class="fa fa-car" aria-hidden="true"></i></li>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i>Model</li>
+										<li><i class="fa fa-user" aria-hidden="true"></i>seats</li>
+									</ul>
+								</div>
+								<div class="car-title-m">
+									<h6>
+										<a href="vehical-details.php"> </a>
+									</h6>
+									<span class="price"> /Day </span>
+								</div>
+								<div class="inventory_info_m"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	<!-- /Resent Cat -->
@@ -256,6 +310,30 @@
 		<div class="dark-overlay"></div>
 	</section>
 	<!-- /Fun Facts-->
+
+	<!--Testimonial -->
+	<section class="section-padding testimonial-section parallex-bg">
+		<div class="container div_zindex">
+			<div class="section-header white-text text-center">
+				<h2>
+					Our Satisfied <span>Customers</span>
+				</h2>
+			</div>
+			<div class="row">
+				<div id="testimonial-slider">
+					<div class="testimonial-m">
+
+						<div class="testimonial-content">
+							<div class="testimonial-heading"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Dark Overlay-->
+		<div class="dark-overlay"></div>
+	</section>
+	<!-- /Testimonial-->
 
 
 	<!--Footer -->
@@ -329,190 +407,6 @@
 		<a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a>
 	</div>
 	<!--/Back to top-->
-
-	<!--Login-Form -->
-
-	<div class="modal fade" id="loginform">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Login</h3>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="login_wrap">
-							<div class="col-md-12 col-sm-6">
-								<form method="post" action="/login-customer">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											name="usernameCustomer" placeholder="Username"
-											value="${customer.usernameCustomer}">
-									</div>
-									<div class="form-group">
-										<input type="password" class="form-control"
-											name="passwordCustomer" placeholder="Password*"
-											value="${customer.passwordCustomer}">
-									</div>
-									<div class="form-group checkbox">
-										<input type="checkbox" id="remember">
-
-									</div>
-									<div class="form-group">
-										<input type="submit" name="login" value="Login"
-											class="btn btn-block">
-									</div>
-								</form>
-							</div>
-
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer text-center">
-					<p>
-						Don't have an account? <a href="#signupform" data-toggle="modal"
-							data-dismiss="modal">Signup Here</a>
-					</p>
-					<p>
-						<a href="/forgotpassword" data-toggle="modal" data-dismiss="modal">Forgot
-							Password ?</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/Login-Form -->
-
-	<!--Register-Form -->
-	<div class="modal fade" id="signupform">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Sign Up</h3>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="signup_wrap">
-							<div class="col-md-12 col-sm-6">
-								<form class="form-horizontal" method="POST" name="signup"
-									action="/save-customer">
-
-									<input type="hidden" name="idCustomer"
-										value="${customer.idCustomer}">
-
-									<div class="form-group">
-										<input type="text" class="form-control"
-											name="fullnameCustomer" placeholder="Full Name"
-											maxlength="100" value="${customer.fullnameCustomer}">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control"
-											name="usernameCustomer" onBlur="checkAvailability()"
-											placeholder="Username" value="${customer.usernameCustomer}">
-										<span id="user-availability-status" style="font-size: 12px;"></span>
-									</div>
-									<div class="form-group">
-										<input type="password" class="form-control"
-											name="passwordCustomer" placeholder="Password"
-											value="${customer.passwordCustomer}">
-									</div>
-									<div class="form-group">
-										<input type="email" class="form-control" name="emailCustomer"
-											placeholder="Email Address" value="${customer.emailCustomer}">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control"
-											name="contactnoCustomer" placeholder="Mobile Phone"
-											value="${customer.contactnoCustomer}">
-									</div>
-									<div class="form-group checkbox">
-										<input type="checkbox" id="terms_agree" required="required"
-											checked=""> <label for="terms_agree">I Agree
-											with <a href="#">Terms and Conditions</a>
-										</label>
-									</div>
-									<div class="form-group">
-										<input type="submit" value="Sign Up" class="btn btn-block">
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer text-center">
-					<p>
-						Already got an account? <a href="#loginform" data-toggle="modal"
-							data-dismiss="modal">Login Here</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/Register-Form -->
-
-	<!--Forgot-password-Form -->
-	<div class="modal fade" id="forgotpassword">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title">Password Recovery</h3>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="forgotpassword_wrap">
-							<div class="col-md-12">
-								<form name="chngpwd" method="post" onSubmit="return valid();">
-									<div class="form-group">
-										<input type="email" name="email" class="form-control"
-											placeholder="Your Email address*" required="">
-									</div>
-									<div class="form-group">
-										<input type="text" name="mobile" class="form-control"
-											placeholder="Your Reg. Mobile*" required="">
-									</div>
-									<div class="form-group">
-										<input type="password" name="newpassword" class="form-control"
-											placeholder="New Password*" required="">
-									</div>
-									<div class="form-group">
-										<input type="password" name="confirmpassword"
-											class="form-control" placeholder="Confirm Password*"
-											required="">
-									</div>
-									<div class="form-group">
-										<input type="submit" value="Reset My Password" name="update"
-											class="btn btn-block">
-									</div>
-								</form>
-								<div class="text-center">
-									<p class="gray_text">For security reasons we don't store
-										your password. Your password will be reset and a new one will
-										be send.</p>
-									<p>
-										<a href="#loginform" data-toggle="modal" data-dismiss="modal"><i
-											class="fa fa-angle-double-left" aria-hidden="true"></i> Back
-											to Login</a>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/Forgot-password-Form -->
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>

@@ -32,7 +32,7 @@ public class CustomerController {
 			customer.setidCustomer(customerId);
 			request.getSession().setAttribute("customerId", customerId);
 
-			return "homeutama";
+			return "homecustomer";
 		} else {
 			request.setAttribute("error", "Invalid Username or Password");
 			request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
@@ -46,6 +46,12 @@ public class CustomerController {
 		request.setAttribute("mode", "MODE_LOGIN_CUSTOMER");
 		request.getSession().invalidate();
 		return "redirect:/index";
+	}
+	
+	@RequestMapping("/customer")
+	public String customer(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_HOME_CUSTOMER");
+		return "homecustomer";
 	}
 	
 	

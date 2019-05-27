@@ -48,7 +48,7 @@
 												type="password" class="form-control" name="passwordAdmin"
 												value="${admin.passwordAdmin }" />
 
-											<button class="btn btn-primary btn-block" name="login"
+											<button class="btn btn-primary btn-block" href="/dashboard" name="login"
 												type="submit">LOGIN</button>
 										</form>
 									</div>

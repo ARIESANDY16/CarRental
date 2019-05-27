@@ -57,89 +57,6 @@
 </head>
 <body>
 	
-	<!-- Start Switcher -->
-	<div class="switcher-wrapper">
-		<div class="demo_changer">
-			<div class="demo-icon customBgColor">
-				<i class="fa fa-cog fa-spin fa-2x"></i>
-			</div>
-			<div class="form_holder">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="predefined_styles">
-							<div class="skin-theme-switcher">
-								<h4>Color</h4>
-								<a href="#" data-switchcolor="red" class="styleswitch"
-									style="background-color: #de302f;"> </a> <a href="#"
-									data-switchcolor="orange" class="styleswitch"
-									style="background-color: #f76d2b;"> </a> <a href="#"
-									data-switchcolor="blue" class="styleswitch"
-									style="background-color: #228dcb;"> </a> <a href="#"
-									data-switchcolor="pink" class="styleswitch"
-									style="background-color: #FF2761;"> </a> <a href="#"
-									data-switchcolor="green" class="styleswitch"
-									style="background-color: #2dcc70;"> </a> <a href="#"
-									data-switchcolor="purple" class="styleswitch"
-									style="background-color: #6054c2;"> </a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /Switcher -->
-
-	<!--Header-->
-	<div class="default-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3 col-md-2">
-					<div class="logo">
-						<a href="index.php"><img src="assets/images/logo.png"
-							alt="image" /></a>
-					</div>
-				</div>
-				<div class="col-sm-9 col-md-10">
-					<div class="header_info">
-						<div class="header_widgets">
-							<div class="circle_icon">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</div>
-							<p class="uppercase_text">For Support Mail us :</p>
-							<a href="mailto:info@example.com">info@example.com</a>
-						</div>
-						<div class="header_widgets">
-							<div class="circle_icon">
-								<i class="fa fa-phone" aria-hidden="true"></i>
-							</div>
-							<p class="uppercase_text">Service Helpline Call Us:</p>
-							<a href="tel:61-1234-5678-09">+91-1234-5678-9</a>
-						</div>
-						<div class="social-follow">
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook-square"
-										aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter-square"
-										aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin-square"
-										aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus-square"
-										aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram"
-										aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-						<div class="login_btn">
-							<a href="#loginform" class="btn btn-xs uppercase"
-								data-toggle="modal" data-dismiss="modal">Login / Register</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<nav id="navigation_bar" class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -152,36 +69,6 @@
 				</button>
 			</div>
 			<div class="header_wrap">
-				<div class="user_login">
-					<ul>
-						<li class="dropdown"><a href="#" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"><i
-								class="fa fa-user-circle" aria-hidden="true"></i> <i
-								class="fa fa-angle-down" aria-hidden="true"></i></a>
-							<ul class="dropdown-menu">
-
-								<li><a href="profile.php">Profile Settings</a></li>
-								<li><a href="/update-password">Update Password</a></li>
-								<li><a href="my-booking.php">My Booking</a></li>
-								<li><a href="post-testimonial.php">Post a Testimonial</a></li>
-								<li><a href="my-testimonials.php">My Testimonial</a></li>
-								<li><a href="logout.php">Sign Out</a></li>
-
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">Profile Settings</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">Update Password</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">My Booking</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">Post a Testimonial</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">My Testimonial</a></li>
-								<li><a href="#loginform" data-toggle="modal"
-									data-dismiss="modal">Sign Out</a></li>
-							</ul></li>
-					</ul>
-				</div>
 				<div class="header_search">
 					<div id="search_toggle">
 						<i class="fa fa-search" aria-hidden="true"></i>

@@ -44,5 +44,4 @@ public class AdminController {
 		request.setAttribute("mode", "DASHBOARD_ADMIN");
 		return "dashboard";
 	}
-
 }
