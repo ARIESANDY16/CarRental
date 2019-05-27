@@ -26,7 +26,7 @@ public class DriverController {
 	@RequestMapping(value = "/driver", method = RequestMethod.GET)
 	public String login(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_LOGIN_DRIVER");
-		return "driverlogin";
+		return "indexdriver";
 	}
 
 	// New
@@ -37,11 +37,11 @@ public class DriverController {
 		if (driverData != null) {
 			int driverId = driverData.getIdDriver();
 			request.getSession().setAttribute("driverId", driverId);
-			return "homedriver";
+			return "dashboarddriver";
 		} else {
 			request.setAttribute("error", "Invalid Username or Password");
 			request.setAttribute("mode", "MODE_LOGIN_DRIVER");
-			return "driverlogin";
+			return "redirect:/indexdriver";
 		}
 
 	}
@@ -49,7 +49,7 @@ public class DriverController {
 	@RequestMapping(value = "/logout-driver", method = RequestMethod.GET)
 	public String logoutDriver(@ModelAttribute Driver driver, HttpServletRequest request, Object logout) {
 		request.setAttribute("mode", "MODE_LOGIN_DRIVER");
-		return "driverlogin";
+		return "indexdriver";
 	}
 
 	@RequestMapping(value = "/add-driver", method = RequestMethod.GET)
@@ -62,7 +62,7 @@ public class DriverController {
 	public String saveDriver(@ModelAttribute Driver driver, BindingResult bindingResult, HttpServletRequest request) {
 		driverService.saveMyDriver(driver);
 		request.setAttribute("mode", "MODE_HOME");
-		return "dashboard";
+		return "dashboarddriver";
 	}
 
 	@PostMapping(value = "/save-driver-admin")
@@ -95,7 +95,7 @@ public class DriverController {
 		// request.setAttribute("driver", driverService.editDriver(idDriver));
 		request.setAttribute("mode", "UPDATE_DRIVER");
 		Driver driver = driverService.editDriver(idDriver);
-		return new ModelAndView("homedriver", "driver", driver);
+		return new ModelAndView("dashboarddriver", "driver", driver);
 	}
 
 	
