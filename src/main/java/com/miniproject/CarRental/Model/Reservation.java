@@ -1,11 +1,17 @@
 
 package com.miniproject.CarRental.Model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "reservation")
@@ -22,15 +28,21 @@ public class Reservation {
 	@ManyToOne
 	@JoinColumn(name = "idDriver", nullable = true)
 	private Driver driver;
-	private String rentDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date rentDate;
 	private String rentTime;
 	private int rentDuration;
 	private String pickupLocation;
-	private String returnDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date returnDate;
 	private String returnTime;
 	private String rentStatus;
 	private int totalPayment;
 	private String statusPayment;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date reservationDate = new Date();
+
 	private int lateDuration;
 	private int latePayment;
 	private int totalAllpayment;
@@ -40,11 +52,14 @@ public class Reservation {
 
 	}
 
-	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, String rentDate,
-			String rentTime, int rentDuration, String pickupLocation, String returnDate, String returnTime,
-			String rentStatus, int totalPayment, String statusPayment, int lateDuration, int latePayment, int totalAllpayment, String returnStatus) {
+	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, Date rentDate,
+			String rentTime, int rentDuration, String pickupLocation, Date returnDate, String returnTime,
+			String rentStatus, int totalPayment, String statusPayment, Date reservationDate,int lateDuration, int latePayment,
+			int totalAllpayment, String returnStatus) {
+
 		super();
 		this.idReservation = idReservation;
+		this.reservationDate = reservationDate;
 		this.customer = customer;
 		this.vehicle = vehicle;
 		this.driver = driver;
@@ -61,7 +76,7 @@ public class Reservation {
 		this.latePayment = latePayment;
 		this.totalAllpayment = totalAllpayment;
 		this.returnStatus = returnStatus;
-		
+
 	}
 
 	public int getIdReservation() {
@@ -70,6 +85,14 @@ public class Reservation {
 
 	public void setIdReservation(int idReservation) {
 		this.idReservation = idReservation;
+	}
+
+	public Date getReservationDate() {
+		return reservationDate;
+	}
+
+	public void setReservationDate(Date reservationDate) {
+		this.reservationDate = reservationDate;
 	}
 
 	public Customer getCustomer() {
@@ -105,11 +128,11 @@ public class Reservation {
 		this.driver = driver;
 	}
 
-	public String getRentDate() {
+	public Date getRentDate() {
 		return rentDate;
 	}
 
-	public void setRentDate(String rentDate) {
+	public void setRentDate(Date rentDate) {
 		this.rentDate = rentDate;
 	}
 
@@ -137,11 +160,11 @@ public class Reservation {
 		this.pickupLocation = pickupLocation;
 	}
 
-	public String getReturnDate() {
+	public Date getReturnDate() {
 		return returnDate;
 	}
 
-	public void setReturnDate(String returnDate) {
+	public void setReturnDate(Date returnDate) {
 		this.returnDate = returnDate;
 	}
 
@@ -176,7 +199,7 @@ public class Reservation {
 	public void setStatusPayment(String statusPayment) {
 		this.statusPayment = statusPayment;
 	}
-	
+
 	public int getLateDuration() {
 		return lateDuration;
 	}
@@ -201,7 +224,6 @@ public class Reservation {
 		this.returnStatus = returnStatus;
 	}
 
-	
 	public int getTotalAllpayment() {
 		return totalAllpayment;
 	}
@@ -212,15 +234,13 @@ public class Reservation {
 
 	@Override
 	public String toString() {
-		return "Reservation [idReservation=" + idReservation + ", customer=" + customer + ", vehicle=" + vehicle
-				+ ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime=" + rentTime + ", rentDuration="
-				+ rentDuration + ", pickupLocation=" + pickupLocation + ", returnDate=" + returnDate + ", returnTime="
-				+ returnTime + ", rentStatus=" + rentStatus + ", totalPayment=" + totalPayment + ", statusPayment="
-				+ statusPayment + ", lateDuration=" + lateDuration + ", latePayment=" + latePayment
-				+ ", totalAllpayment=" + totalAllpayment + ", returnStatus=" + returnStatus + "]";
+		return "Reservation [idReservation=" + idReservation + ",reservationDate=" + reservationDate + ",customer="
+				+ customer + ", vehicle=" + vehicle + ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime="
+				+ rentTime + ", rentDuration=" + rentDuration + ", pickupLocation=" + pickupLocation + ", returnDate="
+				+ returnDate + ", returnTime=" + returnTime + ", rentStatus=" + rentStatus + ", totalPayment="
+				+ totalPayment + ", statusPayment=" + statusPayment + ", lateDuration=" + lateDuration
+				+ ", latePayment=" + latePayment + ", totalAllpayment=" + totalAllpayment + ", returnStatus="
+				+ returnStatus + "]";
 	}
-
-
-
 
 }

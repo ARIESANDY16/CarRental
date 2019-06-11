@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -683,17 +684,18 @@
 											<thead>
 												<tr>
 													<th>Id</th>
+													<th>Reservation Date</th>
 													<th>Customer</th>
 													<th>Vehicle</th>
 													<th>Price Vehicle</th>
 													<th>Driver</th>
 													<th>Price Driver</th>
-													<th>Check Out Date</th>
-													<th>Check Out Time</th>
+													<th>Rent Car Date</th>
+													<th>Rent Car Time</th>
 													<th>Rent Duration</th>
 													<th>Pickup Location</th>
-													<th>Check In Date</th>
-													<th>Check In Time</th>
+													<th>Return Car Date</th>
+													<th>Return car Time</th>
 													<th>Rent Status</th>
 													<th>Total Payment</th>
 													<th>Status Payment</th>
@@ -704,12 +706,13 @@
 												<c:forEach var="reservation" items="${reservations }">
 													<tr>
 														<td>${reservation.idReservation}</td>
+														<td>${reservation.reservationDate}</td>
 														<td>${reservation.customer.fullnameCustomer}</td>
 														<td>${reservation.vehicle.nameVehicle}</td>
 														<td>${reservation.vehicle.priceVehicle}</td>
 														<td>${reservation.driver.fullnameDriver}</td>
 														<td>${reservation.driver.priceDriver}</td>
-														<td>${reservation.rentDate}</td>
+														<td><fmt:formatDate value="${reservation.rentDate}" pattern="E yyyy-MM-dd"/></td>
 														<td>${reservation.rentTime}</td>
 														<td>${reservation.rentDuration}</td>
 														<td>${reservation.pickupLocation}</td>
@@ -787,7 +790,7 @@
 															<input class="form-control" type="time" name="rentTime"
 																readonly="readonly" value="${reservation.rentTime }">
 														</div>
-														<label class="col-sm-2 control-label">Check In
+															<label class="col-sm-2 control-label">Check In
 															Date<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
@@ -1331,28 +1334,28 @@
 																type="hidden" name="vehicle.priceVehicle"
 																value="${reservation.vehicle.priceVehicle }">
 														</div>
-														<label class="col-sm-2 control-label">Check Out
+														<label class="col-sm-2 control-label">Rent a car
 															Date<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
 															<input class="form-control" type="date" name="rentDate"
 																readonly="readonly" value="${reservation.rentDate }">
 														</div>
-														<label class="col-sm-2 control-label">Check Out
+														<label class="col-sm-2 control-label">Rent a car
 															Time<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
 															<input class="form-control" type="time" name="rentTime" 
 																readonly="readonly" value="${reservation.rentTime }">
 														</div>
-														<label class="col-sm-2 control-label">Check In
+														<label class="col-sm-2 control-label">Return a car
 															Date<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
 															<input class="form-control" type="date" name="returnDate" readonly="readonly"
 																value="${reservation.returnDate }">
 														</div>
-														<label class="col-sm-2 control-label">Check In
+														<label class="col-sm-2 control-label">Return a car
 															Time<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
