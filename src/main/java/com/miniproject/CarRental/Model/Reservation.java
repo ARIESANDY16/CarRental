@@ -39,16 +39,29 @@ public class Reservation {
 	private String rentStatus;
 	private int totalPayment;
 	private String statusPayment;
+<<<<<<< HEAD
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date reservationDate = new Date();
+=======
+	private int lateDuration;
+	private int latePayment;
+	private int totalAllpayment;
+	private String returnStatus;
+>>>>>>> Feature/Ray
 
 	public Reservation() {
 
 	}
 
+<<<<<<< HEAD
 	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, Date rentDate,
 			String rentTime, int rentDuration, String pickupLocation, Date returnDate, String returnTime,
 			String rentStatus, int totalPayment, String statusPayment, Date reservationDate) {
+=======
+	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, String rentDate,
+			String rentTime, int rentDuration, String pickupLocation, String returnDate, String returnTime,
+			String rentStatus, int totalPayment, String statusPayment, int lateDuration, int latePayment, int totalAllpayment, String returnStatus) {
+>>>>>>> Feature/Ray
 		super();
 		this.idReservation = idReservation;
 		this.reservationDate = reservationDate;
@@ -64,6 +77,11 @@ public class Reservation {
 		this.rentStatus = rentStatus;
 		this.totalPayment = totalPayment;
 		this.statusPayment = statusPayment;
+		this.lateDuration = lateDuration;
+		this.latePayment = latePayment;
+		this.totalAllpayment = totalAllpayment;
+		this.returnStatus = returnStatus;
+		
 	}
 
 	public int getIdReservation() {
@@ -186,6 +204,39 @@ public class Reservation {
 	public void setStatusPayment(String statusPayment) {
 		this.statusPayment = statusPayment;
 	}
+	
+	public int getLateDuration() {
+		return lateDuration;
+	}
+
+	public void setLateDuration(int lateDuration) {
+		this.lateDuration = lateDuration;
+	}
+
+	public int getLatePayment() {
+		return latePayment;
+	}
+
+	public void setLatePayment(int latePayment) {
+		this.latePayment = latePayment;
+	}
+
+	public String getReturnStatus() {
+		return returnStatus;
+	}
+
+	public void setReturnStatus(String returnStatus) {
+		this.returnStatus = returnStatus;
+	}
+
+	
+	public int getTotalAllpayment() {
+		return totalAllpayment;
+	}
+
+	public void setTotalAllpayment(int totalAllpayment) {
+		this.totalAllpayment = totalAllpayment;
+	}
 
 	@Override
 	public String toString() {
@@ -193,7 +244,11 @@ public class Reservation {
 				+ ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime=" + rentTime + ", rentDuration="
 				+ rentDuration + ", pickupLocation=" + pickupLocation + ", returnDate=" + returnDate + ", returnTime="
 				+ returnTime + ", rentStatus=" + rentStatus + ", totalPayment=" + totalPayment + ", statusPayment="
-				+ statusPayment + "]";
+				+ statusPayment + ", lateDuration=" + lateDuration + ", latePayment=" + latePayment
+				+ ", totalAllpayment=" + totalAllpayment + ", returnStatus=" + returnStatus + "]";
 	}
+
+
+
 
 }

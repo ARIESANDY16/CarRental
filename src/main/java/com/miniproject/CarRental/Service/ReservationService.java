@@ -41,7 +41,13 @@ public class ReservationService {
 		}
 		return reservations;
 	}
-
+	
+	/*
+	 * //rent vehicle public List<Reservation> rentVehicle() { List<Reservation>
+	 * reservations = new ArrayList<Reservation>(); for (Reservation reservation :
+	 * reservationRepository.findAll()) { reservations.add(reservation); } return
+	 * reservations; }
+	 */
 	public void deleteMyReservation(int idReservation) {
 		reservationRepository.deleteById(idReservation);
 	}
@@ -50,6 +56,12 @@ public class ReservationService {
 		return reservationRepository.findById(idReservation).orElse(null);
 	}
 
+	//view rent vehicle
+	public Reservation rentCar(int idReservation) {
+		return reservationRepository.findById(idReservation).orElse(null);
+	}
+	
+	
 	public void reservationCustomer(Reservation reservation) {
 		int hargaKendaraan = reservation.getVehicle().getPriceVehicle();
 		int durasi = reservation.getRentDuration();
@@ -67,6 +79,20 @@ public class ReservationService {
 		reservationRepository.save(reservation);
 	}
 
+	//hitung total terlambat mengembalikan mobil
+	public void lateReturnVehicle(Reservation reservation) {
+		int hargaKendaraan = reservation.getVehicle().getPriceVehicle();
+		int hargaDriver = reservation.getDriver().getPriceDriver();
+		int durasiTerlambat = reservation.getLateDuration();
+		int total = reservation.getTotalPayment();
+		int totalBayarTerlambat = (hargaKendaraan * durasiTerlambat) + (hargaDriver * durasiTerlambat);
+		int totalPayment = (total) + (totalBayarTerlambat);
+		reservation.setLatePayment(totalBayarTerlambat);
+		reservation.setTotalAllpayment(totalPayment);
+		reservationRepository.save(reservation);
+	}
+	
+	
 	// Add New
 	public List<Reservation> showReservations(int idCustomer) {
 		return reservationRepository.findByCustomer(idCustomer);
