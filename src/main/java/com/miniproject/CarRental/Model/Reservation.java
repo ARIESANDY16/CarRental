@@ -39,29 +39,24 @@ public class Reservation {
 	private String rentStatus;
 	private int totalPayment;
 	private String statusPayment;
-<<<<<<< HEAD
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date reservationDate = new Date();
-=======
+
 	private int lateDuration;
 	private int latePayment;
 	private int totalAllpayment;
 	private String returnStatus;
->>>>>>> Feature/Ray
 
 	public Reservation() {
 
 	}
 
-<<<<<<< HEAD
 	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, Date rentDate,
 			String rentTime, int rentDuration, String pickupLocation, Date returnDate, String returnTime,
-			String rentStatus, int totalPayment, String statusPayment, Date reservationDate) {
-=======
-	public Reservation(int idReservation, Customer customer, Vehicle vehicle, Driver driver, String rentDate,
-			String rentTime, int rentDuration, String pickupLocation, String returnDate, String returnTime,
-			String rentStatus, int totalPayment, String statusPayment, int lateDuration, int latePayment, int totalAllpayment, String returnStatus) {
->>>>>>> Feature/Ray
+			String rentStatus, int totalPayment, String statusPayment, Date reservationDate,int lateDuration, int latePayment,
+			int totalAllpayment, String returnStatus) {
+
 		super();
 		this.idReservation = idReservation;
 		this.reservationDate = reservationDate;
@@ -81,7 +76,7 @@ public class Reservation {
 		this.latePayment = latePayment;
 		this.totalAllpayment = totalAllpayment;
 		this.returnStatus = returnStatus;
-		
+
 	}
 
 	public int getIdReservation() {
@@ -91,7 +86,7 @@ public class Reservation {
 	public void setIdReservation(int idReservation) {
 		this.idReservation = idReservation;
 	}
-	
+
 	public Date getReservationDate() {
 		return reservationDate;
 	}
@@ -204,7 +199,7 @@ public class Reservation {
 	public void setStatusPayment(String statusPayment) {
 		this.statusPayment = statusPayment;
 	}
-	
+
 	public int getLateDuration() {
 		return lateDuration;
 	}
@@ -229,7 +224,6 @@ public class Reservation {
 		this.returnStatus = returnStatus;
 	}
 
-	
 	public int getTotalAllpayment() {
 		return totalAllpayment;
 	}
@@ -240,15 +234,13 @@ public class Reservation {
 
 	@Override
 	public String toString() {
-		return "Reservation [idReservation=" + idReservation + ",reservationDate=" + reservationDate + ",customer=" + customer + ", vehicle=" + vehicle
-				+ ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime=" + rentTime + ", rentDuration="
-				+ rentDuration + ", pickupLocation=" + pickupLocation + ", returnDate=" + returnDate + ", returnTime="
-				+ returnTime + ", rentStatus=" + rentStatus + ", totalPayment=" + totalPayment + ", statusPayment="
-				+ statusPayment + ", lateDuration=" + lateDuration + ", latePayment=" + latePayment
-				+ ", totalAllpayment=" + totalAllpayment + ", returnStatus=" + returnStatus + "]";
+		return "Reservation [idReservation=" + idReservation + ",reservationDate=" + reservationDate + ",customer="
+				+ customer + ", vehicle=" + vehicle + ", driver=" + driver + ", rentDate=" + rentDate + ", rentTime="
+				+ rentTime + ", rentDuration=" + rentDuration + ", pickupLocation=" + pickupLocation + ", returnDate="
+				+ returnDate + ", returnTime=" + returnTime + ", rentStatus=" + rentStatus + ", totalPayment="
+				+ totalPayment + ", statusPayment=" + statusPayment + ", lateDuration=" + lateDuration
+				+ ", latePayment=" + latePayment + ", totalAllpayment=" + totalAllpayment + ", returnStatus="
+				+ returnStatus + "]";
 	}
-
-
-
 
 }

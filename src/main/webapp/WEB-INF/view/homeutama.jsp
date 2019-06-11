@@ -350,12 +350,12 @@
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="usernameCustomer" placeholder="Username"
-											value="${customer.usernameCustomer}">
+											value="${customer.usernameCustomer}" required>
 									</div>
 									<div class="form-group">
 										<input type="password" class="form-control"
 											name="passwordCustomer" placeholder="Password*"
-											value="${customer.passwordCustomer}">
+											value="${customer.passwordCustomer}" required>
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="remember">
@@ -410,27 +410,27 @@
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="fullnameCustomer" placeholder="Full Name"
-											maxlength="100" value="${customer.fullnameCustomer}">
+											maxlength="100" value="${customer.fullnameCustomer}" required>
 									</div>
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="usernameCustomer" onBlur="checkAvailability()"
-											placeholder="Username" value="${customer.usernameCustomer}">
+											placeholder="Username" value="${customer.usernameCustomer}" required>
 										<span id="user-availability-status" style="font-size: 12px;"></span>
 									</div>
 									<div class="form-group">
 										<input type="password" class="form-control"
 											name="passwordCustomer" placeholder="Password"
-											value="${customer.passwordCustomer}">
+											value="${customer.passwordCustomer}" required>
 									</div>
 									<div class="form-group">
 										<input type="email" class="form-control" name="emailCustomer"
-											placeholder="Email Address" value="${customer.emailCustomer}">
+											placeholder="Email Address" value="${customer.emailCustomer}" required>
 									</div>
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="contactnoCustomer" placeholder="Mobile Phone"
-											value="${customer.contactnoCustomer}">
+											value="${customer.contactnoCustomer}" required>
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="terms_agree" required="required"
