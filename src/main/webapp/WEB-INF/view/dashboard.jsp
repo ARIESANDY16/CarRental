@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -680,6 +681,7 @@
 											<thead>
 												<tr>
 													<th>Id</th>
+													<th>Reservation Date</th>
 													<th>Customer</th>
 													<th>Vehicle</th>
 													<th>Price Vehicle</th>
@@ -701,12 +703,13 @@
 												<c:forEach var="reservation" items="${reservations }">
 													<tr>
 														<td>${reservation.idReservation}</td>
+														<td>${reservation.reservationDate}</td>
 														<td>${reservation.customer.fullnameCustomer}</td>
 														<td>${reservation.vehicle.nameVehicle}</td>
 														<td>${reservation.vehicle.priceVehicle}</td>
 														<td>${reservation.driver.fullnameDriver}</td>
 														<td>${reservation.driver.priceDriver}</td>
-														<td>${reservation.rentDate}</td>
+														<td><fmt:formatDate value="${reservation.rentDate}" pattern="E yyyy-MM-dd"/></td>
 														<td>${reservation.rentTime}</td>
 														<td>${reservation.rentDuration}</td>
 														<td>${reservation.pickupLocation}</td>
@@ -784,7 +787,7 @@
 															<input class="form-control" type="time" name="rentTime"
 																readonly="readonly" value="${reservation.rentTime }">
 														</div>
-														<label class="col-sm-2 control-label">Check In
+															<label class="col-sm-2 control-label">Check In
 															Date<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">

@@ -174,7 +174,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navigation">
 				<ul class="nav navbar-nav">
-					<li><a href="/index">Home</a></li>
+					<li><a href="/customer">Home</a></li>
 					<li><a href="/about-us">About Us</a></li>
 					<li><a href="/car-listing">Car Listing</a>
 					<li><a href="/faqs">FAQs</a></li>
