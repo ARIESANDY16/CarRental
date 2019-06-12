@@ -33,6 +33,11 @@ public class DriverService {
 		}
 		return drivers;
 	}
+	
+	
+	public List<Driver> showAllDriversStandby() {
+		return driverRepository.findByDriverStatusStandby();
+	}
 
 	public void deleteMyDriver(int idDriver) {
 		driverRepository.deleteById(idDriver);

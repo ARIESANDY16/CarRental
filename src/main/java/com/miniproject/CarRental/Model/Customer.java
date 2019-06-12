@@ -20,6 +20,7 @@ public class Customer {
 	public String addressCustomer;
 	public String cityCustomer;
 	public String countryCustomer;
+	public String identitynumberCustomer;
 
 	public Customer() {
 
@@ -27,7 +28,7 @@ public class Customer {
 
 	public Customer(String fullnameCustomer, String usernameCustomer, String passwordCustomer, String emailCustomer,
 			String contactnoCustomer, String genderCustomer, String dobCustomer, String addressCustomer,
-			String cityCustomer, String countryCustomer) {
+			String cityCustomer, String countryCustomer,String identitynumberCustomer ) {
 		super();
 		this.fullnameCustomer = fullnameCustomer;
 		this.usernameCustomer = usernameCustomer;
@@ -39,6 +40,7 @@ public class Customer {
 		this.addressCustomer = addressCustomer;
 		this.cityCustomer = cityCustomer;
 		this.countryCustomer = countryCustomer;
+		this.identitynumberCustomer = identitynumberCustomer;
 
 	}
 
@@ -129,6 +131,16 @@ public class Customer {
 	public void setCountryCustomer(String countryCustomer) {
 		this.countryCustomer = countryCustomer;
 	}
+	
+	
+
+	public String getIdentitynumberCustomer() {
+		return identitynumberCustomer;
+	}
+
+	public void setIdentitynumberCustomer(String identitynumberCustomer) {
+		this.identitynumberCustomer = identitynumberCustomer;
+	}
 
 	@Override
 	public String toString() {
@@ -136,7 +148,9 @@ public class Customer {
 				+ usernameCustomer + ", passwordCustomer=" + passwordCustomer + ", emailCustomer=" + emailCustomer
 				+ ", contactnoCustomer=" + contactnoCustomer + ", genderCustomer=" + genderCustomer + ", dobCustomer="
 				+ dobCustomer + ", addressCustomer=" + addressCustomer + ", cityCustomer=" + cityCustomer
-				+ ", countryCustomer=" + countryCustomer + "]";
+				+ ", countryCustomer=" + countryCustomer + ", identitynumberCustomer=" + identitynumberCustomer + "]";
 	}
+
+	
 
 }

@@ -25,7 +25,22 @@ public class ReservationService {
 		}
 		return reservations;
 	}
+	
+	//sorting tabel return car by statusPayment"Success" dan returnStatus "On Progress"
+	public List<Reservation> showReservationSuccessAndOnProgress() {
+		return reservationRepository.findByStatusSuccessAndOnProgress();
+	}
 
+	//sorting tabel rent car by statusPayment "Pending"
+	public List<Reservation> showReservationPending() {
+		return reservationRepository.findByStatusPending();
+	}
+//sorting  tabel transaction done
+	public List<Reservation> showReservationDone() {
+		return reservationRepository.findByReturnStatusDone();
+	}
+	
+	
 	public List<Reservation> showReservations() {
 		List<Reservation> reservations = new ArrayList<Reservation>();
 		for (Reservation reservation : reservationRepository.findAll()) {

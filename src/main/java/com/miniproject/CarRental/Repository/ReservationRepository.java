@@ -18,5 +18,15 @@ public interface ReservationRepository extends CrudRepository<Reservation, Integ
 
 	@Query(value = "SELECT r FROM Reservation r where r.driver.idDriver =:idDriver order by r.idReservation")
 	List<Reservation> findByDriver(@Param("idDriver") int idDriver);
+	
+	@Query(value = "SELECT r FROM Reservation r where r.statusPayment ='success' and r.returnStatus='On Progress' order by r.idReservation")
+	List<Reservation> findByStatusSuccessAndOnProgress();
+	
+	@Query(value = "SELECT r FROM Reservation r where r.statusPayment ='pending' order by r.idReservation")
+	List<Reservation> findByStatusPending();
+	
+	@Query(value = "SELECT r FROM Reservation r where r.returnStatus ='Done' order by r.idReservation")
+	List<Reservation> findByReturnStatusDone();
+
 
 }

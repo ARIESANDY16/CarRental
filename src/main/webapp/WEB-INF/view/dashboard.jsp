@@ -74,12 +74,12 @@
 				<li class="ts-label">Main</li>
 				<li><a href="/dashboard"><i class="fa fa-dashboard"></i>
 						Dashboard</a></li>
-				<li><a href="/transaction"><i class="fa fa-users"></i>
-						Transaction</a></li>
 				<li><a href="/rent-vehicle"><i class="fa fa-users"></i>
 						Rent Vehicle</a></li>
 				<li><a href="/return-vehicle"><i class="fa fa-users"></i>
 						Return Vehicle</a></li>
+				<li><a href="/transaction"><i class="fa fa-users"></i>
+						Transaction</a></li>
 				<li><a href="/show-reservation"><i class="fa fa-users"></i>
 						Reporting</a></li>
 				<li><a href="#"><i class="fa fa-sitemap"></i> Management</a>
@@ -107,7 +107,7 @@
 		</nav>
 	</div>
 
-	<!-- dashboard -->
+<!-- DASHBOARD -->
 	<c:choose>
 		<c:when test="${mode=='DASHBOARD_ADMIN'}">
 			<div class="ts-main-content">
@@ -196,9 +196,653 @@
 			</div>
 		</c:when>
 	</c:choose>
-	<!-- /dashboard -->
+<!-- END DASHBOARD -->
 
 	<c:choose>
+
+		<c:when test="${mode=='RENT_VEHICLE' }">
+			<div class="ts-main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="page-title">Rent Vehicle</h2>
+								<div class="panel panel-default">
+									<div class="panel-heading">Rent Vehicle Details</div>
+									<div class="panel-body">
+										<table id="zctb"
+											class="display table table-striped table-bordered table-hover"
+											cellspacing="0" width="100%">
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Reservation Date</th>
+													<th>Customer</th>
+													<th>Status Payment</th>
+													<th>View Detail</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="reservation" items="${reservations }">
+													<tr>
+														<td>${reservation.idReservation}</td>
+														<td>${reservation.reservationDate}</td>
+														<td>${reservation.customer.fullnameCustomer}</td>
+														<td>${reservation.statusPayment}</td>
+														<td><a
+															href="/view-rent-vehicle?idReservation=${reservation.idReservation }"><i
+																class="fa fa-edit"></i></a></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+
+		<c:when test="${mode=='VIEW_RENT_VEHICLE' }">
+			<div class="ts-main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="page-title">View Rent Vehicle</h2>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="panel panel-default">
+											<div class="panel-heading">Basic Info</div>
+											<div class="panel-body">
+												<form method="post" class="form-horizontal"
+													action="save-rent-vehicle">
+													<input type="hidden" name="idReservation"
+														value="${reservation.idReservation }" />
+													<div class="form-group">
+														<label class="col-sm-2 control-label">
+															Customer
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="customer.fullnameCustomer" readonly="readonly"
+																value="${reservation.customer.fullnameCustomer }">
+															<input type="hidden" name="customer.idCustomer"
+																value="${reservation.customer.idCustomer }"> <input type="hidden" name="returnStatus"
+																value="On Progress">
+														</div>
+														<label class="col-sm-2 control-label">
+															SIN Customer
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="customer.identitynumberCustomer" readonly="readonly"
+																value="${reservation.customer.identitynumberCustomer }">
+														</div>
+														<label class="col-sm-2 control-label">Car</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="vehicle.nameVehicle" readonly="readonly"
+																value="${reservation.vehicle.nameVehicle }"> <input
+																type="hidden" name="vehicle.idVehicle"
+																value="${reservation.vehicle.idVehicle }">
+														</div>
+														<label class="col-sm-2 control-label">Price
+															Car
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="vehicle.priceVehicle" readonly="readonly"
+																value="${reservation.vehicle.priceVehicle }">
+														</div>
+														<label class="col-sm-2 control-label">Rent Car
+															Date
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="rentDate"
+																readonly="readonly"
+																value="<fmt:formatDate value="${reservation.rentDate}" pattern="yyyy-MM-dd" />" />
+														</div>
+
+
+														<label class="col-sm-2 control-label">Rent Car
+															Time
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="time" name="rentTime"
+																readonly="readonly" value="${reservation.rentTime }">
+														</div>
+														<label class="col-sm-2 control-label">Rent Status
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="rentStatus"
+																readonly="readonly" value="${reservation.rentStatus }">
+														</div>
+														<label class="col-sm-2 control-label">Duration
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="rentDuration" readonly="readonly"
+																value="${reservation.rentDuration }">
+														</div>
+														<%--<label class="col-sm-2 control-label">ID Driver<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="driver"
+																value="${reservation.driver.idDriver }">
+														</div>  --%>
+														<label class="col-sm-2 control-label">Driver</label>
+															<div class="col-sm-4">
+															<select class="selectpicker" name="driver.idDriver" data-live-search="true">
+															<c:forEach var="driver" items="${drivers}">
+																<option value="${driver.idDriver}">${driver.fullnameDriver}</option>
+															</c:forEach>
+															</select>
+															
+														</div>
+														<label class="col-sm-2 control-label">Price Driver</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="priceDriver" readonly="readonly"
+																value="${reservation.driver.priceDriver }">
+														</div>
+														<label class="col-sm-2 control-label">Pickup
+															Location
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="pickupLocation"
+																value="${reservation.pickupLocation }">
+														</div>
+														<label class="col-sm-2 control-label">Status
+															Payment
+														</label>
+														<div class="col-sm-4">
+															<select class="selectpicker" name="statusPayment">
+																<option value="Pending">Pending</option>
+																<option value="Success">Success</option>
+																<option value="Cancel">Cancel</option>
+															</select>
+														</div>
+
+														<label class="col-sm-2 control-label">Total
+															Payment
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="totalPayment" readonly="readonly"
+																value="${reservation.totalPayment }">
+														</div>
+
+													</div>
+													<div class="form-group">
+														<div class="col-sm-8 col-sm-offset-2">
+															<button class="btn btn-default" type="reset">Cancel</button>
+															<button class="btn btn-primary" name="submit"
+																type="submit">Save changes</button>
+																<a href="/rent-vehicle" class="btn btn-info" type="button">Back</a>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+
+		<c:when test="${mode=='RETURN_VEHICLE' }">
+			<div class="ts-main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="page-title">Return Vehicle</h2>
+								<div class="panel panel-default">
+									<div class="panel-heading">Return Vehicle Details</div>
+									<div class="panel-body">
+										<table id="zctb"
+											class="display table table-striped table-bordered table-hover"
+											cellspacing="0" width="100%">
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Reservation Date</th>
+													<th>Customer</th>
+													<th>Status Payment</th>
+													<th>Return Status</th>
+													<th>action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="reservation" items="${reservations }">
+													<tr>
+														<td>${reservation.idReservation}</td>
+														<td>${reservation.reservationDate}</td>
+														<td>${reservation.customer.fullnameCustomer}</td>
+														<td>${reservation.statusPayment}</td>
+														<td>${reservation.returnStatus}</td>
+														<td><a
+															href="/view-return-vehicle?idReservation=${reservation.idReservation }"><i
+																class="fa fa-edit"></i></a></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+
+		<c:when test="${mode=='VIEW_RETURN_VEHICLE' }">
+			<div class="ts-main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="page-title">View Return Vehicle</h2>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="panel panel-default">
+											<div class="panel-heading">Basic Info</div>
+											<div class="panel-body">
+												<form method="post" class="form-horizontal"
+													action="save-return-vehicle">
+													<input type="hidden" name="idReservation"
+														value="${reservation.idReservation }" />
+													<%-- <input type="hidden" name="totalPayment"
+														value="${reservation.totalPayment }" /> --%>
+													<div class="form-group">
+														<label class="col-sm-2 control-label">Name
+															Customer<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="customer.fullnameCustomer" readonly="readonly"
+																value="${reservation.customer.fullnameCustomer }">
+															<input type="hidden" name="customer.idCustomer"
+																value="${reservation.customer.idCustomer }">
+														</div>
+														<label class="col-sm-2 control-label">
+															SIN Customer
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="customer.identitynumberCustomer" readonly="readonly"
+																value="${reservation.customer.identitynumberCustomer }">
+														</div>
+														<label class="col-sm-2 control-label">Name Vehicle<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="vehicle.nameVehicle" readonly="readonly"
+																value="${reservation.vehicle.nameVehicle }"> <input
+																type="hidden" name="vehicle.idVehicle"
+																value="${reservation.vehicle.idVehicle }"> <input
+																type="hidden" name="vehicle.priceVehicle"
+																value="${reservation.vehicle.priceVehicle }">
+														</div>
+														<label class="col-sm-2 control-label">Name Driver<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="driver.fullnameDriver" readonly="readonly"
+																value="${reservation.driver.fullnameDriver }"> <input
+																type="hidden" name="driver.idDriver"
+																value="${reservation.driver.idDriver }"> <input
+																type="hidden" name="driver.priceDriver"
+																value="${reservation.driver.priceDriver }">
+
+														</div>
+														<label class="col-sm-2 control-label">Rent Car Date</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="rentDate"
+																readonly="readonly"
+																value="<fmt:formatDate value="${reservation.rentDate}" pattern="yyyy-MM-dd" />" />
+														</div>
+														<label class="col-sm-2 control-label">Rent Car
+															Time<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="time" name="rentTime"
+																readonly="readonly" value="${reservation.rentTime }">
+														</div>
+														<label class="col-sm-2 control-label">Return Car
+															Date<span style="color: red">*</span>
+														</label>
+
+														<div class="col-sm-4">
+															<input class="form-control" type="date" name="returnDate"
+																value="<fmt:formatDate value="${reservation.returnDate}" pattern="yyyy-MM-dd" />" />
+														</div>
+														<label class="col-sm-2 control-label">Return Car
+															Time<span style="color: red">*</span>
+														</label>
+														
+														<div class="col-sm-4">
+															<input class="form-control" type="time" name="returnTime"
+																value="${reservation.returnTime }">
+														</div>
+														<label class="col-sm-2 control-label">Rent Status<span
+															style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="rentStatus"
+																readonly="readonly" value="${reservation.rentStatus }">
+														</div>
+														<label class="col-sm-2 control-label">Duration<span
+															style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="number"
+																name="rentDuration" readonly="readonly"
+																value="${reservation.rentDuration }">
+														</div>
+														<label class="col-sm-2 control-label">Late
+															Duration<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="number"
+																name="lateDuration" value="${reservation.lateDuration }">
+														</div>
+
+														<label class="col-sm-2 control-label">Late Payment
+															<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="latePayment" readonly="readonly"
+																value="${reservation.latePayment }">
+														</div>
+														<label class="col-sm-2 control-label">Return
+															Status<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<select class="selectpicker" name="returnStatus">
+																<option value="On Progress">On Progress</option>
+																<option value="Done">Done</option>
+															</select>
+														</div>
+														<label class="col-sm-2 control-label">Pickup
+															Location<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="pickupLocation" readonly="readonly"
+																value="${reservation.pickupLocation }">
+														</div>
+														<label class="col-sm-2 control-label">Status
+															Payment<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="statusPayment" readonly="readonly"
+																value="${reservation.statusPayment }">
+														</div>
+														<label class="col-sm-2 control-label">Total
+															Payment<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="totalPayment" readonly="readonly"
+																value="${reservation.totalPayment }">
+														</div>
+														<label class="col-sm-2 control-label">Total All
+															Payment<span style="color: red">*</span>
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="totalAllpayment" readonly="readonly"
+																value="${reservation.totalAllpayment }">
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="col-sm-8 col-sm-offset-2">
+															<button class="btn btn-default" type="reset">Cancel</button>
+															<button class="btn btn-primary" name="submit"
+																type="submit">Save changes</button>
+																<a href="/return-vehicle" class="btn btn-info" type="button">Back</a>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+
+		<c:when test="${mode=='TRANSACTION' }">
+			<div class="ts-main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="page-title">Transaction</h2>
+								<div class="panel panel-default">
+									<div class="panel-heading">Transaction Details</div>
+									<div class="panel-body">
+										<table id="zctb"
+											class="display table table-striped table-bordered table-hover"
+											cellspacing="0" width="100%">
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Reservation Date</th>
+													<th>Customer</th>
+													<th>Vehicle</th>
+													<th>action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="reservation" items="${reservations }">
+													<tr>
+														<td>${reservation.idReservation}</td>
+														<td>${reservation.reservationDate}</td>
+														<td>${reservation.customer.fullnameCustomer}</td>
+														<td>${reservation.returnStatus}</td>
+														<td><a
+															href="/view-transaction?idReservation=${reservation.idReservation }"><i
+																class="fa fa-edit"></i></a></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+
+		<c:when test="${mode=='VIEW_TRANSACTION' }">
+			<div class="ts-main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="page-title">View Transaction</h2>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="panel panel-default">
+											<div class="panel-heading">Basic Info</div>
+											<div class="panel-body">
+												<form method="post" class="form-horizontal"
+													action="save-return-vehicle">
+													<div class="form-group">
+														<label class="col-sm-2 control-label">Id Reservation</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="idReservation"
+																readonly="readonly" value="${reservation.idReservation }">
+														</div>
+														<label class="col-sm-2 control-label">
+															Customer
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="customer.fullnameCustomer" readonly="readonly"
+																value="${reservation.customer.fullnameCustomer }">
+															<input type="hidden" name="customer.idCustomer"
+																value="${reservation.customer.idCustomer }">
+														</div>
+														<label class="col-sm-2 control-label">Car</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="vehicle.nameVehicle" readonly="readonly"
+																value="${reservation.vehicle.nameVehicle }"> <input
+																type="hidden" name="vehicle.idVehicle"
+																value="${reservation.vehicle.idVehicle }"> 
+														</div>
+													
+													<label class="col-sm-2 control-label">Name Driver</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="driver.fullnameDriver" readonly="readonly"
+																value="${reservation.driver.fullnameDriver }"> <input
+																type="hidden" name="driver.idDriver"
+																value="${reservation.driver.idDriver }">
+
+														</div>
+														<label class="col-sm-2 control-label">Rent Car
+															Date</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="rentDate"
+																readonly="readonly"
+																value="<fmt:formatDate value="${reservation.rentDate}" pattern="yyyy-MM-dd" />" />
+														</div>
+														<label class="col-sm-2 control-label">Rent Car
+															Time
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="time" name="rentTime"
+																readonly="readonly" value="${reservation.rentTime }">
+														</div>
+														<label class="col-sm-2 control-label">Return Car
+															Date</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="returnDate"
+																readonly="readonly"
+																value="<fmt:formatDate value="${reservation.returnDate}" pattern="yyyy-MM-dd" />" />
+														</div>
+														<label class="col-sm-2 control-label">Return Car
+															Time
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="time" name="returnTime"
+																readonly="readonly" value="${reservation.returnTime }">
+														</div>
+														<label class="col-sm-2 control-label">With/No Driver
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text" name="rentStatus"
+																readonly="readonly" value="${reservation.rentStatus }">
+														</div>
+														<label class="col-sm-2 control-label">Pickup
+															Location
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="pickupLocation" readonly="readonly"
+																value="${reservation.pickupLocation }">
+														</div>
+														<label class="col-sm-2 control-label">Duration
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="rentDuration" readonly="readonly"
+																value="${reservation.rentDuration }">
+														</div>
+														<label class="col-sm-2 control-label">Late
+															Duration
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="lateDuration" readonly="readonly"
+																value="${reservation.lateDuration }">
+														</div>
+														<label class="col-sm-2 control-label">Status
+															Payment </label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="statusPayment" readonly="readonly"
+																value="${reservation.statusPayment }">
+														</div>
+														<label class="col-sm-2 control-label">Late Payment
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="latePayment" readonly="readonly"
+																value="${reservation.latePayment }">
+														</div>
+														<label class="col-sm-2 control-label">Return
+															Status
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="returnStatus" readonly="readonly"
+																value="${reservation.returnStatus }">
+														</div>
+														<label class="col-sm-2 control-label">Price
+															Car/Hour </label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="vehicle.priceVehicle" readonly="readonly"
+																value="${reservation.vehicle.priceVehicle }">
+														</div>
+														<label class="col-sm-2 control-label">Price
+															Driver/Hour </label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="vehicle.priceDriver" readonly="readonly"
+																value="${reservation.driver.priceDriver }">
+														</div>
+														
+
+														<label class="col-sm-2 control-label">Total
+															Payment
+														</label>
+														<div class="col-sm-4">
+															<input class="form-control" type="text"
+																name="totalAllpayment" readonly="readonly"
+																value="${reservation.totalAllpayment }">
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="col-sm-8 col-sm-offset-2">
+															<!-- <button class="btn btn-default" type="reset">Cancel</button>
+															<button class="btn btn-primary" name="submit"
+																type="submit">Save changes</button> -->
+																<a href="/transaction" class="btn btn-info" type="button">Back</a>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:when>
+
 		<c:when test="${mode=='ALL_CUSTOMERS' }">
 			<div class="ts-main-content">
 				<?php include('includes/leftbar.php');?>
@@ -712,7 +1356,8 @@
 														<td>${reservation.vehicle.priceVehicle}</td>
 														<td>${reservation.driver.fullnameDriver}</td>
 														<td>${reservation.driver.priceDriver}</td>
-														<td><fmt:formatDate value="${reservation.rentDate}" pattern="E yyyy-MM-dd"/></td>
+														<td><fmt:formatDate value="${reservation.rentDate}"
+																pattern="E yyyy-MM-dd" /></td>
 														<td>${reservation.rentTime}</td>
 														<td>${reservation.rentDuration}</td>
 														<td>${reservation.pickupLocation}</td>
@@ -776,21 +1421,23 @@
 																type="hidden" name="vehicle.priceVehicle"
 																value="${reservation.vehicle.priceVehicle }">
 														</div>
-														<label class="col-sm-2 control-label">Check Out
+														<label class="col-sm-2 control-label">Rent Car
 															Date<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
-															<input class="form-control" type="date" name="rentDate"
-																readonly="readonly" value="${reservation.rentDate }">
+															<input class="form-control" type="text" name="rentDate"
+																readonly="readonly"
+																value="<fmt:formatDate value="${reservation.rentDate}" pattern="MM-dd-yyyy" />" />
 														</div>
-														<label class="col-sm-2 control-label">Check Out
+
+														<label class="col-sm-2 control-label">Rent Car
 															Time<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
 															<input class="form-control" type="time" name="rentTime"
 																readonly="readonly" value="${reservation.rentTime }">
 														</div>
-															<label class="col-sm-2 control-label">Check In
+														<label class="col-sm-2 control-label">Check In
 															Date<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
@@ -843,602 +1490,6 @@
 																<option value="Pending">Pending</option>
 																<option value="Success">Success</option>
 															</select>
-														</div>
-													</div>
-													<div class="form-group">
-														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
-																type="submit">Save changes</button>
-														</div>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:when>
-
-		<c:when test="${mode=='RENT_VEHICLE' }">
-			<div class="ts-main-content">
-				<div class="content-wrapper">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<h2 class="page-title">Rent Vehicle</h2>
-								<div class="panel panel-default">
-									<div class="panel-heading">Rent Vehicle Details</div>
-									<div class="panel-body">
-										<table id="zctb"
-											class="display table table-striped table-bordered table-hover"
-											cellspacing="0" width="100%">
-											<thead>
-												<tr>
-													<th>Id</th>
-													<th>Reservation Date</th>
-													<th>Customer</th>
-													<th>Vehicle</th>
-													<th>action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="reservation" items="${reservations }">
-													<tr>
-														<td>${reservation.idReservation}</td>
-														<td>${reservation.rentDuration}</td>
-														<td>${reservation.customer.fullnameCustomer}</td>
-														<td>${reservation.vehicle.nameVehicle}</td>
-														<td><a
-															href="/view-rent-vehicle?idReservation=${reservation.idReservation }"><i
-																class="fa fa-edit"></i></a></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:when>
-
-		<c:when test="${mode=='VIEW_RENT_VEHICLE' }">
-			<div class="ts-main-content">
-				<div class="content-wrapper">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<h2 class="page-title">View Rent Vehicle</h2>
-								<div class="row">
-									<div class="col-md-12">
-										<div class="panel panel-default">
-											<div class="panel-heading">Basic Info</div>
-											<div class="panel-body">
-												<form method="post" class="form-horizontal"
-													action="save-rent-vehicle">
-													<input type="hidden" name="idReservation"
-														value="${reservation.idReservation }" />
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Name
-															Customer<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="customer.fullnameCustomer" readonly="readonly"
-																value="${reservation.customer.fullnameCustomer }">
-															<input type="hidden" name="customer.idCustomer"
-																value="${reservation.customer.idCustomer }">
-														</div>
-														<label class="col-sm-2 control-label">Name Vehicle<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="vehicle.nameVehicle" readonly="readonly"
-																value="${reservation.vehicle.nameVehicle }"> <input
-																type="hidden" name="vehicle.idVehicle"
-																value="${reservation.vehicle.idVehicle }"> <input
-																type="hidden" name="vehicle.priceVehicle"
-																value="${reservation.vehicle.priceVehicle }">
-														</div>
-														<label class="col-sm-2 control-label">Check Out
-															Date<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="date" name="rentDate"
-																readonly="readonly" value="${reservation.rentDate }">
-														</div>
-														<label class="col-sm-2 control-label">Check Out
-															Time<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="time" name="rentTime"
-																readonly="readonly" value="${reservation.rentTime }">
-														</div>
-														<label class="col-sm-2 control-label">Rent Status<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text" name="rentStatus"
-																readonly="readonly" value="${reservation.rentStatus }">
-														</div>
-														<label class="col-sm-2 control-label">Duration<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="number"
-																name="rentDuration" readonly="readonly"
-																value="${reservation.rentDuration }">
-														</div>
-														<label class="col-sm-2 control-label">ID Driver<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text" name="driver"
-																value="${reservation.driver.idDriver }">
-														</div>
-														<label class="col-sm-2 control-label">Pickup
-															Location<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="pickupLocation"
-																value="${reservation.pickupLocation }">
-														</div>
-														<label class="col-sm-2 control-label">Status
-															Payment<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<select class="selectpicker" name="statusPayment">
-																<option value="">Select</option>
-																<option value="Pending">Pending</option>
-																<option value="Success">Success</option>
-															</select>
-														</div>
-
-														<label class="col-sm-2 control-label">Total
-															Payment<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="totalPayment" readonly="readonly"
-																value="${reservation.totalPayment }">
-														</div>
-
-													</div>
-													<div class="form-group">
-														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
-																type="submit">Save changes</button>
-														</div>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:when>
-		
-		<c:when test="${mode=='RETURN_VEHICLE' }">
-			<div class="ts-main-content">
-				<div class="content-wrapper">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<h2 class="page-title">Return Vehicle</h2>
-								<div class="panel panel-default">
-									<div class="panel-heading">Return Vehicle Details</div>
-									<div class="panel-body">
-										<table id="zctb"
-											class="display table table-striped table-bordered table-hover"
-											cellspacing="0" width="100%">
-											<thead>
-												<tr>
-													<th>Id</th>
-													<th>Reservation Date</th>
-													<th>Customer</th>
-													<th>Vehicle</th>
-													<th>action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="reservation" items="${reservations }">
-													<tr>
-														<td>${reservation.idReservation}</td>
-														<td>${reservation.rentDuration}</td>
-														<td>${reservation.customer.fullnameCustomer}</td>
-														<td>${reservation.vehicle.nameVehicle}</td>
-														<td><a
-															href="/view-return-vehicle?idReservation=${reservation.idReservation }"><i
-																class="fa fa-edit"></i></a></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:when>
-
-		<c:when test="${mode=='VIEW_RETURN_VEHICLE' }">
-			<div class="ts-main-content">
-				<div class="content-wrapper">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<h2 class="page-title">View Return Vehicle</h2>
-								<div class="row">
-									<div class="col-md-12">
-										<div class="panel panel-default">
-											<div class="panel-heading">Basic Info</div>
-											<div class="panel-body">
-												<form method="post" class="form-horizontal"
-													action="save-return-vehicle">
-													<input type="hidden" name="idReservation"
-														value="${reservation.idReservation }" />
-														<%-- <input type="hidden" name="totalPayment"
-														value="${reservation.totalPayment }" /> --%>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Name
-															Customer<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="customer.fullnameCustomer" readonly="readonly"
-																value="${reservation.customer.fullnameCustomer }">
-															<input type="hidden" name="customer.idCustomer"
-																value="${reservation.customer.idCustomer }">
-														</div>
-														<label class="col-sm-2 control-label">Name Vehicle<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="vehicle.nameVehicle" readonly="readonly"
-																value="${reservation.vehicle.nameVehicle }"> <input
-																type="hidden" name="vehicle.idVehicle"
-																value="${reservation.vehicle.idVehicle }"> <input
-																type="hidden" name="vehicle.priceVehicle"
-																value="${reservation.vehicle.priceVehicle }">
-														</div>
-														<label class="col-sm-2 control-label">Check Out
-															Date<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="date" name="rentDate"
-																readonly="readonly" value="${reservation.rentDate }">
-														</div>
-														<label class="col-sm-2 control-label">Check Out
-															Time<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="time" name="rentTime" 
-																readonly="readonly" value="${reservation.rentTime }">
-														</div>
-														<label class="col-sm-2 control-label">Check In
-															Date<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="date" name="returnDate"
-																value="${reservation.returnDate }">
-														</div>
-														<label class="col-sm-2 control-label">Check In
-															Time<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="time" name="returnTime"
-																value="${reservation.returnTime }">
-														</div>
-														<label class="col-sm-2 control-label">Rent Status<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text" name="rentStatus"
-																readonly="readonly" value="${reservation.rentStatus }">
-														</div>
-														<label class="col-sm-2 control-label">Duration<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="number"
-																name="rentDuration" readonly="readonly"
-																value="${reservation.rentDuration }">
-														</div>
-														<label class="col-sm-2 control-label">Late Duration<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="number"
-																name="lateDuration"
-																value="${reservation.lateDuration }">
-														</div>
-														
-															<label class="col-sm-2 control-label">Late Payment
-															<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="latePayment" readonly="readonly"
-																value="${reservation.latePayment }">
-														</div>
-															<label class="col-sm-2 control-label">Return Status<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<select class="selectpicker" name="returnStatus">
-																<option value="">Select</option>
-																<option value="Pending">Pending</option>
-																<option value="Success">Success</option>
-															</select>
-														</div>
-														<label class="col-sm-2 control-label">Name Driver<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text" name="driver.fullnameDriver"
-																value="${reservation.driver.fullnameDriver }">
-																<input type="hidden" name="driver.idDriver"
-																value="${reservation.driver.idDriver }">
-																<input
-																type="hidden" name="driver.priceDriver"
-																value="${reservation.driver.priceDriver }">
-																
-														</div>
-														
-														<label class="col-sm-2 control-label">Pickup
-															Location<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="pickupLocation"
-																value="${reservation.pickupLocation }">
-														</div>
-														<label class="col-sm-2 control-label">Status
-															Payment<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="statusPayment" readonly="readonly"
-																value="${reservation.statusPayment }">
-														</div>
-														<label class="col-sm-2 control-label">Total
-															Payment<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="totalPayment" readonly="readonly"
-																value="${reservation.totalPayment }">
-														</div>
-														<label class="col-sm-2 control-label">Total All
-															Payment<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="totalAllpayment" readonly="readonly"
-																value="${reservation.totalAllpayment }">
-														</div>
-
-													</div>
-													<div class="form-group">
-														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
-																type="submit">Save changes</button>
-														</div>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:when>
-
-		<c:when test="${mode=='TRANSACTION' }">
-			<div class="ts-main-content">
-				<div class="content-wrapper">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<h2 class="page-title">Transaction</h2>
-								<div class="panel panel-default">
-									<div class="panel-heading">Transaction Details</div>
-									<div class="panel-body">
-										<table id="zctb"
-											class="display table table-striped table-bordered table-hover"
-											cellspacing="0" width="100%">
-											<thead>
-												<tr>
-													<th>Id</th>
-													<th>Reservation Date</th>
-													<th>Customer</th>
-													<th>Vehicle</th>
-													<th>action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="reservation" items="${reservations }">
-													<tr>
-														<td>${reservation.idReservation}</td>
-														<td>${reservation.rentDuration}</td>
-														<td>${reservation.customer.fullnameCustomer}</td>
-														<td>${reservation.vehicle.nameVehicle}</td>
-														<td><a
-															href="/view-transaction?idReservation=${reservation.idReservation }"><i
-																class="fa fa-edit"></i></a></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:when>
-
-		<c:when test="${mode=='VIEW_TRANSACTION' }">
-			<div class="ts-main-content">
-				<div class="content-wrapper">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-md-12">
-								<h2 class="page-title">View Transaction</h2>
-								<div class="row">
-									<div class="col-md-12">
-										<div class="panel panel-default">
-											<div class="panel-heading">Basic Info</div>
-											<div class="panel-body">
-												<form method="post" class="form-horizontal"
-													action="save-return-vehicle">
-													<input type="hidden" name="idReservation"
-														value="${reservation.idReservation }" />
-														
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Name
-															Customer<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="customer.fullnameCustomer" readonly="readonly"
-																value="${reservation.customer.fullnameCustomer }">
-															<input type="hidden" name="customer.idCustomer"
-																value="${reservation.customer.idCustomer }">
-														</div>
-														<label class="col-sm-2 control-label">Name Vehicle<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="vehicle.nameVehicle" readonly="readonly"
-																value="${reservation.vehicle.nameVehicle }"> <input
-																type="hidden" name="vehicle.idVehicle"
-																value="${reservation.vehicle.idVehicle }"> <input
-																type="hidden" name="vehicle.priceVehicle"
-																value="${reservation.vehicle.priceVehicle }">
-														</div>
-														<label class="col-sm-2 control-label">Rent a car
-															Date<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="date" name="rentDate"
-																readonly="readonly" value="${reservation.rentDate }">
-														</div>
-														<label class="col-sm-2 control-label">Rent a car
-															Time<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="time" name="rentTime" 
-																readonly="readonly" value="${reservation.rentTime }">
-														</div>
-														<label class="col-sm-2 control-label">Return a car
-															Date<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="date" name="returnDate" readonly="readonly"
-																value="${reservation.returnDate }">
-														</div>
-														<label class="col-sm-2 control-label">Return a car
-															Time<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="time" name="returnTime" readonly="readonly"
-																value="${reservation.returnTime }">
-														</div>
-														<label class="col-sm-2 control-label">Rent Status<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text" name="rentStatus"
-																readonly="readonly" value="${reservation.rentStatus }">
-														</div>
-														<label class="col-sm-2 control-label">Duration<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="number"
-																name="rentDuration" readonly="readonly"
-																value="${reservation.rentDuration }">
-														</div>
-														<label class="col-sm-2 control-label">Late Duration<span
-															style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="number"
-																name="lateDuration" readonly="readonly"
-																value="${reservation.lateDuration }">
-														</div>
-														
-															<label class="col-sm-2 control-label">Late Payment
-															<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="latePayment" readonly="readonly"
-																value="${reservation.latePayment }">
-														</div>
-															<label class="col-sm-2 control-label">Return Status<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="returnStatus" readonly="readonly"
-																value="${reservation.returnStatus }">
-														</div>
-														
-														<label class="col-sm-2 control-label">Name Driver<span
-															style="color: red">*</span></label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text" name="driver.fullnameDriver"
-																value="${reservation.driver.fullnameDriver }">
-																<input type="hidden" name="driver.idDriver"
-																value="${reservation.driver.idDriver }">
-																<input
-																type="hidden" name="driver.priceDriver"
-																value="${reservation.driver.priceDriver }">
-																
-														</div>
-														
-														<label class="col-sm-2 control-label">Pickup
-															Location<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="pickupLocation"
-																value="${reservation.pickupLocation }">
-														</div>
-														<label class="col-sm-2 control-label">Status
-															Payment<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="statusPayment" readonly="readonly"
-																value="${reservation.statusPayment }">
-														</div>
-
-														<label class="col-sm-2 control-label">Total
-															Payment<span style="color: red">*</span>
-														</label>
-														<div class="col-sm-4">
-															<input class="form-control" type="text"
-																name="totalAllpayment" readonly="readonly"
-																value="${reservation.totalAllpayment }">
 														</div>
 													</div>
 													<div class="form-group">

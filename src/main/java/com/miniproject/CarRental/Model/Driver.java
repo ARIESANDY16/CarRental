@@ -1,8 +1,10 @@
 package com.miniproject.CarRental.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "driver")
@@ -14,20 +16,28 @@ public class Driver {
 	private String usernameDriver;
 	private String passwordDriver;
 	private int priceDriver;
+	/*
+	 * @Size(max = 7)
+	 * 
+	 * @Column(name = "status_driver", nullable = true)
+	 */
 	private String statusDriver;
+    private String contactnoDriver;
 
 	public Driver() {
 
 	}
 
-	public Driver(String fullnameDriver, String usernameDriver, String passwordDriver, int priceDriver,
-			String statusDriver) {
+	public Driver(int idDriver, String fullnameDriver, String usernameDriver, String passwordDriver, int priceDriver,
+			String statusDriver,String contactnoDriver) {
 		super();
+		this.idDriver = idDriver;
 		this.fullnameDriver = fullnameDriver;
 		this.usernameDriver = usernameDriver;
 		this.passwordDriver = passwordDriver;
 		this.priceDriver = priceDriver;
 		this.statusDriver = statusDriver;
+		this.contactnoDriver = contactnoDriver;
 	}
 
 	public int getIdDriver() {
@@ -78,11 +88,21 @@ public class Driver {
 		this.statusDriver = statusDriver;
 	}
 
+	public String getContactnoDriver() {
+		return contactnoDriver;
+	}
+
+	public void setContactnoDriver(String contactnoDriver) {
+		this.contactnoDriver = contactnoDriver;
+	}
+
 	@Override
 	public String toString() {
 		return "Driver [idDriver=" + idDriver + ", fullnameDriver=" + fullnameDriver + ", usernameDriver="
 				+ usernameDriver + ", passwordDriver=" + passwordDriver + ", priceDriver=" + priceDriver
-				+ ", statusDriver=" + statusDriver + "]";
+				+ ", statusDriver=" + statusDriver + ", contactnoDriver=" + contactnoDriver + "]";
 	}
+
+	
 
 }

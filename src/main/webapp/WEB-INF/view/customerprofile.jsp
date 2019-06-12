@@ -110,13 +110,19 @@
 					<input type="hidden" name="idCustomer"
 						value="${customer.idCustomer }" />
 					<div class="form-group">
+						<label class="control-label col-md-3">Identity Number </label>
+						<div class="col-md-7">
+							<input type="text" class="form-control" name="identitynumberCustomer"
+								value="${customer.identitynumberCustomer }" />
+						</div>
+					</div>
+					<div class="form-group">
 						<label class="control-label col-md-3">Full Name </label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="fullnameCustomer"
 								value="${customer.fullnameCustomer }" />
 						</div>
 					</div>
-
 					<div class="form-group">
 						<label class="control-label col-md-3">Username</label>
 						<div class="col-md-7">

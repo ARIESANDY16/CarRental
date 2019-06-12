@@ -107,7 +107,7 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-md-12">
-								<h2 class="page-title">Update A Driver</h2>
+								<h2 class="page-title">Update Info</h2>
 								<div class="row">
 									<div class="col-md-12">
 										<div class="panel panel-default">
@@ -136,6 +136,29 @@
 														<div class="col-sm-4">
 															<input type="password" class="form-control"
 																name="passwordDriver" value="${driver.passwordDriver }">
+																</div>
+																
+																<label class="col-sm-2 control-label">Mobile Number<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input type="text" class="form-control"
+																name="contactnoDriver" value="${driver.contactnoDriver }">
+																</div>
+																
+																<label class="col-sm-2 control-label">Status<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input type="text" class="form-control"
+																name="statusDriver" readonly="readonly" value="${driver.statusDriver }">
+																</div>
+																
+																<label class="col-sm-2 control-label">Price/hour<span
+															style="color: red">*</span></label>
+														<div class="col-sm-4">
+															<input type="text" class="form-control"
+																name="priceDriver"  readonly="readonly" value="${driver.priceDriver }">
+																</div>
+																
 															<div class="form-group">
 																<div class="col-sm-8 col-sm-offset-2">
 																	<button class="btn btn-default" type="reset">Cancel</button>
@@ -144,7 +167,6 @@
 																</div>
 															</div>
 														</div>
-													</div>
 												</form>
 											</div>
 										</div>
@@ -177,6 +199,7 @@
 												<tr>
 													<th>Driver</th>
 													<th>Customer</th>
+													<th>Number customer</th>
 													<th>Vehicle</th>
 													<th>Check Out Date</th>
 													<th>Check Out Time</th>
@@ -191,6 +214,7 @@
 													<tr>
 														<td>${reservation.driver.fullnameDriver}</td>
 														<td>${reservation.customer.fullnameCustomer}</td>
+														<td>${reservation.customer.contactnoCustomer }</td>
 														<td>${reservation.vehicle.nameVehicle}</td>
 														<td>${reservation.rentDate}</td>
 														<td>${reservation.rentTime}</td>

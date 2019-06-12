@@ -166,7 +166,7 @@
 
 											<div class="col-md-4">
 												<label>Rent Date</label> <input class="form-control"
-													type="date" name="rentDate"
+													type="date" min="2019-06-12" name="rentDate"
 													value="${reservation.rentDate }">
 											</div>
 
@@ -184,7 +184,9 @@
 												type="hidden" name="vehicle.idVehicle"
 												value="${reservation.vehicle.idVehicle }"> <input
 												type="hidden" name="vehicle.priceVehicle"
-												value="${reservation.vehicle.priceVehicle }">
+												value="${reservation.vehicle.priceVehicle }"><input
+												type="hidden" name="statusPayment"
+												value="Pending">
 
 
 											<div class="col-md-4">
@@ -194,9 +196,9 @@
 											</div>
 
 											<div class="col-md-4">
-												<label>Rent Status</label> <select class="form-control"
+												<label>With/No Driver</label> <select class="form-control"
 													name="rentStatus">
-													<option value="Self Drive">Self Drive</option>
+													<option value="No Driver">No Driver</option>
 													<option value="With Driver">With Driver</option>
 												</select>
 											</div>

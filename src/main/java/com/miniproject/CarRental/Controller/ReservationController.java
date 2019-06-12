@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.miniproject.CarRental.Model.Reservation;
 import com.miniproject.CarRental.Service.CustomerService;
+import com.miniproject.CarRental.Service.DriverService;
 import com.miniproject.CarRental.Service.ReservationService;
 import com.miniproject.CarRental.Service.VehicleService;
 
@@ -28,6 +29,9 @@ public class ReservationController {
 
 	@Autowired
 	CustomerService customerService;
+	
+	@Autowired
+	DriverService driverService;
 
 	@RequestMapping(value = "/addreservation", method = RequestMethod.GET)
 	public ModelAndView reservation(@RequestParam("idVehicle") int idVehicle, HttpServletRequest request) {
@@ -115,15 +119,16 @@ public class ReservationController {
 	//rent vehicle
 	@GetMapping("/rent-vehicle")
 	public String rentVehicle(HttpServletRequest request) {
-		request.setAttribute("reservations", reservationService.showAllReservations());
+		request.setAttribute("reservations", reservationService.showReservationPending());
 		request.setAttribute("mode", "RENT_VEHICLE");
 		return "dashboard";
 	}
 	
 	//view rent vehicle
-	@RequestMapping("/view-rent-vehicle")
+	@GetMapping("/view-rent-vehicle")
 	public String rentVehicle(@RequestParam int idReservation, HttpServletRequest request) {
 		request.setAttribute("reservation", reservationService.editReservation(idReservation));
+		request.setAttribute("drivers", driverService.showAllDriversStandby()); 
 		request.setAttribute("mode", "VIEW_RENT_VEHICLE");
 		return "dashboard";
 	}
@@ -132,7 +137,9 @@ public class ReservationController {
 	@PostMapping("/save-rent-vehicle")
 	public String saveRentVehicle(@ModelAttribute Reservation reservation, BindingResult bindingResult,
 			HttpServletRequest request) {
+	
 		reservationService.reservationAdmin(reservation);
+		request.setAttribute("reservation", reservationService.showAllReservations());
 		request.setAttribute("mode", "RENT_VEHICLE");
 		return "redirect:/rent-vehicle";
 	}
@@ -140,7 +147,7 @@ public class ReservationController {
 	//return vehicle
 		@GetMapping("/return-vehicle")
 		public String returnVehicle(HttpServletRequest request) {
-			request.setAttribute("reservations", reservationService.showAllReservations());
+			request.setAttribute("reservations", reservationService.showReservationSuccessAndOnProgress());
 			request.setAttribute("mode", "RETURN_VEHICLE");
 			return "dashboard";
 		}
@@ -165,7 +172,7 @@ public class ReservationController {
 		//Transaction
 		@GetMapping("/transaction")
 		public String transaction(HttpServletRequest request) {
-			request.setAttribute("reservations", reservationService.showAllReservations());
+			request.setAttribute("reservations", reservationService.showReservationDone());
 			request.setAttribute("mode", "TRANSACTION");
 			return "dashboard";
 		}
