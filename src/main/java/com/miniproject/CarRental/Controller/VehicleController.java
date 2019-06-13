@@ -75,14 +75,6 @@ public class VehicleController {
 
 	}
 
-	@GetMapping("/vehicles")
-	public String showVehicles(HttpServletRequest request) throws UnsupportedEncodingException {
-		request.setAttribute("vehicles", vehicleService.showAllVehicles());
-		request.setAttribute("mode", "ALL_VEHICLES");
-		return "vehiclepage";
-
-	}
-
 	@RequestMapping("/delete-vehicle")
 	public String deleteVehicle(@RequestParam int idVehicle, HttpServletRequest request)
 			throws UnsupportedEncodingException {

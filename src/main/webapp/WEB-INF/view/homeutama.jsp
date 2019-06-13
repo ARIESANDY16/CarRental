@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -347,6 +348,11 @@
 						<div class="login_wrap">
 							<div class="col-md-12 col-sm-6">
 								<form method="post" action="/login-customer">
+									<c:if test="${not empty error }">
+										<div class="alert alert-danger">
+											<c:out value="${error }"></c:out>
+										</div>
+									</c:if>
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="usernameCustomer" placeholder="Username"
@@ -384,6 +390,7 @@
 			</div>
 		</div>
 	</div>
+
 	<!--/Login-Form -->
 
 	<!--Register-Form -->
@@ -415,8 +422,9 @@
 									<div class="form-group">
 										<input type="text" class="form-control"
 											name="usernameCustomer" onBlur="checkAvailability()"
-											placeholder="Username" value="${customer.usernameCustomer}" required>
-										<span id="user-availability-status" style="font-size: 12px;"></span>
+											placeholder="Username" value="${customer.usernameCustomer}"
+											required> <span id="user-availability-status"
+											style="font-size: 12px;"></span>
 									</div>
 									<div class="form-group">
 										<input type="password" class="form-control"
@@ -425,7 +433,8 @@
 									</div>
 									<div class="form-group">
 										<input type="email" class="form-control" name="emailCustomer"
-											placeholder="Email Address" value="${customer.emailCustomer}" required>
+											placeholder="Email Address" value="${customer.emailCustomer}"
+											required>
 									</div>
 									<div class="form-group">
 										<input type="text" class="form-control"
@@ -434,7 +443,7 @@
 									</div>
 									<div class="form-group checkbox">
 										<input type="checkbox" id="terms_agree" required="required"
-											checked=""> <label for="terms_agree">I Agree
+											checked> <label for="terms_agree">I Agree
 											with <a href="#">Terms and Conditions</a>
 										</label>
 									</div>
@@ -475,20 +484,20 @@
 								<form name="chngpwd" method="post" onSubmit="return valid();">
 									<div class="form-group">
 										<input type="email" name="email" class="form-control"
-											placeholder="Your Email address*" required="">
+											placeholder="Your Email address*" required>
 									</div>
 									<div class="form-group">
 										<input type="text" name="mobile" class="form-control"
-											placeholder="Your Reg. Mobile*" required="">
+											placeholder="Your Reg. Mobile*" required>
 									</div>
 									<div class="form-group">
 										<input type="password" name="newpassword" class="form-control"
-											placeholder="New Password*" required="">
+											placeholder="New Password*" required>
 									</div>
 									<div class="form-group">
 										<input type="password" name="confirmpassword"
 											class="form-control" placeholder="Confirm Password*"
-											required="">
+											required>
 									</div>
 									<div class="form-group">
 										<input type="submit" value="Reset My Password" name="update"

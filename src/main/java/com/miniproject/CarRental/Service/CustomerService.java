@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.miniproject.CarRental.Model.Customer;
@@ -13,16 +14,21 @@ import com.miniproject.CarRental.Repository.CustomerRepository;
 @Service
 @Transactional
 public class CustomerService {
-
+	@Autowired
 	private final CustomerRepository customerRepository;
 
 	public CustomerService(CustomerRepository customerRepository) {
 		this.customerRepository = customerRepository;
 	}
 
-	public void saveMyCustomer(Customer customer) {
-		customerRepository.save(customer);
-
+	public String saveMyCustomer(Customer customer) {
+		Customer username = customerRepository.findByUsernameCustomerAndPasswordCustomer(customer.getusernameCustomer(), customer.getpasswordCustomer());
+		if(username !=null) {
+			return "redirect:/save-customer";
+		}else {
+			customerRepository.save(customer);
+			return "redirect:/save-customer";
+		}
 	}
 
 	public void saveMyPassword(Customer customer) {

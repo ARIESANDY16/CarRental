@@ -56,7 +56,7 @@
 	rel="stylesheet">
 </head>
 <body>
-	
+
 	<nav id="navigation_bar" class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -97,15 +97,11 @@
 		<div class="container">
 			<div class="page-header_wrap">
 				<div class="page-heading">
-					<h1>
-						FAQS
-					</h1>
+					<h1>FAQS</h1>
 				</div>
 				<ul class="coustom-breadcrumb">
 					<li><a href="#">Home</a></li>
-					<li>
-						FAQS
-					</li>
+					<li>FAQS</li>
 				</ul>
 			</div>
 		</div>
@@ -115,16 +111,75 @@
 	<section class="about_us section-padding">
 		<div class="container">
 			<div class="section-header text-center">
-
-
-				<h2>
-					<?php   echo htmlentities($result->PageName); ?>
-				</h2>
-				<p>
-					<?php  echo $result->detail; ?>
-				</p>
+				<table id="faqs"
+					class="display table table-striped table-bordered table-hover"
+					cellspacing="0" width="100%">
+					<thead>
+						<!-- <tr> -->
+						<blockquote>
+							<p>Apa saya bisa menyewa harian tanpa supir?</p>
+						</blockquote>
+						<p>Bisa. Jika anda sudah memenuhi kriteria yang telah kami
+							jabarkan di halaman syarat dan ketentuan</p>
+						<!-- </tr> -->
+						<tr>
+							<blockquote>
+								<p>Bagaimana jika mobil dicuri ketika saya sewa?</p>
+							</blockquote>
+							<div>
+								<p>1. Penyewa diwajibkan segera melapor ke kantor Autonet
+									Rent Car maksimal 1×24 jam ketika kejadian tersebut terjadi.</p>
+								<p>2. Pastikan STNK dan kunci kontak kendaraan masih ada di
+									tangan penyewa</p>
+								<p>3. Jika tidak memenuhi 2 syarat tersebut maka penyewa
+									diwajibkan mengganti kendaraan tersebut sebesar 100% dari harga
+									mobil dengan harga pasaran yang wajar sesuai usia kendaraan</p>
+								<p>4. Jika memenuhi 2 syarat diatas. Mobil rental kami sudah
+									dilengkapi dengan asuransi All Risk, sehingga penyewa tidak
+									perlu mengganti penuh. Yang menjadi tanggungan penyewa hanya
+									uang deposit dan uang kompensasi kekurangan penggantian
+									asuransi (Harga mobil pasaran Uang penggantian asuransi)</p>
+								<blockquote>
+									<p>Bagaimana jika mobil rusak?</p>
+								</blockquote>
+								<p>1. Jika kerusakan diakibatkan oleh kecerobohan dan
+									kelalaian penyewa namun masih dapat diganti oleh asuransi maka
+									uang deposit yang dibayar akan hangus. contoh : tabrakan,
+									lecet, baret, dll</p>
+								<p>2. Jika kerusakan diakibatkan oleh kecerobohan dan
+									kelalaian penyewa namun tidak dapat diganti oleh asuransi maka
+									penyewa harus mengganti kerusakan tersebut. contoh :
+									memodifikasi kendaraan, tidak memberi tahu pihak Autonet Rent
+									Car ketika mobil sudah saatnya service, air radiator kering,
+									dll</p>
+								<p>3. Jika kerusakan murni dari kendaraan karena pemakaian,
+									maka penyewa tidak dibebankan biaya untuk penggantian, dan
+									penyewa berhak mendapat penggantian kendaraan jika kerusakan
+									memakan waktu lebih dari 4 jam untuk perbaikan. Contoh :
+									Keausan aki, keausan ban, plat kopling, dll</p>
+								<blockquote>
+									<p>Bagaimana jika terjadi kecelakaan di jalan?</p>
+								</blockquote>
+								<p>1. Pihak Autonet Rent Car akan mengurus masalah kerusakan
+									kendaraan. Penyewa dilarang untuk memperbaiki mobil tersebut di
+									bengkel manapun selama belum mendapat konfirmasi dan
+									persetujuan dari Autonet Rent Car. Jika mobil tersebut
+									diperbaiki tanpa persetujuan maka uang deposit hangus dan biaya
+									perbaikan tidak diganti.</p>
+								<p>2. Jika mobil bermasalah dengan kepolisian setempat
+									sehingga menyebabkan mobil harus ditahan menjadi barang bukti.
+									Penyewa wajib membayar biaya pengeluaran mobil dari kantor
+									polisi dan tetap membayar sewa selama mobil masih berada di
+									kantor Polisi.</p>
+								<p>3. Jika mobil tidak dapat dijalankan, maka penyewa
+									bertanggung jawab atas biaya derek menuju bengkel rekanan
+									Autonet Rent Car</p>
+								<p>4. Jika kecelakaan menelan korban jiwa, maka pihak sewa
+									rental mobil tidak bertanggung jawab atas korban kecelakaan.</p>
+						</tr>
+					</thead>
+				</table>
 			</div>
-			<?php } }?>
 		</div>
 	</section>
 	<!-- /About-us-->
