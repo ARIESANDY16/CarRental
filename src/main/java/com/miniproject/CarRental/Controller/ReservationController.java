@@ -100,14 +100,6 @@ public class ReservationController {
 		List<Reservation> driverTask = reservationService.driverTask(idDriver);
 		return new ModelAndView("dashboarddriver", "reservations", driverTask);
 	}
-	
-	@RequestMapping("/delete-reservation")
-	public String deleteReservation(@RequestParam int idReservation, HttpServletRequest request) {
-		reservationService.deleteMyReservation(idReservation);
-		request.setAttribute("reservation", reservationService.showAllReservations());
-		request.setAttribute("mode", "MODE_DELETE_RESERVATION");
-		return "homeadmin";
-	}
 
 	@RequestMapping("/edit-reservation")
 	public String editReservation(@RequestParam int idReservation, HttpServletRequest request) {

@@ -151,13 +151,13 @@
 
 											<div class="col-md-4">
 												<label>Customer Name</label> <input class="form-control"
-													type="text" name="customer.fullnameCustomer"
+													type="text" name="customer.fullnameCustomer" readonly="readonly"
 													value="${reservation.customer.fullnameCustomer }">
 																	</div>
 
 											<div class="col-md-4">
 												<label>Vehicle Name</label> <input class="form-control"
-													type="text" name="vehicle.nameVehicle"
+													type="text" name="vehicle.nameVehicle" readonly="readonly"
 													value="${reservation.vehicle.nameVehicle }">
 											</div>
 
@@ -166,13 +166,13 @@
 
 											<div class="col-md-4">
 												<label>Rent Date</label> <input class="form-control"
-													type="date" min="2019-06-12" name="rentDate"
+													type="date" min="2019-06-12" name="rentDate" required="required"
 													value="${reservation.rentDate }">
 											</div>
 
 											<div class="col-md-4">
 												<label>Rent Time</label> <input class="form-control"
-													type="time" name="rentTime"
+													type="time" name="rentTime" required="required"
 													value="${reservation.rentTime }">
 											</div>
 
@@ -191,8 +191,8 @@
 
 											<div class="col-md-4">
 												<label>Rent Duration</label> <input class="form-control"
-													type="number" name="rentDuration"
-													value="${reservation.rentDuration }">
+													type="number" name="rentDuration" required="required"
+													value="">
 											</div>
 
 											<div class="col-md-4">
@@ -205,9 +205,11 @@
 
 											<div class="col-md-4">
 												<label>Pickup Location</label> <span
-													class="input-group-text"> </span> <input
-													class="form-control" type="text" name="pickupLocation"
+													class="input-group-text"> </span> 
+													<input
+													class="form-control" type="text" name="pickupLocation" required="required"
 													value="${reservation.pickupLocation }">
+													<span style="color: red">*Field text "Car Rental Office" if you choose "No Driver"</span>
 											</div>
 										</div>
 										<hr>
