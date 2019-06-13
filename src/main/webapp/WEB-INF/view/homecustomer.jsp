@@ -156,7 +156,7 @@
 
 								<li><a href="/my-reservation">My Booking</a></li>
 
-								<li><a href="/logout-customer">Sign Out</a></li>
+								<li><a href="/logout-customer" id="sign-out">Sign Out</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -382,5 +382,12 @@
 	<!--Slider-JS-->
 	<script src="assets/js/slick.min.js"></script>
 	<script src="assets/js/owl.carousel.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#sign-out').click(function() {
+				alert('Do you want logout?')
+			});
+		});
+	</script>
 </body>
 </html>

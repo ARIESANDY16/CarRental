@@ -62,7 +62,7 @@
 					src="assets/admin/img/ts-avatar.jpg" class="ts-avatar hidden-side"
 					alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
 				<ul>
-					<li><a href="/logout-admin">Logout</a></li>
+					<li><a href="/logout-admin" id="sign-out">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -231,7 +231,7 @@
 														<td>${reservation.statusPayment}</td>
 														<td><a
 															href="/view-rent-vehicle?idReservation=${reservation.idReservation }"><i
-																class="fa fa-edit"></i></a></td>
+																class="fa fa-edit">Edit</i></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -387,8 +387,8 @@
 													</div>
 													<div class="form-group">
 														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
+															<button class="btn btn-default" type="reset">Reset</button>
+															<button class="btn btn-primary" name="submit" id="klik"
 																type="submit">Save changes</button>
 															<a href="/rent-vehicle" class="btn btn-info"
 																type="button">Back</a>
@@ -439,7 +439,7 @@
 														<td>${reservation.returnStatus}</td>
 														<td><a
 															href="/view-return-vehicle?idReservation=${reservation.idReservation }"><i
-																class="fa fa-edit"></i></a></td>
+																class="fa fa-edit">Edit</i></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -508,6 +508,7 @@
 																value="${reservation.pickupLocation }">
 														</div>
 
+														</div>
 														<label class="col-sm-2 control-label">Rent Car
 															Date</label>
 														<div class="col-sm-4">
@@ -631,8 +632,8 @@
 													</div>
 													<div class="form-group">
 														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
+															<button class="btn btn-default" type="reset">Reset</button>
+															<button class="btn btn-primary" name="submit" id="klik"
 																type="submit">Save changes</button>
 															<a href="/return-vehicle" class="btn btn-info"
 																type="button">Back</a>
@@ -681,7 +682,7 @@
 														<td>${reservation.returnStatus}</td>
 														<td><a
 															href="/view-transaction?idReservation=${reservation.idReservation }"><i
-																class="fa fa-edit"></i></a></td>
+																class="fa fa-edit">Edit</i></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -855,6 +856,8 @@
 															<button class="btn btn-primary" name="submit"
 																type="submit">Save changes</button> -->
 															<a href="/transaction" class="btn btn-info" type="button">Back</a>
+															<button class="btn btn-primary" type="button"
+																onclick="window.print()">Print</button>
 														</div>
 													</div>
 												</form>
@@ -954,10 +957,10 @@
 														<td>${vehicle.priceVehicle}</td>
 														<td><a
 															href="/edit-vehicle?idVehicle=${vehicle.idVehicle }"><i
-																class="fa fa-edit"></i></a>&nbsp;&nbsp; <a
+																class="fa fa-edit">Edit</i></a>&nbsp;&nbsp; <a
 															href="/delete-vehicle?idVehicle=${vehicle.idVehicle }"
 															onclick="return confirm('Do you want to delete');"><i
-																class="fa fa-close"></i></a></td>
+																class="fa fa-close">Delete</i></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -1040,9 +1043,11 @@
 													</div>
 													<div class="form-group">
 														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
+															<button class="btn btn-default" type="reset">Reset</button>
+															<button class="btn btn-primary" name="submit" id="add"
 																type="submit">Save changes</button>
+															<a href="/return-vehicle" class="btn btn-info"
+																type="button">Back</a>
 														</div>
 													</div>
 												</form>
@@ -1126,9 +1131,11 @@
 													</div>
 													<div class="form-group">
 														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
+															<button class="btn btn-default" type="reset">Reset</button>
+															<button class="btn btn-primary" name="submit" id="klik"
 																type="submit">Save changes</button>
+															<a href="/return-vehicle" class="btn btn-info"
+																type="button">Back</a>
 														</div>
 													</div>
 												</form>
@@ -1172,10 +1179,10 @@
 														<td>${driver.statusDriver}</td>
 														<td><a
 															href="/edit-driver-admin?idDriver=${driver.idDriver }"><i
-																class="fa fa-edit"></i></a>&nbsp;&nbsp; <a
+																class="fa fa-edit">Edit</i></a>&nbsp;&nbsp; <a
 															href="/delete-driver?idDriver=${driver.idDriver }"
 															onclick="return confirm('Do you want to delete');"><i
-																class="fa fa-close"></i></a></td>
+																class="fa fa-close">Delete</i></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -1245,9 +1252,11 @@
 													</div>
 													<div class="form-group">
 														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
+															<button class="btn btn-default" type="reset">Reset</button>
+															<button class="btn btn-primary" name="submit" id="add"
 																type="submit">Save changes</button>
+															<a href="/return-vehicle" class="btn btn-info"
+																type="button">Back</a>
 														</div>
 													</div>
 												</form>
@@ -1321,9 +1330,11 @@
 													</div>
 													<div class="form-group">
 														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
+															<button class="btn btn-default" type="reset">Reset</button>
+															<button class="btn btn-primary" name="submit" id="klik"
 																type="submit">Save changes</button>
+															<a href="/return-vehicle" class="btn btn-info"
+																type="button">Back</a>
 														</div>
 													</div>
 												</form>
@@ -1395,11 +1406,14 @@
 
 														<td><a
 															href="/edit-reservation?idReservation=${reservation.idReservation }"><i
-																class="fa fa-edit"></i></a></td>
+																class="fa fa-edit">Edit</i></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
+										<div id="not-print">
+											<button class="btn-primary" onclick="window.print()">Print</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -1520,9 +1534,11 @@
 													</div>
 													<div class="form-group">
 														<div class="col-sm-8 col-sm-offset-2">
-															<button class="btn btn-default" type="reset">Cancel</button>
-															<button class="btn btn-primary" name="submit"
+															<button class="btn btn-default" type="reset">Reset</button>
+															<button class="btn btn-primary" name="submit" id="klik"
 																type="submit">Save changes</button>
+															<a href="/return-vehicle" class="btn btn-info"
+																type="button">Back</a>
 														</div>
 													</div>
 												</form>
@@ -1539,10 +1555,6 @@
 
 	</c:choose>
 
-
-
-
-
 	<!-- Loading Scripts -->
 	<script src="assets/admin/js/jquery.min.js"></script>
 	<script src="assets/admin/js/bootstrap-select.min.js"></script>
@@ -1553,5 +1565,20 @@
 	<script src="assets/admin/js/fileinput.js"></script>
 	<script src="assets/admin/js/chartData.js"></script>
 	<script src="assets/admin/js/main.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#klik').click(function() {
+				alert('Do you want change data?')
+			});
+
+			$('#sign-out').change(function() {
+				alert('Do you want logout?')
+			});
+
+			$('#add').click(function() {
+				alert('Do you want add data?')
+			});
+		});
+	</script>
 </body>
 </html>

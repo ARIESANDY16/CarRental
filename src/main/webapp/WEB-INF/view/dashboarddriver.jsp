@@ -61,7 +61,7 @@
 					src="assets/admin/img/ts-avatar.jpg" class="ts-avatar hidden-side"
 					alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
 				<ul>
-					<li><a href="/logout-driver">Logout</a></li>
+					<li><a href="/logout-driver" id="sign-out">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -163,7 +163,7 @@
 																<div class="col-sm-8 col-sm-offset-2">
 																	<button class="btn btn-default" type="reset">Cancel</button>
 																	<button class="btn btn-primary" name="submit"
-																		type="submit">Save changes</button>
+																		id="klik" type="submit">Save changes</button>
 																</div>
 															</div>
 														</div>
@@ -247,5 +247,16 @@
 	<script src="assets/admin/js/fileinput.js"></script>
 	<script src="assets/admin/js/chartData.js"></script>
 	<script src="assets/admin/js/main.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#klik').click(function() {
+				alert('Do you want change data?')
+			});
+			
+			$('#sign-out').click(function() {
+				alert('Do you want logout?')
+			});
+		});
+	</script>
 </body>
 </html>
