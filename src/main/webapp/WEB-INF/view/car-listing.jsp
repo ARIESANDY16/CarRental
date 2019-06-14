@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -153,7 +154,7 @@
 									<td><img src="/getImage/${vehicle.idVehicle}" width="300"
 										height="200"></td>
 									<td><br><strong>${vehicle.nameVehicle} </strong><br><br>
-										Harga : Rp. ${vehicle.priceVehicle},- / jam <br> + Driver
+										Harga : <fmt:formatNumber value="${vehicle.priceVehicle }" type="currency" currencySymbol="Rp." minFractionDigits="0"/>/ jam <br> + Driver
 										: Rp. 10.000,- / jam
 										<br> Type: ${vehicle.typeVehicle} <br>
 										Tahun : ${vehicle.yearVehicle} <br> Kapasitas :

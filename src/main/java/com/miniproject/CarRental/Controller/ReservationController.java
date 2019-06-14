@@ -116,6 +116,15 @@ public class ReservationController {
 		return "dashboard";
 	}
 	
+	//rent vehicle
+	@GetMapping("/return-vehicle")
+	public String returnVehicle(HttpServletRequest request) {
+		request.setAttribute("reservations", reservationService.showReservationSuccessAndOnProgress());
+		request.setAttribute("mode", "RETURN_VEHICLE");
+		return "dashboard";
+	}
+	
+	
 	//view rent vehicle
 	@GetMapping("/view-rent-vehicle")
 	public String rentVehicle(@RequestParam int idReservation, HttpServletRequest request) {
@@ -124,6 +133,15 @@ public class ReservationController {
 		request.setAttribute("mode", "VIEW_RENT_VEHICLE");
 		return "dashboard";
 	}
+	
+	//view rent vehicle
+		@GetMapping("/view-return-vehicle")
+		public String returnVehicle(@RequestParam int idReservation, HttpServletRequest request) {
+			request.setAttribute("reservation", reservationService.editReservation(idReservation));
+			request.setAttribute("drivers", driverService.showAllDriversStandby()); 
+			request.setAttribute("mode", "VIEW_RETURN_VEHICLE");
+			return "dashboard";
+		}
 	
 	//save rent vehicle
 	@PostMapping("/save-rent-vehicle")
@@ -136,30 +154,45 @@ public class ReservationController {
 		return "redirect:/rent-vehicle";
 	}
 	
-	//return vehicle
-		@GetMapping("/return-vehicle")
-		public String returnVehicle(HttpServletRequest request) {
-			request.setAttribute("reservations", reservationService.showReservationSuccessAndOnProgress());
-			request.setAttribute("mode", "RETURN_VEHICLE");
-			return "dashboard";
-		}
-		
-		//view Return vehicle
-		@RequestMapping("/view-return-vehicle")
-		public String returnVehicle(@RequestParam int idReservation, HttpServletRequest request) {
-			request.setAttribute("reservation", reservationService.editReservation(idReservation));
-			request.setAttribute("mode", "VIEW_RETURN_VEHICLE");
-			return "dashboard";
-		}	
-		//save return vehicle
-		@PostMapping("/save-return-vehicle")
-		public String saveReturnVehicle(@ModelAttribute Reservation reservation, BindingResult bindingResult,
-				HttpServletRequest request) {
-			reservationService.lateReturnVehicle(reservation);
-			request.setAttribute("mode", "RETURN_VEHICLE");
-			return "redirect:/return-vehicle";
-		}
-
+	
+	//save rent vehicle
+	@PostMapping("/save-return-vehicle")
+	public String saveReturnVehicle(@ModelAttribute Reservation reservation, BindingResult bindingResult,
+			HttpServletRequest request) {
+	
+		reservationService.reservationAdmin(reservation);
+		request.setAttribute("reservation", reservationService.showAllReservations());
+		request.setAttribute("mode", "RETURN_VEHICLE");
+		return "redirect:/return-vehicle";
+	}
+	
+	
+	/*
+	 * //return vehicle
+	 * 
+	 * @GetMapping("/return-vehicle") public String returnVehicle(HttpServletRequest
+	 * request) { request.setAttribute("reservations",
+	 * reservationService.showReservationSuccessAndOnProgress());
+	 * request.setAttribute("mode", "RETURN_VEHICLE"); return "dashboard"; }
+	 * 
+	 * //view Return vehicle
+	 * 
+	 * @RequestMapping("/view-return-vehicle") public String
+	 * returnVehicle(@RequestParam int idReservation, HttpServletRequest request) {
+	 * request.setAttribute("reservation",
+	 * reservationService.editReservation(idReservation));
+	 * request.setAttribute("mode", "VIEW_RETURN_VEHICLE"); return "dashboard"; }
+	 */
+	/*
+	 * //save return vehicle
+	 * 
+	 * @PostMapping("/save-return-vehicle") public String
+	 * saveReturnVehicle(@ModelAttribute Reservation reservation, BindingResult
+	 * bindingResult, HttpServletRequest request) {
+	 * reservationService.lateReturnVehicle(reservation);
+	 * request.setAttribute("mode", "RETURN_VEHICLE"); return
+	 * "redirect:/return-vehicle"; }
+	 */
 		
 		//Transaction
 		@GetMapping("/transaction")

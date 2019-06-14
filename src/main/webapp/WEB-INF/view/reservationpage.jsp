@@ -166,7 +166,7 @@
 
 											<div class="col-md-4">
 												<label>Rent Date</label> <input class="form-control"
-													type="date" min="2019-06-12" name="rentDate" required="required"
+													type="date" min="2019-06-14" name="rentDate" required="required"
 													value="${reservation.rentDate }">
 											</div>
 
@@ -190,7 +190,7 @@
 
 
 											<div class="col-md-4">
-												<label>Rent Duration</label> <input class="form-control"
+												<label>Rent Duration/Hour</label> <input class="form-control"
 													type="number" name="rentDuration" required="required"
 													value="">
 											</div>
