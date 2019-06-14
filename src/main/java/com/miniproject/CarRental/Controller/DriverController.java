@@ -48,6 +48,7 @@ public class DriverController {
 	@RequestMapping(value = "/logout-driver", method = RequestMethod.GET)
 	public String logoutDriver(@ModelAttribute Driver driver, HttpServletRequest request, Object logout) {
 		request.setAttribute("mode", "MODE_LOGIN_DRIVER");
+		request.getSession().invalidate();
 		return "indexdriver";
 	}
 

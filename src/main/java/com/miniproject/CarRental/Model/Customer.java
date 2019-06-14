@@ -151,6 +151,4 @@ public class Customer {
 				+ ", countryCustomer=" + countryCustomer + ", identitynumberCustomer=" + identitynumberCustomer + "]";
 	}
 
-	
-
 }

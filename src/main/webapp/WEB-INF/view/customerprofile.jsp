@@ -48,63 +48,11 @@
 	rel="stylesheet">
 </head>
 <body>
-	<!-- Navigation -->
-	<nav id="navigation_bar" class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-header">
-				<button id="menu_slide" data-target="#navigation"
-					aria-expanded="false" data-toggle="collapse"
-					class="navbar-toggle collapsed" type="button">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="header_wrap">
-				<div class="user_login">
-					<ul>
-						<li class="dropdown"><a href="#" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"><i
-								class="fa fa-user-circle" aria-hidden="true"></i> <i
-								class="fa fa-angle-down" aria-hidden="true"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="/edit-profile">Profile Settings</a></li>
-
-								<li><a href="/my-reservation">My Booking</a></li>
-								<li><a href="/logout-customer">Sign Out</a></li>
-							</ul></li>
-					</ul>
-				</div>
-				<div class="header_search">
-					<div id="search_toggle">
-						<i class="fa fa-search" aria-hidden="true"></i>
-					</div>
-					<form action="#" method="get" id="header-search-form">
-						<input type="text" placeholder="Search..." class="form-control">
-						<button type="submit">
-							<i class="fa fa-search" aria-hidden="true"></i>
-						</button>
-					</form>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse" id="navigation">
-				<ul class="nav navbar-nav">
-					<li><a href="/customer">Home</a></li>
-					<li><a href="/about-us">About Us</a></li>
-					<li><a href="/car-listing">Car Listing</a>
-					<li><a href="/faqs">FAQs</a></li>
-					<li><a href="/contact-us">Contact Us</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- Navigation end -->
 	<!-- /Header -->
-
 	<c:choose>
 		<c:when test="${mode=='MODE_UPDATE_CUSTOMER' }">
 			<div class="container text-center">
-				<h3>Update User</h3>
+				<h3>My Profile</h3>
 				<hr>
 				<form class="form-horizontal" method="POST" action="save-customer">
 					<input type="hidden" name="idCustomer"
@@ -112,8 +60,9 @@
 					<div class="form-group">
 						<label class="control-label col-md-3">Identity Number </label>
 						<div class="col-md-7">
-							<input type="text" class="form-control" name="identitynumberCustomer"
-								value="${customer.identitynumberCustomer }" />
+							<input type="text" class="form-control"
+								name="identitynumberCustomer"
+								value="${customer.identitynumberCustomer }" required/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -127,7 +76,7 @@
 						<label class="control-label col-md-3">Username</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="usernameCustomer"
-								value="${customer.usernameCustomer }" />
+								value="${customer.usernameCustomer }" required/>
 						</div>
 					</div>
 
@@ -135,7 +84,7 @@
 						<label class="control-label col-md-3">Password</label>
 						<div class="col-md-7">
 							<input type="password" class="form-control"
-								name="passwordCustomer" value="${customer.passwordCustomer }" />
+								name="passwordCustomer" value="${customer.passwordCustomer }" required/>
 						</div>
 					</div>
 
@@ -143,7 +92,7 @@
 						<label class="control-label col-md-3">Email_Address</label>
 						<div class="col-md-7">
 							<input type="email" class="form-control" name="emailCustomer"
-								value="${customer.emailCustomer }" />
+								value="${customer.emailCustomer }" required/>
 						</div>
 					</div>
 
@@ -151,20 +100,19 @@
 						<label class="control-label col-md-3">Mobile Number</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="contactnoCustomer"
-								value="${customer.contactnoCustomer }" />
+								value="${customer.contactnoCustomer }" required/>
 						</div>
 					</div>
 
 					<!-- NEW UPDATE COLUMN	 -->
 					<div class="form-group">
-						<label class="control-label col-md-3">Gender</label> 
+						<label class="control-label col-md-3">Gender</label>
 						<div class="col-sm-7">
-						<select
-							class="form-control" name="genderCustomer">
-							<option>Select Gender</option>
-							<option value="Male">Male</option>
-							<option value="Female">Female</option>
-						</select>
+							<select class="form-control" name="genderCustomer">
+								<option>Select Gender</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
@@ -178,7 +126,7 @@
 						<label class="control-label col-md-3">Address</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="addressCustomer"
-								value="${customer.addressCustomer }" />
+								value="${customer.addressCustomer }" required/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -192,19 +140,20 @@
 						<label class="control-label col-md-3">Country</label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="countryCustomer"
-								value="${customer.countryCustomer }" />
+								value="${customer.countryCustomer }"/>
 						</div>
 					</div>
-
 					<div class="form-group ">
 						<input type="submit" class="btn btn-primary" value="Save" />
+						<button class="btn btn-default" type="reset">Reset</button>
+						<a href="/customer" class="btn btn-info" type="button">Back</a>
 					</div>
 				</form>
 			</div>
 		</c:when>
 	</c:choose>
-	
-		<!--Footer -->
+
+	<!--Footer -->
 	<div class="footer-top">
 		<div class="container">
 			<div class="row">
@@ -276,6 +225,8 @@
 	</div>
 	<!--/Back to top-->
 
-<!-- Scripts -->
+	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>

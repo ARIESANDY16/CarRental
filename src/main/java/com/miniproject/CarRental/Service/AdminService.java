@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.miniproject.CarRental.Model.Admin;
+import com.miniproject.CarRental.Model.Driver;
 import com.miniproject.CarRental.Repository.AdminRepository;
 
 @Service
@@ -17,7 +18,8 @@ public class AdminService {
 	}
 
 	public Admin findByUsernameAdminAndPasswordAdmin(String usernameAdmin, String passwordAdmin) {
-		return adminRepository.findByUsernameAdminAndPasswordAdmin(usernameAdmin, passwordAdmin);
+		Admin admin = adminRepository.findByUsernameAdminAndPasswordAdmin(usernameAdmin, passwordAdmin);
+		return admin;
 	}
 
 }

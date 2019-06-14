@@ -81,27 +81,26 @@
 				<li><a href="/transaction"><i class="fa fa-users"></i>
 						Transaction</a></li>
 				<li><a href="/show-reservation"><i class="fa fa-users"></i>
-						Reporting</a></li>
+						Reporting</a>
+					<ul>
+						<li><a href="/report"><i class="fa fa-sitemap"></i>Report
+								Success</a></li>
+						
+					</ul></li>
 				<li><a href="#"><i class="fa fa-sitemap"></i> Management</a>
 					<ul>
-
 						<li><a href="#"><i class="fa fa-sitemap"></i> Drivers</a>
 							<ul>
 								<li><a href="/add-driver">Post a Driver</a></li>
 								<li><a href="/show-drivers">Manage Drivers</a></li>
 							</ul></li>
-
 						<li><a href="/show-customers"><i class="fa fa-users"></i>
 								Customers</a></li>
-
-
 						<li><a href="#"><i class="fa fa-sitemap"></i> Vehicles</a>
 							<ul>
 								<li><a href="/add-vehicle">Post a Vehicle</a></li>
 								<li><a href="/show-vehicles">Manage Vehicles</a></li>
 							</ul></li>
-
-
 					</ul></li>
 			</ul>
 		</nav>
@@ -320,8 +319,9 @@
 															<%-- <input class="form-control" type="text"
 																name="vehicle.priceVehicle" readonly="readonly"
 																value="${reservation.vehicle.priceVehicle }"> --%>
-															<input class="form-control" name="vehicle.PriceVehicle" readonly="readonly"
-																value="<fmt:formatNumber value="${reservation.vehicle.priceVehicle }" type="currency" currencySymbol="Rp." minFractionDigits="0"/>"/>	
+															<input class="form-control" name="vehicle.PriceVehicle"
+																readonly="readonly"
+																value="<fmt:formatNumber value="${reservation.vehicle.priceVehicle }" type="currency" currencySymbol="Rp." minFractionDigits="0"/>" />
 														</div>
 														<label class="col-sm-2 control-label">With/No
 															Driver </label>
@@ -358,7 +358,7 @@
 															<input class="form-control" type="text" name="driver"
 																readonly="readonly"
 																value="${reservation.driver.priceDriver }">
-																<%-- <input class="form-control" name="driver" readonly="readonly"
+															<%-- <input class="form-control" name="driver" readonly="readonly"
 																value="<fmt:formatNumber value="${reservation.driver.priceDriver }" type="currency" currencySymbol="Rp." minFractionDigits="0"/>"/> --%>
 														</div>
 
@@ -507,8 +507,6 @@
 																name="pickupLocation" readonly="readonly"
 																value="${reservation.pickupLocation }">
 														</div>
-
-														</div>
 														<label class="col-sm-2 control-label">Rent Car
 															Date</label>
 														<div class="col-sm-4">
@@ -620,14 +618,12 @@
 															Driver<span style="color: red">*</span>
 														</label>
 														<div class="col-sm-4">
-															
+
 															<select class="selectpicker" name="driver.statusDriver">
 																<option value="On Job">On Job</option>
 																<option value="Standby">Standby</option>
-															</select>
-															<br>
-															<span style="color: red">*Change
-																status driver "Standby" if return status "Done"</span>
+															</select> <br> <span style="color: red">*Change status
+																driver "Standby" if return status "Done"</span>
 														</div>
 													</div>
 													<div class="form-group">
@@ -648,7 +644,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>x
 		</c:when>
 
 		<c:when test="${mode=='TRANSACTION' }">
@@ -871,6 +867,8 @@
 				</div>
 			</div>
 		</c:when>
+
+		
 
 		<c:when test="${mode=='ALL_CUSTOMERS' }">
 			<div class="ts-main-content">

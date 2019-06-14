@@ -22,13 +22,29 @@ public class CustomerService {
 	}
 
 	public String saveMyCustomer(Customer customer) {
-		Customer username = customerRepository.findByUsernameCustomerAndPasswordCustomer(customer.getusernameCustomer(), customer.getpasswordCustomer());
-		if(username !=null) {
+		Customer username = customerRepository.findByUsernameCustomerAndPasswordCustomer(customer.getusernameCustomer(),
+				customer.getpasswordCustomer());
+		if (username != null) {
 			return "redirect:/save-customer";
-		}else {
+		} else {
 			customerRepository.save(customer);
 			return "redirect:/save-customer";
 		}
+	}
+
+	public static boolean isValidEmail(String emailCustomer) {
+		boolean validate;
+		String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+		String emailPattern2 = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+\\.+[a-z]+";
+
+		if (emailCustomer.matches(emailPattern)) {
+			validate = true;
+		} else if (emailCustomer.matches(emailPattern2)) {
+			validate = true;
+		} else {
+			validate = false;
+		}
+		return validate;
 	}
 
 	public void saveMyPassword(Customer customer) {
