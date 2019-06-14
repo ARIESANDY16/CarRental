@@ -87,26 +87,38 @@ public class ReservationService {
 
 	public void reservationAdmin(Reservation reservation) {
 		int hargaKendaraan = reservation.getVehicle().getPriceVehicle();
+		int hargaDriver = reservation.getDriver().getPriceDriver();
 		int durasi = reservation.getRentDuration();
-		int hargaDriver = reservation.getDriver().getPriceDriver();
-		int total = (hargaKendaraan * durasi) + (hargaDriver * durasi);
-		reservation.setTotalPayment(total);
-		reservationRepository.save(reservation);
-	}
-
-	//hitung total terlambat mengembalikan mobil
-	public void lateReturnVehicle(Reservation reservation) {
-		int hargaKendaraan = reservation.getVehicle().getPriceVehicle();
-		int hargaDriver = reservation.getDriver().getPriceDriver();
 		int durasiTerlambat = reservation.getLateDuration();
-		int total = reservation.getTotalPayment();
+		int total = (hargaKendaraan * durasi) + (hargaDriver * durasi);
 		int totalBayarTerlambat = (hargaKendaraan * durasiTerlambat) + (hargaDriver * durasiTerlambat);
 		int totalPayment = (total) + (totalBayarTerlambat);
+		reservation.setTotalPayment(total);
 		reservation.setLatePayment(totalBayarTerlambat);
 		reservation.setTotalAllpayment(totalPayment);
 		reservationRepository.save(reservation);
 	}
 	
+	
+	/*
+	 * public void reservationAdmin(Reservation reservation) { int hargaKendaraan =
+	 * reservation.getVehicle().getPriceVehicle(); int durasi =
+	 * reservation.getRentDuration(); int hargaDriver =
+	 * reservation.getDriver().getPriceDriver(); int total = (hargaKendaraan *
+	 * durasi) + (hargaDriver * durasi); reservation.setTotalPayment(total);
+	 * reservationRepository.save(reservation); }
+	 * 
+	 * //hitung total terlambat mengembalikan mobil public void
+	 * lateReturnVehicle(Reservation reservation) { int hargaKendaraan =
+	 * reservation.getVehicle().getPriceVehicle(); int hargaDriver =
+	 * reservation.getDriver().getPriceDriver(); int durasiTerlambat =
+	 * reservation.getLateDuration(); int total = reservation.getTotalPayment(); int
+	 * totalBayarTerlambat = (hargaKendaraan * durasiTerlambat) + (hargaDriver *
+	 * durasiTerlambat); int totalPayment = (total) + (totalBayarTerlambat);
+	 * reservation.setLatePayment(totalBayarTerlambat);
+	 * reservation.setTotalAllpayment(totalPayment);
+	 * reservationRepository.save(reservation); }
+	 */
 	
 	// Add New
 	public List<Reservation> showReservations(int idCustomer) {
